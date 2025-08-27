@@ -667,8 +667,6 @@ nav a:focus-visible{
   .modal-img-wrapper{max-height: 82vh}
 }
 
-
-<style>
   .search { position: relative; margin-left: 1rem; flex: 1; max-width: 520px; }
   .search input {
     width: 100%; padding: .6rem .8rem; border: 1px solid #ccc; border-radius: 8px;
@@ -701,5 +699,6 @@ nav a:focus-visible{
     nav ul { width: 100%; order: 3; justify-content: center; }
     .search { order: 2; width: 100%; max-width: none; }
   }
-</style>
+
+
 
