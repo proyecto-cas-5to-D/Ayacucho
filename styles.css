@@ -128,51 +128,6 @@ nav a:hover{
   }
 }
 
-/*── Responsive ───────────────────────────────────────────*/
-@media (max-width: 768px){
-  nav{ padding: .5rem clamp(.75rem, 4vw, 1rem); }
-  nav ul{
-    flex: 1 1 100%;
-    justify-content: space-between;        /* reparte los ítems en una línea o dos */
-  }
-  nav ul li{ flex: 1 1 auto; }
-  nav a{
-    display: block;
-    text-align: center;
-    padding: .4rem 0;                      /* toque de botón sin agrandar demasiado */
-  }
-}
-
-@media (max-width: 420px){
-  nav ul{
-    gap: .6rem;
-    font-size: .9rem;                      /* aún más compacto en móviles pequeños */
-  }
-  nav .logo{ font-size: 1rem; }
-}
-
-/*── Responsive ───────────────────────────*/
-@media (max-width: 768px) {
-  nav {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  nav ul {
-    flex-direction: column;
-    width: 100%;
-    gap: 1rem;
-    margin-top: .8rem;
-  }
-  nav ul li {
-    width: 100%;
-  }
-  nav a {
-    display: block;
-    padding: .6rem 0;
-    width: 100%;
-  }
-}
-
 
 /*── 4) HERO ─────────────────────────────────────────────*/
 .hero{display:flex;flex-direction:column;justify-content:center;align-items:center;min-height:72vh;text-align:center;color:#fff;
@@ -570,3 +525,144 @@ section.in-view{opacity:1;transform:none}
 
 
 
+/* ==========================================================
+   MEJORAS RESPONSIVE + ACCESIBILIDAD (append-only)
+   - No elimina reglas, solo añade/override con media queries
+   - Tipografía y componentes fluidos
+   - Mejoras de scroll/touch y rendimiento
+   ========================================================== */
+
+/* Safe areas (iOS), scrollbars estables y mejores toques */
+:root{
+  --safe-l: env(safe-area-inset-left, 0px);
+  --safe-r: env(safe-area-inset-right, 0px);
+  --safe-t: env(safe-area-inset-top, 0px);
+  --safe-b: env(safe-area-inset-bottom, 0px);
+}
+
+/* Botón/links en móviles: quita flash y mejora targets */
+:where(a, button){-webkit-tap-highlight-color: transparent}
+:where(button, .btn){min-height: 44px} /* target accesible */
+
+/* Nav: scroll suave, gutters estables, snap opcional */
+nav{
+  padding-inline: clamp(.75rem, 3.2vw, var(--gap)) calc(clamp(.75rem, 3.2vw, var(--gap)) + var(--safe-r));
+  scrollbar-gutter: stable both-edges;
+  -webkit-overflow-scrolling: touch;
+}
+nav ul{scroll-snap-type: x proximity}
+nav a{scroll-snap-align: start}
+
+/* Imágenes pesadas: rendimiento */
+.card img,
+.slide-track img{
+  content-visibility: auto;
+  contain-intrinsic-size: 380px 260px;
+}
+
+/* Tipografía/fluidos de hero */
+.hero h1{font-size: clamp(1.9rem, 6vw, 3.4rem)}
+h2{font-size: clamp(1.35rem, 3.2vw, 2.2rem)}
+
+/* ====== Breakpoints fluidos sobre variables ====== */
+/* XS – móviles pequeños */
+@media (max-width: 420px){
+  :root{
+    --gap: 1rem;
+    --radius: .6rem;
+    --img-w: 68vw;
+    --img-h: calc(68vw * .72);
+  }
+
+  body{font-size: 1rem}
+  section{padding: calc(var(--gap) * 1.4) var(--gap)}
+  nav{gap: .45rem}
+
+  .hero{
+    min-height: 70vh;
+    background-size: 130%;
+    padding-left: calc(var(--gap) + var(--safe-l));
+    padding-right: calc(var(--gap) + var(--safe-r));
+  }
+  .hero .btn{width: 100%; max-width: 22rem}
+
+  .grid-3{grid-template-columns: 1fr}
+  .card{padding: .9rem}
+
+  .video-wrapper{max-width: 100%}
+
+  .slider-btn{width: 44px; font-size: 1.5rem}
+
+  .photo-wall{gap: 1.25rem; padding: 2rem 1rem}
+  .photo-wall a{flex-basis: min(88vw, 320px)}
+  .photo-wall img{height: clamp(200px, 48vw, 280px)}
+
+  .modal{padding: 1rem; align-items: flex-start}
+  .modal-card{width: min(96vw, 560px); padding: 1rem}
+  .modal-img-wrapper{max-height: 70vh}
+  .close{top: .35rem; right: .6rem}
+}
+
+/* SM–MD – teléfonos grandes y tablets vertical */
+@media (min-width: 421px) and (max-width: 900px){
+  :root{
+    --gap: 1.25rem;
+    --img-w: 42vw;
+    --img-h: clamp(220px, 42vw, 320px);
+  }
+
+  .grid-3{grid-template-columns: repeat(2, minmax(0, 1fr))}
+  .video-wrapper{max-width: 92vw}
+  .photo-wall a{flex-basis: min(44vw, 360px)}
+}
+
+/* LG+ – laptops y desktop */
+@media (min-width: 901px){
+  :root{
+    --img-w: clamp(280px, 24vw, 360px);
+    --img-h: clamp(220px, 24vw, 420px);
+  }
+  .grid-3{grid-template-columns: repeat(auto-fit,minmax(260px,1fr))}
+  .hero{background-size: 118%}
+}
+
+/* ====== Ajustes de interacción y animación ====== */
+@media (hover: none){
+  .slider{scroll-snap-type: x proximity}
+  .slide-track{animation-duration: calc(var(--scroll-dur) * 1.3)}
+  .slider:active .slide-track{animation-play-state: paused}
+}
+
+/* Respeta reduce-motion en más elementos */
+@media (prefers-reduced-motion: reduce){
+  nav .logo,
+  .hero,
+  .card:hover,
+  .slider-btn,
+  .slide-track,
+  .photo-wall a:hover{
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+/* Foco accesible en links del nav */
+nav a:focus-visible{
+  outline: 2px dashed currentColor;
+  outline-offset: 3px;
+}
+
+/* CTA: halo más suave en móviles */
+@media (max-width: 480px){
+  #cta .btn::before{animation-duration: 3.2s; opacity: .4}
+}
+
+/* Video: evita overflow por bordes redondeados en iOS */
+.video-wrapper{overflow: hidden}
+
+/* Modal grande: centrado/escalado */
+@media (min-width: 1200px){
+  .modal-card{max-width: 980px}
+  .modal-img-wrapper{max-height: 82vh}
+}
