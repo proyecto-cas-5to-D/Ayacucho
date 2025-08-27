@@ -667,38 +667,4 @@ nav a:focus-visible{
   .modal-img-wrapper{max-height: 82vh}
 }
 
-  .search { position: relative; margin-left: 1rem; flex: 1; max-width: 520px; }
-  .search input {
-    width: 100%; padding: .6rem .8rem; border: 1px solid #ccc; border-radius: 8px;
-    font: inherit; outline: none; transition: box-shadow .2s, border-color .2s;
-  }
-  .search input:focus { border-color: #888; box-shadow: 0 0 0 3px rgba(0,0,0,.06); }
-  .search .results {
-    position: absolute; top: 100%; left: 0; right: 0; background: #fff; border: 1px solid #ddd;
-    border-radius: 8px; margin-top: .4rem; padding: .3rem 0; list-style: none;
-    max-height: 280px; overflow: auto; display: none; z-index: 1000;
-  }
-  .search .results.show { display: block; }
-  .search .results li { padding: .55rem .8rem; cursor: pointer; }
-  .search .results li strong { font-weight: 600; }
-  .search .results li small { color: #666; }
-  .search .results li[aria-selected="true"], .search .results li:hover {
-    background: #f4f4f4;
-  }
-
-  /* Resaltado en las cuadrículas de fotos */
-  .match-ring { outline: 3px solid #ffcc00; outline-offset: 2px; border-radius: 6px; }
-  .match-title { background: #ffea8a; border-radius: 4px; padding: 0 .2rem; }
-  
-  /* Haz que el nav acomode el buscador */
-  nav { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
-  nav .logo { white-space: nowrap; }
-  nav ul { display: flex; gap: 1rem; margin-left: auto; }
-  @media (max-width: 720px){
-    nav { gap: .6rem; }
-    nav ul { width: 100%; order: 3; justify-content: center; }
-    .search { order: 2; width: 100%; max-width: none; }
-  }
-
-
 
