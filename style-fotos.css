@@ -1,0 +1,34 @@
+/* 1. Prepara el contenedor de la imagen */
+/* Asegúrate de que tu regla para '.slide-track a' tenga estas dos propiedades: */
+.slide-track a {
+  position: relative;
+  overflow: hidden;
+  /* ...mantén las otras propiedades que ya tienes, como display, border-radius, etc. */
+}
+
+/* 2. Estilo para el nuevo mini-título */
+.card-title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  
+  background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+  color: #ffffff;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 600;
+  
+  padding: 1.5rem 0.75rem 0.75rem;
+  
+  opacity: 0;
+  transform: translateY(100%);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none; /* Importante para que no interfiera con el clic */
+}
+
+/* 3. El título aparece al pasar el ratón por encima */
+.slide-track a:hover .card-title {
+  opacity: 1;
+  transform: translateY(0);
+}

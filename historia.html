@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Historia | Ayacucho</title>
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- ESTILO “PIZARRA” + JUSTIFICADO -->
+  <style>
+    :root{
+      --bg-board:#faf9f7;
+      --border-board:#e0e0e0;
+      --shadow-board:0 4px 12px rgba(0,0,0,.05);
+    }
+    .pizarra{
+      background:var(--bg-board);
+      border:2px solid var(--border-board);
+      border-radius:.75rem;
+      box-shadow:var(--shadow-board);
+      padding:2rem;
+      margin:2rem auto;
+      max-width: 900px;
+    }
+    .pizarra h2{margin-top:2rem}
+    .pizarra p{margin-bottom:1rem;line-height:1.7;text-align:justify}
+    .pizarra figure{text-align:center;margin:1.5rem 0}
+    .pizarra img{max-width:100%;height:auto;border-radius:.5rem; }
+    .pizarra figcaption{font-size:.9rem;color:#555;margin-top:.5rem}
+  </style>
+</head>
+
+<body>
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="logo">Ayacucho</a>
+    <img src="img/MtV.png" alt="Logo COAR" style="width:3%" />
+    <ul>
+      <li><a href="historia.html">Historia</a></li>
+      <li><a href="gastronomia.html">Gastronomía</a></li>
+      <li><a href="lugares.html">Lugares</a></li>
+      <li><a href="fotos.html">Fotos</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero" style="background-image:url('img/mercado_santa_clara_5.jpeg')">
+    <h1>Pasajes Históricos</h1>
+    <p>“Ciudad de iglesias y cuna de libertad”.</p>
+  </header>
+
+  <!-- CONTENIDO EN «PIZARRA» -->
+  <main class="pizarra">
+
+    <!-- 1. Primeros Pobladores -->
+    <section id="prehispanico">
+      <h2>Raíces Milenarias</h2>
+      <figure>
+        <img src="img/wari.webp" alt="Complejo Wari" />
+        <figcaption>Complejo arqueológico Wari: Recuperado de: https://www.chullostravelperu.com/blog/complejo-arqueologico-wari</figcaption>
+      </figure>
+
+      <p>
+        El valle ayacuchano estuvo habitado por comunidades precerámicas hace más de
+        8&nbsp;000 años. Con la <strong>cultura Wari</strong> (siglos&nbsp;VII-XIII&nbsp;d.&nbsp;C.) floreció el primer imperio panandino,
+        cuya capital se asentó a solo 22&nbsp;km de la actual ciudad y controló vastos territorios mediante
+        redes viales y centros administrativos.
+      </p>
+      <p>
+        La ingeniería hidráulica, la textilería fina y el arte lítico wari
+        influyeron en los incas y aún perviven en técnicas artesanales locales.
+      </p>
+    </section>
+
+    <!-- 2. Fundación Española -->
+    <section id="fundacion">
+      <h2>De San Juan de la Frontera de Huamanga a Ayacucho</h2>
+
+      <figure>
+        <img src="img/San-juan-de-huamanga.jpg" alt="Acta de fundación" />
+        <figcaption>Acta de fundación de 1540</figcaption>
+      </figure>
+
+      <p>
+        El 25&nbsp;de abril de 1540, por mandato de Francisco Pizarro, el capitán Vasco de
+        Guevara fundó la <em>Villa de San Juan de la Frontera de Huamanga</em>, enclave estratégico
+        entre Lima y Cusco para asegurar la ruta de la plata potosina.
+      </p>
+      <p>
+        Durante la colonia se levantaron 33 templos de estilos
+        renacentista y barroco mestizo que le valieron el epíteto de «Ciudad de las Iglesias».
+      </p>
+    </section>
+
+    <!-- 3. La Gesta Libertadora -->
+    <section id="independencia">
+      <h2>La Batalla que selló la Independencia</h2>
+
+      <figure>
+        <img 
+        src="img/quinua.jpg" alt="Pampa de Ayacucho", />
+        <figcaption>Pampa de Quinua, escenario de la batalla (1824)</figcaption>
+        posi
+      </figure>
+      <p>
+        El 9&nbsp;de diciembre de 1824, el ejército libertador dirigido por Antonio José de Sucre
+        venció a las fuerzas realistas en la <strong>Batalla de Ayacucho</strong>. El triunfo aseguró la
+        independencia sudamericana y el Congreso rebautizó la ciudad como Ayacucho, “rincón de los muertos” en quechua.
+      </p>
+    </section>
+
+    <!-- 4. Era Republicana Temprana -->
+    <section id="republica">
+      <h2>Consolidación y Modernización</h2>
+      <p>
+        Tras la independencia, Ayacucho fue capital del nuevo departamento homónimo (1825) y
+        centro de misiones educativas como la Universidad Nacional San Cristóbal de Huamanga,
+        reabierta en 1959 luego de un largo cierre pos-guerras.
+      </p>
+      <p>
+        El terremoto de&nbsp;1946 afectó su patrimonio colonial, pero también impulsó obras de
+        reconstrucción y apertura de carreteras que
+        integraron la sierra sur con la costa y la selva.
+      </p>
+    </section>
+
+    <!-- 5. Tradiciones de Fe -->
+    <section id="fe">
+      <h2>Semana Santa y Fervor Popular</h2>
+
+      <figure>
+        <img src="img/semana-santa.jpg" alt="Procesión de Semana Santa" />
+        <figcaption>Procesión del Viernes Santo</figcaption>
+      </figure>
+
+      <p>
+        La <strong>Semana Santa ayacuchana</strong> congrega 33 procesiones —una por cada año de Cristo—
+        y fue declarada Patrimonio Cultural de la Nación en 2008.
+      </p>
+      <p>
+        Sus andas, iluminadas con miles de velas y flores de cera, recorren las estrechas
+        calles de piedra al son de cantos quechuas y bandas de sikuris.
+      </p>
+    </section>
+
+    <!-- 6. Arte y Artesanía -->
+    <section id="arte">
+      <h2>Retablos y Piedra de Huamanga</h2>
+
+      <figure>
+        <img src="img/retablo.jpg" alt="Retablo ayacuchano" />
+        <figcaption>Retablo ayacuchano contemporáneo</figcaption>
+      </figure>
+
+      <p>
+        Los <em>retablos ayacuchanos</em>, declarados Patrimonio Cultural de la Nación,
+        narran escenas religiosas y cotidianas en pequeñas cajas policromadas; son emblema
+        de identidad local desde el siglo&nbsp;XIX.
+      </p>
+      <p>
+        Paralelamente, el tallado en <em>piedra de Huamanga</em>, alabastro translúcido
+        extraído en Cangallo, continúa una tradición virreinal de escultores y canteros.
+      </p>
+    </section>
+
+    <!-- 7. Carnaval Ayacuchano -->
+    <section id="carnaval">
+      <h2>El Carnaval y la Fiesta de la Alegría</h2>
+
+      <p>
+        Cada febrero, comparsas de danzantes con guitarras y tinya
+        invaden las plazas entonando huaynos picarescos que celebran la fertilidad de la
+        tierra; la fiesta fue inscrita en 2005 como Patrimonio Cultural Inmaterial del Perú.
+      </p>
+    </section>
+
+    <!-- 8. Memoria Reciente -->
+    <section id="memoria">
+      <h2>Sombras del Conflicto Interno</h2>
+
+      <figure>
+        <img src="img/memoria.jpg" alt="Memorial del conflicto" />
+        <figcaption>Memorial a las víctimas (1980-2000)</figcaption>
+      </figure>
+
+      <p>
+        En 1980 surgió el alzamiento de Sendero Luminoso; Ayacucho fue epicentro de un
+        conflicto que dejó más de 69&nbsp;000 muertos o desaparecidos, según la Comisión de
+        la Verdad.
+      </p>
+    </section>
+
+    <!-- 9. Reconocimientos Recientes -->
+    <section id="reconocimientos">
+      <h2>Ciudad Creativa de la UNESCO</h2>
+      <p>
+        Por la excelencia de sus artesanos, Ayacucho fue declarada «Capital del Arte
+        Popular y de la Artesanía del Perú» y en 2019 ingresó a la Red de Ciudades Creativas
+        de la UNESCO en la categoría de Artesanía y Arte Popular.
+      </p>
+    </section>
+
+    <!-- 10. Ayacucho Hoy -->
+    <section id="actualidad">
+      <h2>Identidad Viva</h2>
+      <p>
+        Con clima templado, sol casi permanente y una hospitalidad proverbial, la ciudad
+        equilibra su legado monumental con universidades, un pujante movimiento cultural y
+        modernas rutas turísticas que integran andenes, cataratas y pueblos altoandinos.
+      </p>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+ <footer style="background: transparent; color: #333; text-align: center; padding: 1rem 0; font-family: Arial, sans-serif;">
+  <div style="display: flex; justify-content: center; align-items: center; gap: 10px; flex-wrap: wrap;">
+    <small>© 2025 — COAR Ayacucho 5° D</small>
+    <a href="https://instagram.com/" target="_blank" style="color: #131313; font-size: 1.4rem; text-decoration: none;">
+      <i class="fa-brands fa-instagram"></i>
+    </a>
+  </div>
+</footer>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+</body>
+</html>
