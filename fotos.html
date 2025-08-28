@@ -4,145 +4,31 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Gastronomía | Ayacucho</title>
-  <link rel="stylesheet" href="styles.css" href="style-fotos.css" />
-  <!-- === BUSCADOR FLOTANTE: estilos === -->
-  <!-- === BUSCADOR FLOTANTE: estilos (versión minimal) === -->
-<style>
-  :root {
-    --fs-bg: #fff;
-    --fs-border: rgba(0,0,0,.12);
-    --fs-shadow: 0 10px 30px rgba(0,0,0,.12);
-    --fs-text: #111;
-    --fs-muted: #666;
-    --fs-ring: 0 0 0 4px rgba(0,0,0,.06);
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --fs-bg: #161616;
-      --fs-border: rgba(255,255,255,.14);
-      --fs-shadow: 0 10px 30px rgba(0,0,0,.6);
-      --fs-text: #eaeaea;
-      --fs-muted: #9a9a9a;
-      --fs-ring: 0 0 0 4px rgba(255,255,255,.06);
-    }
-  }
 
-  .floating-search {
-    position: fixed;
-    right: 20px;
-    bottom: 20px;
-    z-index: 1000;
-    display: grid;
-    gap: 10px;
-    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  }
-
-  /* Botón flotante: simple y neutro */
-  .fs-toggle {
-    width: 52px; height: 52px;
-    border: 1px solid var(--fs-border);
-    background: var(--fs-bg);
-    color: var(--fs-text);
-    border-radius: 50%;
-    display: grid; place-items: center;
-    font-size: 20px; line-height: 1;
-    box-shadow: var(--fs-shadow);
-    cursor: pointer;
-    transition: transform .12s ease, box-shadow .12s ease;
-  }
-  .fs-toggle:hover { transform: translateY(-1px); }
-  .fs-toggle:active { transform: translateY(0); }
-
-  /* Panel: tarjeta minimal, bordes suaves */
-  .fs-panel {
-    display: none;
-    background: var(--fs-bg);
-    border: 1px solid var(--fs-border);
-    border-radius: 12px;
-    padding: 10px;
-    width: min(92vw, 420px);
-    box-shadow: var(--fs-shadow);
-  }
-  .fs-panel.open { display: block; }
-
-  /* Fila principal: input “pill” y acciones discretas */
-  .fs-row {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 8px;
-    align-items: center;
-  }
-
-  .fs-input {
-    width: 100%;
-    padding: 12px 14px;
-    border: 1px solid var(--fs-border);
-    border-radius: 999px;
-    background: transparent;
-    color: var(--fs-text);
-    font-size: 15px;
-    outline: none;
-    transition: box-shadow .12s ease, border-color .12s ease;
-  }
-  .fs-input::placeholder { color: var(--fs-muted); }
-  .fs-input:focus {
-    border-color: transparent;
-    box-shadow: var(--fs-ring);
-  }
-
-  /* Botones “Limpiar” y “Cerrar”: estilo fantasma minimal */
-  .fs-actions { display: flex; gap: 6px; }
-  .fs-btn {
-    border: 1px solid var(--fs-border);
-    background: transparent;
-    color: var(--fs-muted);
-    border-radius: 999px;
-    padding: 10px 12px;
-    font-size: 13px;
-    cursor: pointer;
-    transition: background .12s ease, color .12s ease;
-  }
-  .fs-btn:hover { background: rgba(0,0,0,.04); }
-  @media (prefers-color-scheme: dark) {
-    .fs-btn:hover { background: rgba(255,255,255,.06); }
-  }
-
-  /* Meta: tipografía pequeña y discreta */
-  .fs-meta {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 8px;
-    font-size: 12px;
-    color: var(--fs-muted);
-  }
-  .fs-meta kbd{
-    border: 1px solid var(--fs-border);
-    padding: 2px 6px;
-    border-radius: 6px;
-    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-    font-size: 11px;
-    background: transparent;
-    color: inherit;
-  }
-
-  /* Feedback al filtrar: sutil y sin “ruido” */
-  .photo-wall a { transition: opacity .14s ease, transform .14s ease; }
-  .photo-wall a.hidden { opacity: .12; transform: scale(.995); pointer-events: none; }
-
-  /* Resaltado minimal de coincidencias */
-  .match-outline img {
-    outline: 2px solid currentColor;
-    outline-offset: 2px;
-    border-radius: 6px;
-  }
-</style>
-
+  <!-- CSS (te paso los archivos luego) -->
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="style-fotos.css" />
 </head>
 <body>
-  <nav>
-    <a href="index.html" class="logo">Ayacucho</a>
-    <ul>
+  <nav class="navbar">
+    <!-- Logo SVG minimal (sol andino) -->
+    <a href="index.html" class="logo" aria-label="Inicio Ayacucho">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <circle cx="12" cy="12" r="4.2" fill="currentColor"></circle>
+        <g stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+          <line x1="12" y1="1.6"  x2="12" y2="4.2"></line>
+          <line x1="12" y1="19.8" x2="12" y2="22.4"></line>
+          <line x1="1.6" y1="12"  x2="4.2" y2="12"></line>
+          <line x1="19.8" y1="12" x2="22.4" y2="12"></line>
+          <line x1="4.4" y1="4.4"  x2="6.2" y2="6.2"></line>
+          <line x1="17.8" y1="17.8" x2="19.6" y2="19.6"></line>
+          <line x1="4.4" y1="19.6" x2="6.2" y2="17.8"></line>
+          <line x1="17.8" y1="6.2" x2="19.6" y2="4.4"></line>
+        </g>
+      </svg>
+      <span>Ayacucho</span>
+    </a>
+    <ul class="nav-links">
       <li><a href="historia.html">Historia</a></li>
       <li><a href="gastronomia.html">Gastronomía</a></li>
       <li><a href="lugares.html">Lugares</a></li>
@@ -152,258 +38,176 @@
 
   <header class="hero">
     <h1>Guía Visual de Ayacucho</h1>
-    <a href="#iglesias" class="btn">Explorar</a>
+    <a href="#iglesias" class="btn" id="destacados">Explorar</a>
   </header>
 
-  <section id="iglesias">
-    <h2>Iglesias coloniales</h2>
-    <div class="photo-wall">
-      <a href="#ig1"><img src="img/iglesia_santo_domingo_1.jpg" alt="Iglesia Santo Domingo 1" /></a>
-      <a href="#ig2"><img src="img/iglesia_santo_domingo_2.jpg" alt="Iglesia Santo Domingo 2" /></a>
-      <a href="#ig3"><img src="img/san_francisco_de_asis_3.jpg" alt="San Francisco de Asís" /></a>
-      <a href="#ig4"><img src="img/san_francisco_de_paula_1.jpg" alt="San Francisco de Paula 1" /></a>
-      <a href="#ig5"><img src="img/san_francisco_de_paula_7.jpg" alt="San Francisco de Paula 7" /></a>
-      <a href="#ig6"><img src="img/san_juan_de_dios_2.jpg" alt="San Juan de Dios" /></a>
-      <a href="#ig7"><img src="img/santa_ana_10 (1).jpg" alt="Santa Ana 10 (1)" /></a>
-      <a href="#ig8"><img src="img/santa_ana_10.jpg" alt="Santa Ana 10" /></a>
-      <a href="#ig9"><img src="img/monasterio_de_san_francisco_de_borja_en_santa_teresa_5.jpg" alt="Monasterio de San Francisco de Borja en Santa Teresa" /></a>
-      <a href="#ig10"><img src="img/monasterio_de_santa_clara_de_la_concepción_3.jpg" alt="Monasterio de Santa Clara de la Concepción" /></a>
-      <a href="#ig11"><img src="img/Señor_de_exaltación_en_el_mercado.jpg" alt="Señor de Exaltación en el Mercado" /></a>
-      <a href="#ig12"><img src="img/virgen_del_mercado_santa_clara.jpg" alt="Virgen del Mercado Santa Clara" /></a>
-      <a href="#ig13"><img src="img/templo_san_cristobal_1.jpg" alt="Templo San Cristóbal" /></a>
-    </div>
-  </section>
-
-  <section id="restaurantes">
+  <section id="restaurantes" class="section">
     <h2>Restaurantes recomendados</h2>
-    <div class="photo-wall">
-      <a href="#ot1"><img src="img/drea_1.jpg" alt="DREA" /></a>
-      <a href="#ot2"><img src="img/mercado_santa_clara_1.jpg" alt="Mercado Santa Clara" /></a>
+
+
+    <!-- Card que abre modal por hash -->
+    <div class="fotoos">
+      <a href="#gastronomia" data-search-item>
+        <img src="img/Gastronomia.jpg" alt="Gastronomía ayacuchana">
+        <h3>Gastronomía</h3>
+        <p>Puca picante, qapchi y los aromas andinos más auténticos.</p>
+      </a>
     </div>
   </section>
 
-  <section id="parques">
-    <h2>Tipos de parque</h2>
-    <div class="photo-wall">
-      <a href="#pk1"><img src="img/alameda_1.jpg" alt="Alameda" /></a>
-      <a href="#pk2"><img src="img/parque_de_la_memoria_1.jpg" alt="Parque de la Memoria" /></a>
-      <a href="#pk3"><img src="img/parque_sanidad_3.jpg" alt="Parque Sanidad" /></a>
-      <a href="#pk4"><img src="img/plazoleta_santa_teresa_2.jpg" alt="Plazoleta Santa Teresa" /></a>
-      <a href="#pk5"><img src="img/portales_1.jpg" alt="Portales" /></a>
-      <a href="#pk6"><img src="img/arco_del_triunfo_1.jpg" alt="Arco del Triunfo" /></a>
-      <a href="#pk7"><img src="img/arco_puca_cruz_1.jpg" alt="Arco Puca Cruz" /></a>
-      <a href="#pk8"><img src="img/sutuq_chaka_2.jpg" alt="Sutuq Chaka" /></a>
-    </div>
-  </section>
+  <!-- JS: apariciones suaves -->
+  <script>
+    (function(){
+      if (!('IntersectionObserver' in window)) return;
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in-view'); });
+      }, { threshold: 0.1 });
+      document.querySelectorAll('section').forEach(sec => io.observe(sec));
+    })();
+  </script>
 
-<script>
-/* Lógica del Slider (duplicar imágenes y botones) */
-document.querySelectorAll('.slider').forEach(slider => {
-  const track = slider.querySelector('.slide-track');
-  const children = Array.from(track.children);
-  const unique = Number(slider.dataset.unique) || children.length;
-  track.style.setProperty('--img-unique', unique);
-  
-  if (children.length > 0) {
-    for (let i = 0; i < unique; i++) {
-      track.appendChild(children[i].cloneNode(true));
-    }
-  }
+  <!-- JS: modales generados automáticamente desde anchors con img -->
+  <script>
+    (function setupModals(){
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        if (anchor.closest('nav') || anchor.classList.contains('btn')) return;
 
-  const step = (parseInt(getComputedStyle(document.documentElement).getPropertyValue('--img-w')) || 280) + (parseInt(getComputedStyle(document.documentElement).getPropertyValue('--gap')) || 24);
-  slider.querySelector('.prev').onclick = () => slider.scrollBy({ left: -step, behavior: 'smooth' });
-  slider.querySelector('.next').onclick = () => slider.scrollBy({ left: step, behavior: 'smooth' });
-});
+        const id = anchor.getAttribute('href').slice(1);
+        const img = anchor.querySelector('img');
+        if (!id || !img) return;
 
-/* Aparición suave de secciones */
-const io = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) e.target.classList.add('in-view');
-  });
-}, { threshold: 0.1 });
-document.querySelectorAll('section').forEach(sec => io.observe(sec));
+        // Accesible title (invisible por CSS que te paso después)
+        if (!anchor.querySelector('.card-title')) {
+          const title = document.createElement('span');
+          title.className = 'card-title sr-only';
+          title.textContent = img.alt;
+          anchor.appendChild(title);
+        }
 
-/* Crear modales Y AHORA TAMBIÉN LOS TÍTULOS */
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  // Ignorar enlaces de navegación
-  if (anchor.closest('nav') || anchor.classList.contains('btn')) return;
+        if (document.getElementById(id)) return;
 
-  const id = anchor.getAttribute('href').substring(1);
-  const img = anchor.querySelector('img');
-  
-  if (!id || !img) return;
-  
-  // Añadir título pequeño sobre cada tarjeta
-  const title = document.createElement('span');
-  title.className = 'card-title';
-  title.textContent = img.alt;
-  anchor.appendChild(title);
+        const modal = document.createElement('div');
+        modal.id = id;
+        modal.className = 'modal';
+        modal.innerHTML = `
+          <div class="modal-card">
+            <a class="close" href="#">&times;</a>
+            <div class="modal-img-wrapper"><img src="${img.src}" alt="${img.alt}"></div>
+            <p class="modal-caption">${img.alt}</p>
+          </div>`;
+        document.body.appendChild(modal);
+      });
 
-  // Evitar duplicar modales
-  if (document.getElementById(id)) return;
-  
-  const modal = document.createElement('div');
-  modal.id = id;
-  modal.className = 'modal';
-  modal.innerHTML = `
-    <div class="modal-card">
-      <a class="close" href="#">&times;</a>
-      <div class="modal-img-wrapper"><img src="${img.src}" alt="${img.alt}"></div>
-      <p>${img.alt}</p>
-    </div>`;
-  document.body.appendChild(modal);
-});
+      document.addEventListener('click', e => {
+        const modal = e.target.classList.contains('modal') ? e.target : null;
+        if (modal) location.hash = '';
+      });
 
-/* Lógica para abrir y cerrar modales */
-let lastScrollY = 0;
-window.addEventListener('hashchange', () => {
-  if (location.hash.length > 1 && document.querySelector(location.hash)?.classList.contains('modal')) {
-    lastScrollY = window.scrollY;
-  }
-});
-function closeModal() {
-  if (location.hash.match(/#(ig|ot|pk)\d+/)) {
-    location.hash = '';
-    window.scrollTo(0, lastScrollY);
-  }
-}
-document.body.addEventListener('click', e => {
-  if (e.target.closest('.close') || e.target.classList.contains('modal')) {
-    e.preventDefault();
-    closeModal();
-  }
-});
-window.addEventListener('keydown', e => {
-  if (e.key === 'Escape') closeModal();
-});
+      window.addEventListener('keydown', e => {
+        if (e.key === 'Escape' && location.hash) location.hash = '';
+      });
+    })();
+  </script>
 
-/* ============================================================
-   BUSCADOR FLOTANTE (filtra imágenes por ALT y nombre archivo)
-   Atajos:  '/' abre, 'Enter' abre el primer resultado
-============================================================ */
-(function makeFloatingSearch(){
-  // Crear UI
-  const wrap = document.createElement('div');
-  wrap.className = 'floating-search';
-  wrap.innerHTML = `
-    <button class="fs-toggle" title="Buscar imágenes (/)" aria-label="Abrir buscador">🔎</button>
-    <div class="fs-panel" role="dialog" aria-label="Buscador de imágenes">
-      <div class="fs-row">
-        <input class="fs-input" type="search" placeholder="Buscar: 'Santo Domingo', 'Parque', 'Mercado'…" />
-        <div class="fs-actions">
-          <button class="fs-btn fs-clear" title="Limpiar">Limpiar</button>
-          <button class="fs-btn fs-close" title="Cerrar">Cerrar</button>
+  <!-- JS: buscador flotante minimal -->
+  <script>
+    (function makeFloatingSearch(){
+      const wrap = document.createElement('div');
+      wrap.className = 'floating-search';
+      wrap.innerHTML = `
+        <button class="fs-toggle" title="Buscar contenidos (/)" aria-label="Abrir buscador">🔎</button>
+        <div class="fs-panel" role="dialog" aria-label="Buscador de contenidos">
+          <div class="fs-row">
+            <input class="fs-input" type="search" placeholder="Buscar: 'Gastronomía', 'Parque', 'Mercado'…" />
+            <div class="fs-actions">
+              <button class="fs-btn fs-clear" title="Limpiar">Limpiar</button>
+              <button class="fs-btn fs-close" title="Cerrar">Cerrar</button>
+            </div>
+          </div>
+          <div class="fs-meta">
+            <span class="fs-count">0 resultados</span>
+            <span>Atajos: <kbd>/</kbd> abrir • <kbd>Enter</kbd> abrir 1.º</span>
+          </div>
         </div>
-      </div>
-      <div class="fs-meta">
-        <span class="fs-count">0 resultados</span>
-        <span>Atajos: <kbd>/</kbd> abrir • <kbd>Enter</kbd> abrir 1.º</span>
-      </div>
+      `;
+      document.body.appendChild(wrap);
+
+      const toggle  = wrap.querySelector('.fs-toggle');
+      const panel   = wrap.querySelector('.fs-panel');
+      const input   = wrap.querySelector('.fs-input');
+      const btnClear= wrap.querySelector('.fs-clear');
+      const btnClose= wrap.querySelector('.fs-close');
+      const lbCount = wrap.querySelector('.fs-count');
+
+      // Elementos buscables: anchors con img + cualquier [data-search-item]
+      const anchorsWithImg = Array.from(document.querySelectorAll('a')).filter(a => a.querySelector('img'));
+      const explicitItems  = Array.from(document.querySelectorAll('[data-search-item]'));
+      const uniqueSet = new Set([...anchorsWithImg, ...explicitItems]);
+      const items = Array.from(uniqueSet).map(a => {
+        a.setAttribute('data-search-item',''); // asegura atributo
+        const img = a.querySelector('img');
+        const text = [
+          img?.alt || '',
+          a.querySelector('h3')?.textContent || '',
+          a.querySelector('p')?.textContent || '',
+          (img?.src?.split('/').pop() || '')
+        ].join(' ');
+        return { el: a, img, haystack: text.toLowerCase() };
+      });
+
+      function openPanel(){ panel.classList.add('open'); setTimeout(()=> input.focus(), 0); }
+      function closePanel(){ panel.classList.remove('open'); }
+      function setCount(n){ lbCount.textContent = n === 1 ? '1 resultado' : `${n} resultados`; }
+      function clearHighlights(){ items.forEach(c => c.el.classList.remove('match-outline')); }
+      function filter(q){
+        const term = q.trim().toLowerCase();
+        clearHighlights();
+        if (!term){
+          items.forEach(c => c.el.classList.remove('hidden'));
+          setCount(items.length);
+          return [];
+        }
+        const matches = [];
+        items.forEach(c => {
+          const ok = c.haystack.includes(term);
+          c.el.classList.toggle('hidden', !ok);
+          if (ok){ matches.push(c); c.el.classList.add('match-outline'); }
+        });
+        setCount(matches.length);
+        if (matches[0]) matches[0].el.scrollIntoView({ behavior:'smooth', block:'center' });
+        return matches;
+      }
+
+      toggle.addEventListener('click', () => panel.classList.contains('open') ? closePanel() : openPanel());
+      btnClose.addEventListener('click', closePanel);
+      btnClear.addEventListener('click', () => { input.value=''; filter(''); input.focus(); });
+
+      window.addEventListener('keydown', e => {
+        const activeIsInput = ['INPUT','TEXTAREA'].includes(document.activeElement.tagName) || document.activeElement.isContentEditable;
+        if (e.key === '/' && !activeIsInput){ e.preventDefault(); openPanel(); }
+        if (e.key === 'Enter' && panel.classList.contains('open')){
+          const matches = filter(input.value);
+          if (matches[0]) matches[0].el.click();
+        }
+      });
+
+      let t; input.addEventListener('input', () => {
+        clearTimeout(t); t = setTimeout(()=> filter(input.value), 110);
+      });
+
+      setCount(items.length);
+    })();
+  </script>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <small>© 2025 — COAR Ayacucho 5° D</small>
+      <a href="https://instagram.com/" target="_blank" class="footer-social" aria-label="Instagram">
+        <i class="fa-brands fa-instagram" aria-hidden="true"></i><span class="sr-only">Instagram</span>
+      </a>
     </div>
-  `;
-  document.body.appendChild(wrap);
+  </footer>
 
-  const toggle = wrap.querySelector('.fs-toggle');
-  const panel  = wrap.querySelector('.fs-panel');
-  const input  = wrap.querySelector('.fs-input');
-  const btnClear = wrap.querySelector('.fs-clear');
-  const btnClose = wrap.querySelector('.fs-close');
-  const lbCount  = wrap.querySelector('.fs-count');
-
-  const cards = Array.from(document.querySelectorAll('.photo-wall a')).map(a => {
-    const img = a.querySelector('img');
-    const data = (img?.alt || '') + ' ' + (img?.src?.split('/').pop() || '');
-    return { a, img, data: data.toLowerCase() };
-  });
-
-  function openPanel() {
-    panel.classList.add('open');
-    setTimeout(()=> input.focus(), 0);
-  }
-  function closePanel() {
-    panel.classList.remove('open');
-  }
-  function setCount(n) {
-    lbCount.textContent = n === 1 ? '1 resultado' : `${n} resultados`;
-  }
-  function clearHighlights() {
-    cards.forEach(c => c.a.classList.remove('match-outline'));
-  }
-  function filter(q) {
-    const term = q.trim().toLowerCase();
-    clearHighlights();
-    if (!term) {
-      cards.forEach(c => c.a.classList.remove('hidden'));
-      setCount(cards.length);
-      return [];
-    }
-    const matches = [];
-    cards.forEach(c => {
-      const ok = c.data.includes(term);
-      c.a.classList.toggle('hidden', !ok);
-      if (ok) {
-        matches.push(c);
-        c.a.classList.add('match-outline');
-      }
-    });
-    setCount(matches.length);
-    // si hay coincidencias, llevar a la 1.ª a la vista
-    if (matches[0]) {
-      matches[0].a.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
-    return matches;
-  }
-
-  // Eventos
-  toggle.addEventListener('click', () => {
-    panel.classList.contains('open') ? closePanel() : openPanel();
-  });
-  btnClose.addEventListener('click', closePanel);
-  btnClear.addEventListener('click', () => {
-    input.value = '';
-    filter('');
-    input.focus();
-  });
-
-  // Abrir con '/'
-  window.addEventListener('keydown', e => {
-    const activeIsInput = ['INPUT','TEXTAREA'].includes(document.activeElement.tagName)
-      || document.activeElement.isContentEditable;
-    if (e.key === '/' && !activeIsInput) {
-      e.preventDefault();
-      openPanel();
-    }
-    // Enter: abrir primer resultado
-    if (e.key === 'Enter' && panel.classList.contains('open')) {
-      const matches = filter(input.value);
-      if (matches[0]) {
-        // Si el anchor abre un modal por hash, simulamos click
-        matches[0].a.click();
-      }
-    }
-  });
-
-  // Filtrado con debounce
-  let t;
-  input.addEventListener('input', () => {
-    clearTimeout(t);
-    t = setTimeout(() => filter(input.value), 120);
-  });
-
-  // Estado inicial
-  setCount(cards.length);
-})();
-</script>
-
-<footer style="background: transparent; color: #333; text-align: center; padding: 1rem 0; font-family: Arial, sans-serif;">
-  <div style="display: flex; justify-content: center; align-items: center; gap: 10px; flex-wrap: wrap;">
-    <small>© 2025 — COAR Ayacucho 5° D</small>
-    <a href="https://instagram.com/" target="_blank" style="color: #131313; font-size: 1.4rem; text-decoration: none;">
-      <i class="fa-brands fa-instagram"></i>
-    </a>
-  </div>
-</footer>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
 </body>
 </html>
-
