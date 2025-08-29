@@ -6,12 +6,21 @@
 <title>AYACUCHO — COAR & IB</title>
 <style>
 :root{
-  --ink:#fff;                 /* Color texto AYACUCHO */
-  --A: 15vw;                  /* Amplitud del movimiento lateral (solo vw) */
-  --T: 3.2s;                  /* Duración de UN ciclo completo (marbles) */
+  --ink:#fff;
+
+  /* Marbles (desktop) */
+  --A: 15vw;
+  --T: 3.2s;
   --ease: cubic-bezier(.3,.02,.2,1);
-  --T-orbit: 8s;              /* Duración de la órbita en móvil */
-  --R-orbit: 34%;             /* Radio de la órbita en móvil (del tamaño del lienzo) */
+
+  /* Órbita + pulsar (móvil) */
+  --T-orbit: 8s;                 /* órbita */
+  --R-orbit: 34%;
+  --pulse-color: rgba(120,200,255,.55);
+  --beam-color: rgba(160,220,255,.7);
+  --T-pulse: 1.8s;               /* latido */
+  --T-sweep-1: 1.6s;             /* barrido haz 1 */
+  --T-sweep-2: 2.2s;             /* barrido haz 2 */
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
@@ -21,7 +30,7 @@ body{
   overflow-x:hidden;
   font-family:"Noto Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans";
   color:var(--ink);
-  background:#000; /* fallback */
+  background:#000;
 }
 
 /* ====== HERO ====== */
@@ -64,7 +73,7 @@ body{
   margin-top:clamp(.5rem, 2vh, 1.5rem);
   background:rgba(0,0,0,.6);
   box-shadow:0 .25em .8em rgba(0,0,0,.35);
-  transform:translateY(calc(-1 * min(6vh, 4rem))); /* “sube” AYACUCHO */
+  transform:translateY(calc(-1 * min(6vh, 4rem)));
 }
 .underline{
   margin:.6rem auto 0;
@@ -76,23 +85,29 @@ body{
   box-shadow:0 0 .4rem rgba(0, 0, 0, 0.3), 0 0 .8rem rgba(0, 0, 0, 0.25);
 }
 
-/* ====== SECCIÓN LOGOS ====== */
+/* ====== LOGOS ====== */
 .exchange{
   display:flex;
   align-items:center;
   justify-content:center;
-  gap:clamp(2rem, 4vw, 4.5rem);
   margin:clamp(1.2rem, 4vh, 3rem) auto 0;
   width:min(90vw, 120ch);
 }
 
-/* Contenedor del logo (solo unidades relativas) */
+/* PC/Tablet: aseguro fila horizontal */
+.orb{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:clamp(2rem, 4vw, 4.5rem);
+}
+
 .logo-wrap{
   width:clamp(8rem, 20vw, 12rem);
   display:flex; align-items:center; justify-content:center;
+  position:relative; /* para pseudo-elementos del pulsar en móvil */
 }
 
-/* Imágenes */
 .logo{
   width:100%;
   height:auto;
@@ -101,7 +116,7 @@ body{
   will-change:transform;
 }
 
-/* ====== ANIMACIÓN DE CANICAS (DESKTOP/TABLET) ====== */
+/* ====== ANIMACIÓN “CANICAS” (PC/Tablet) ====== */
 .logo--right{ animation:rightMarble var(--T) var(--ease) infinite; }
 .logo--left { animation:leftMarble  var(--T) var(--ease) infinite; }
 
@@ -119,40 +134,41 @@ body{
   100% { transform:translateX(0); }
 }
 
-/* ====== ACCESIBILIDAD / REDUCE MOTION ====== */
+/* ====== ACCESIBILIDAD ====== */
 @media (prefers-reduced-motion:reduce){
   .logo--left,.logo--right,
-  .orb, .logo--upright { animation:none !important; }
+  .orb, .logo--upright,
+  .logo-wrap::before, .logo-wrap::after { animation:none !important; }
 }
 
-/* ====== SÓLO EN CELULAR: ÓRBITA ====== */
-@media (max-width:48rem){ /* ~768px */
-  /* Lienzo cuadrado para la órbita */
+/* ====== SÓLO MÓVIL: ÓRBITA + PULSAR ====== */
+@media (max-width:48rem){
   .exchange{
     position:relative;
     width:min(72vw, 22rem);
     aspect-ratio:1/1;
-    display:block;      /* dejamos de usar flex en móvil */
+    display:block;
   }
 
-  /* Anillo que rota (los hijos “orbitan”) */
+  /* El anillo que rota */
   .orb{
     position:absolute; inset:0;
     margin:auto;
     width:100%; height:100%;
     animation: spin var(--T-orbit) linear infinite;
     transform-origin:50% 50%;
+    display:block; /* en móvil manejamos posiciones absolutas */
   }
 
-  /* Desactivamos las “canicas” en móvil */
+  /* desactivo “canicas” en móvil */
   .logo--left,.logo--right{ animation:none !important; }
 
-  /* Colocamos cada logo en el anillo a 180° de separación */
+  /* Posiciono las dos “lunas” en el anillo, 180° opuestas */
   .orb .logo-wrap{
     position:absolute;
     top:50%; left:50%;
     width:clamp(6rem, 38vw, 8.5rem);
-    transform-origin:0 0; /* clave para la órbita */
+    transform-origin:0 0;
   }
   .orb .logo-wrap:nth-child(1){
     transform: rotate(0deg) translateX(var(--R-orbit)) rotate(0deg);
@@ -161,28 +177,66 @@ body{
     transform: rotate(180deg) translateX(var(--R-orbit)) rotate(0deg);
   }
 
-  /* Contra-rotamos las imágenes para que no se volteen */
+  /* Los logos se mantienen “de pie” mientras orbitan */
   .orb .logo{
     animation: keepUpright var(--T-orbit) linear infinite;
-    will-change: transform;
   }
 
-  /* Un poco menos de separación vertical */
-  .wrap{ padding-top:0 }
+  /* ===== PULSAR FX ===== */
+  /* Halo que late */
+  .orb .logo-wrap::before{
+    content:"";
+    position:absolute;
+    top:50%; left:50%;
+    width:220%; height:220%;
+    transform:translate(-50%,-50%) scale(0.9);
+    border-radius:50%;
+    background: radial-gradient(closest-side, var(--pulse-color) 0%, rgba(0,0,0,0) 70%);
+    filter: blur(10px);
+    pointer-events:none;
+    animation: pulse var(--T-pulse) ease-in-out infinite;
+    will-change: transform, opacity;
+  }
+
+  /* Haz que barre (como un faro/“pulsar”) */
+  .orb .logo-wrap::after{
+    content:"";
+    position:absolute;
+    top:50%; left:50%;
+    width:260%; height:260%;
+    transform:translate(-50%,-50%);
+    border-radius:50%;
+    /* un gajo luminoso que gira */
+    background:
+      conic-gradient(from 0deg,
+        transparent 0turn,
+        transparent .88turn,
+        var(--beam-color) .92turn,
+        transparent .96turn,
+        transparent 1turn);
+    mix-blend-mode: screen;
+    filter: blur(6px);
+    pointer-events:none;
+    animation: sweep var(--T-sweep-1) linear infinite;
+    will-change: transform;
+  }
+  .orb .logo-wrap:nth-child(2)::after{
+    animation-duration: var(--T-sweep-2);
+    opacity:.9;
+  }
 }
 
-/* ====== KEYFRAMES ÓRBITA ====== */
-@keyframes spin{
-  to{ transform:rotate(360deg); }
+/* ====== KEYFRAMES ÓRBITA/PULSAR ====== */
+@keyframes spin{ to{ transform:rotate(360deg); } }
+@keyframes keepUpright{ to{ transform:rotate(-360deg); } }
+@keyframes pulse{
+  0%,100%{ transform:translate(-50%,-50%) scale(.9); opacity:.55; }
+  50%   { transform:translate(-50%,-50%) scale(1.08); opacity:.95; }
 }
-@keyframes keepUpright{
-  to{ transform:rotate(-360deg); }
-}
+@keyframes sweep{ to{ transform:translate(-50%,-50%) rotate(360deg); } }
 
 /* ====== RESPONSIVE EXTRA ====== */
 @media (max-width:40rem){
-  /* Este bloque afecta solo el layout no-orbital (desktop/tablet),
-     en móvil ya usamos el lienzo cuadrado de arriba */
   .logo-wrap{ width:clamp(6.5rem, 45vw, 9.5rem); }
 }
 </style>
@@ -193,14 +247,12 @@ body{
     <h1 class="word">AYACUCHO</h1>
     <div class="underline" aria-hidden="true"></div>
 
-    <!-- En desktop: siguen “canicas”. En móvil: órbita -->
-    <section class="exchange" aria-label="Animación de logos orbitando">
+    <!-- PC/Tablet: horizontal; Móvil: órbita + pulsar -->
+    <section class="exchange" aria-label="Animación de logos">
       <div class="orb" aria-hidden="true">
-        <!-- Planeta 1 -->
         <div class="logo-wrap">
           <img class="logo logo--left" src="animacion/coar.png" alt="Logo COAR">
         </div>
-        <!-- Planeta 2 (opuesto) -->
         <div class="logo-wrap">
           <img class="logo logo--right" src="animacion/ib.png" alt="Logo IB">
         </div>
