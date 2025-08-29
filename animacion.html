@@ -6,21 +6,11 @@
 <title>AYACUCHO — COAR & IB</title>
 <style>
 :root{
-  --ink:#fff;
-
-  /* Marbles (desktop) */
-  --A: 15vw;
-  --T: 3.2s;
-  --ease: cubic-bezier(.3,.02,.2,1);
-
-  /* Órbita + pulsar (móvil) */
-  --T-orbit: 8s;                 /* órbita */
-  --R-orbit: 34%;
-  --pulse-color: rgba(120,200,255,.55);
-  --beam-color: rgba(160,220,255,.7);
-  --T-pulse: 1.8s;               /* latido */
-  --T-sweep-1: 1.6s;             /* barrido haz 1 */
-  --T-sweep-2: 2.2s;             /* barrido haz 2 */
+  --ink:#fff;                 /* Color texto AYACUCHO */
+ 
+  --A: 15vw;                  /* Amplitud del movimiento lateral (solo vw) */
+  --T: 3.2s;                  /* Duración de UN ciclo completo */
+  --ease: cubic-bezier(.3,.02,.2,1); /* Curva suave rápido→lento */
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
@@ -28,9 +18,9 @@ html,body{height:100%}
 body{
   min-height:100%;
   overflow-x:hidden;
-  font-family:"Noto Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans";
+  font-family:"Noto Sans";
   color:var(--ink);
-  background:#000;
+  background:#000; /* fallback */
 }
 
 /* ====== HERO ====== */
@@ -47,19 +37,21 @@ body{
 .hero::before{
   content:"";
   position:absolute; inset:0;
-  background:url("img/Foto1.jpg") center/cover no-repeat;
+  background:url("img/Foto11.jpg") center/cover no-repeat;
   z-index:-1;
 }
 
 /* ====== TÍTULO ====== */
 .wrap{
   width:min(96vw, 100%);
-  max-width:120ch;
+  max-width:120ch;  /* relativo a tipografía, no px visuales */
   text-align:center;
-  padding-top:0;
+  padding-top:0; /* Ajusta en %/vh si quieres mover el bloque completo */
 }
+
+/* Bloque del título */
 .word{
-  --s: clamp(2.25rem, 8vw, 5.5rem);
+  --s: clamp(2.25rem, 8vw, 5.5rem);   /* Tamaño con rem+vw */
   display:inline-block;
   font-size:var(--s);
   line-height:1.05;
@@ -67,47 +59,48 @@ body{
   font-weight:900;
   text-transform:uppercase;
   color:var(--ink);
-  -webkit-text-stroke:.06em var(--stroke);
+
+  -webkit-text-stroke:.06em var(--stroke); /* sin px */
   padding:.2em .5em;
   border-radius:2em;
-  margin-top:clamp(.5rem, 2vh, 1.5rem);
+  margin-top:clamp(.5rem, 2vh, 1.5rem); /* separación superior */
+
+  /* Fondo y sombra en unidades relativas */
   background:rgba(0,0,0,.6);
   box-shadow:0 .25em .8em rgba(0,0,0,.35);
-  transform:translateY(calc(-1 * min(6vh, 4rem)));
+
+  /* Ajuste fino de altura con unidades relativas (evita px negativos) */
+  transform:translateY(calc(-1 * min(6vh, 4rem))); /* “sube” AYACUCHO */
 }
+
+/* Subrayado degradado */
 .underline{
   margin:.6rem auto 0;
-  width:60vw;
-  max-width:80ch;
-  height:.25rem;
-  border-radius:9999em;
+  width:60vw;                 /* solo vw */
+  max-width:80ch;             /* relativo a texto */
+  height:.25rem;              /* sin px */
+  border-radius:9999em;       /* no px */
   background:linear-gradient(90deg, var(--a,#000000), var(--b,#000000));
   box-shadow:0 0 .4rem rgba(0, 0, 0, 0.3), 0 0 .8rem rgba(0, 0, 0, 0.25);
 }
 
-/* ====== LOGOS ====== */
+/* ====== SECCIÓN LOGOS ====== */
 .exchange{
   display:flex;
   align-items:center;
   justify-content:center;
+  gap:clamp(2rem, 4vw, 4.5rem);
   margin:clamp(1.2rem, 4vh, 3rem) auto 0;
   width:min(90vw, 120ch);
 }
 
-/* PC/Tablet: aseguro fila horizontal */
-.orb{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:clamp(2rem, 4vw, 4.5rem);
-}
-
+/* Contenedor del logo (solo unidades relativas) */
 .logo-wrap{
   width:clamp(8rem, 20vw, 12rem);
   display:flex; align-items:center; justify-content:center;
-  position:relative; /* para pseudo-elementos del pulsar en móvil */
 }
 
+/* Imágenes */
 .logo{
   width:100%;
   height:auto;
@@ -116,16 +109,19 @@ body{
   will-change:transform;
 }
 
-/* ====== ANIMACIÓN “CANICAS” (PC/Tablet) ====== */
+/* ====== ANIMACIÓN DE CANICAS ====== */
 .logo--right{ animation:rightMarble var(--T) var(--ease) infinite; }
 .logo--left { animation:leftMarble  var(--T) var(--ease) infinite; }
 
+/* CANICA DERECHA */
 @keyframes rightMarble{
   0%   { transform:translateX(var(--A)); }
   25%  { transform:translateX(0); }
   75%  { transform:translateX(0); }
   100% { transform:translateX(var(--A)); }
 }
+
+/* CANICA IZQUIERDA */
 @keyframes leftMarble{
   0%   { transform:translateX(0); }
   25%  { transform:translateX(0); }
@@ -134,109 +130,14 @@ body{
   100% { transform:translateX(0); }
 }
 
-/* ====== ACCESIBILIDAD ====== */
+/* ====== ACCESIBILIDAD / REDUCE MOTION ====== */
 @media (prefers-reduced-motion:reduce){
-  .logo--left,.logo--right,
-  .orb, .logo--upright,
-  .logo-wrap::before, .logo-wrap::after { animation:none !important; }
+  .logo--left,.logo--right{animation:none}
 }
 
-/* ====== SÓLO MÓVIL: ÓRBITA + PULSAR ====== */
-@media (max-width:48rem){
-  .exchange{
-    position:relative;
-    width:min(72vw, 22rem);
-    aspect-ratio:1/1;
-    display:block;
-  }
-
-  /* El anillo que rota */
-  .orb{
-    position:absolute; inset:0;
-    margin:auto;
-    width:100%; height:100%;
-    animation: spin var(--T-orbit) linear infinite;
-    transform-origin:50% 50%;
-    display:block; /* en móvil manejamos posiciones absolutas */
-  }
-
-  /* desactivo “canicas” en móvil */
-  .logo--left,.logo--right{ animation:none !important; }
-
-  /* Posiciono las dos “lunas” en el anillo, 180° opuestas */
-  .orb .logo-wrap{
-    position:absolute;
-    top:50%; left:50%;
-    width:clamp(6rem, 38vw, 8.5rem);
-    transform-origin:0 0;
-  }
-  .orb .logo-wrap:nth-child(1){
-    transform: rotate(0deg) translateX(var(--R-orbit)) rotate(0deg);
-  }
-  .orb .logo-wrap:nth-child(2){
-    transform: rotate(180deg) translateX(var(--R-orbit)) rotate(0deg);
-  }
-
-  /* Los logos se mantienen “de pie” mientras orbitan */
-  .orb .logo{
-    animation: keepUpright var(--T-orbit) linear infinite;
-  }
-
-  /* ===== PULSAR FX ===== */
-  /* Halo que late */
-  .orb .logo-wrap::before{
-    content:"";
-    position:absolute;
-    top:50%; left:50%;
-    width:220%; height:220%;
-    transform:translate(-50%,-50%) scale(0.9);
-    border-radius:50%;
-    background: radial-gradient(closest-side, var(--pulse-color) 0%, rgba(0,0,0,0) 70%);
-    filter: blur(10px);
-    pointer-events:none;
-    animation: pulse var(--T-pulse) ease-in-out infinite;
-    will-change: transform, opacity;
-  }
-
-  /* Haz que barre (como un faro/“pulsar”) */
-  .orb .logo-wrap::after{
-    content:"";
-    position:absolute;
-    top:50%; left:50%;
-    width:260%; height:260%;
-    transform:translate(-50%,-50%);
-    border-radius:50%;
-    /* un gajo luminoso que gira */
-    background:
-      conic-gradient(from 0deg,
-        transparent 0turn,
-        transparent .88turn,
-        var(--beam-color) .92turn,
-        transparent .96turn,
-        transparent 1turn);
-    mix-blend-mode: screen;
-    filter: blur(6px);
-    pointer-events:none;
-    animation: sweep var(--T-sweep-1) linear infinite;
-    will-change: transform;
-  }
-  .orb .logo-wrap:nth-child(2)::after{
-    animation-duration: var(--T-sweep-2);
-    opacity:.9;
-  }
-}
-
-/* ====== KEYFRAMES ÓRBITA/PULSAR ====== */
-@keyframes spin{ to{ transform:rotate(360deg); } }
-@keyframes keepUpright{ to{ transform:rotate(-360deg); } }
-@keyframes pulse{
-  0%,100%{ transform:translate(-50%,-50%) scale(.9); opacity:.55; }
-  50%   { transform:translate(-50%,-50%) scale(1.08); opacity:.95; }
-}
-@keyframes sweep{ to{ transform:translate(-50%,-50%) rotate(360deg); } }
-
-/* ====== RESPONSIVE EXTRA ====== */
-@media (max-width:40rem){
+/* ====== RESPONSIVE ====== */
+@media (max-width:40rem){ /* ~640px pero expresado en rem */
+  .exchange{ flex-direction:column; gap:1.4rem; }
   .logo-wrap{ width:clamp(6.5rem, 45vw, 9.5rem); }
 }
 </style>
@@ -247,18 +148,16 @@ body{
     <h1 class="word">AYACUCHO</h1>
     <div class="underline" aria-hidden="true"></div>
 
-    <!-- PC/Tablet: horizontal; Móvil: órbita + pulsar -->
-    <section class="exchange" aria-label="Animación de logos">
-      <div class="orb" aria-hidden="true">
-        <div class="logo-wrap">
-          <img class="logo logo--left" src="animacion/coar.png" alt="Logo COAR">
-        </div>
-        <div class="logo-wrap">
-          <img class="logo logo--right" src="animacion/ib.png" alt="Logo IB">
-        </div>
+    <section class="exchange" aria-label="Animación de canicas en línea">
+      <!-- Canica izquierda -->
+      <div class="logo-wrap">
+        <img class="logo logo--left" src="animacion/coar.png" alt="Logo COAR">
+      </div>
+      <!-- Canica derecha -->
+      <div class="logo-wrap">
+        <img class="logo logo--right" src="animacion/ib.png" alt="Logo IB">
       </div>
     </section>
-
   </div>
 </main>
 </body>
