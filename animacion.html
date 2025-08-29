@@ -7,18 +7,17 @@
 <style>
 :root{
   --ink:#fff;                 /* Color texto AYACUCHO */
- 
-  --A: 15vw;                  /* Amplitud del movimiento lateral (solo vw) */
+  --stroke:#000;              /* Trazo del título */
+  --A: clamp(8vw, 10vw, 14vw);/* Amplitud del movimiento lateral (sin px) */
   --T: 3.2s;                  /* Duración de UN ciclo completo */
   --ease: cubic-bezier(.3,.02,.2,1); /* Curva suave rápido→lento */
 }
-
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
 body{
   min-height:100%;
   overflow-x:hidden;
-  font-family:"Noto Sans";
+  font-family:"Noto Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans";
   color:var(--ink);
   background:#000; /* fallback */
 }
@@ -30,7 +29,7 @@ body{
   display:grid;
   grid-template-rows:1fr auto;
   place-items:center;
-  padding:clamp(1rem, 2vw, 2rem);
+  padding:clamp(1.2vh, 2vw, 3.2vh);
   isolation:isolate;
   overflow:hidden;
 }
@@ -43,15 +42,12 @@ body{
 
 /* ====== TÍTULO ====== */
 .wrap{
-  width:min(96vw, 100%);
-  max-width:120ch;  /* relativo a tipografía, no px visuales */
+  width:92vw;
   text-align:center;
-  padding-top:0; /* Ajusta en %/vh si quieres mover el bloque completo */
+  padding-top:0%;
 }
-
-/* Bloque del título */
 .word{
-  --s: clamp(2.25rem, 8vw, 5.5rem);   /* Tamaño con rem+vw */
+  --s:clamp(3.6rem, 8vw, 9rem); /* Título responsivo sin px directos */
   display:inline-block;
   font-size:var(--s);
   line-height:1.05;
@@ -59,52 +55,38 @@ body{
   font-weight:900;
   text-transform:uppercase;
   color:var(--ink);
-
-  -webkit-text-stroke:.06em var(--stroke); /* sin px */
+  -webkit-text-stroke:.12em var(--stroke);
   padding:.2em .5em;
-  border-radius:2em;
-  margin-top:clamp(.5rem, 2vh, 1.5rem); /* separación superior */
-
-  /* Fondo y sombra en unidades relativas */
+  border-radius:2vw;
   background:rgba(0,0,0,.6);
-  box-shadow:0 .25em .8em rgba(0,0,0,.35);
-
-  /* Ajuste fino de altura con unidades relativas (evita px negativos) */
-  transform:translateY(calc(-1 * min(6vh, 4rem))); /* “sube” AYACUCHO */
+  box-shadow:0 .3em .8em rgba(0,0,0,.35);
+  margin-top:-6vh; /* ⬅️ Subimos AYACUCHO con porcentaje de alto */
 }
 
-/* Subrayado degradado */
 .underline{
-  margin:.6rem auto 0;
-  width:60vw;                 /* solo vw */
-  max-width:80ch;             /* relativo a texto */
-  height:.25rem;              /* sin px */
-  border-radius:9999em;       /* no px */
-  background:linear-gradient(90deg, var(--a,#000000), var(--b,#000000));
-  box-shadow:0 0 .4rem rgba(0, 0, 0, 0.3), 0 0 .8rem rgba(0, 0, 0, 0.25);
+  margin:.4rem auto 0;
+  width:60vw;
+  height:.4rem;
+  border-radius:9999px;
+  background:linear-gradient(90deg, var(--a, #ffd166), var(--b, #06d6a0));
+  box-shadow:0 0 .4rem rgba(255,209,102,.3), 0 0 .8rem rgba(6,214,160,.25);
 }
 
 /* ====== SECCIÓN LOGOS ====== */
 .exchange{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:clamp(2rem, 4vw, 4.5rem);
-  margin:clamp(1.2rem, 4vh, 3rem) auto 0;
-  width:min(90vw, 120ch);
+  display:flex; align-items:center; justify-content:center;
+  gap:clamp(3vw, 5vw, 7vw);
+  margin:clamp(2.4vh, 4vh, 5vh) auto 0;
+  width:92vw;
 }
 
-/* Contenedor del logo (solo unidades relativas) */
+/* LOGOS (tamaño en vw, sin px) */
 .logo-wrap{
-  width:clamp(8rem, 20vw, 12rem);
+  width:clamp(12vw, 15vw, 18vw); /* Tamaño reducido y responsivo */
   display:flex; align-items:center; justify-content:center;
 }
-
-/* Imágenes */
 .logo{
-  width:100%;
-  height:auto;
-  object-fit:contain;
+  width:100%; height:auto; object-fit:contain;
   filter:drop-shadow(0 .2em .6em rgba(0,0,0,.4));
   will-change:transform;
 }
@@ -113,7 +95,7 @@ body{
 .logo--right{ animation:rightMarble var(--T) var(--ease) infinite; }
 .logo--left { animation:leftMarble  var(--T) var(--ease) infinite; }
 
-/* CANICA DERECHA */
+/* CANICA DERECHA: +A → centro (queda) → +A */
 @keyframes rightMarble{
   0%   { transform:translateX(var(--A)); }
   25%  { transform:translateX(0); }
@@ -121,7 +103,7 @@ body{
   100% { transform:translateX(var(--A)); }
 }
 
-/* CANICA IZQUIERDA */
+/* CANICA IZQUIERDA: espera → -A → centro (queda) */
 @keyframes leftMarble{
   0%   { transform:translateX(0); }
   25%  { transform:translateX(0); }
@@ -130,15 +112,13 @@ body{
   100% { transform:translateX(0); }
 }
 
-/* ====== ACCESIBILIDAD / REDUCE MOTION ====== */
+/* ====== RESPONSIVE ====== */
 @media (prefers-reduced-motion:reduce){
   .logo--left,.logo--right{animation:none}
 }
-
-/* ====== RESPONSIVE ====== */
-@media (max-width:40rem){ /* ~640px pero expresado en rem */
-  .exchange{ flex-direction:column; gap:1.4rem; }
-  .logo-wrap{ width:clamp(6.5rem, 45vw, 9.5rem); }
+@media (max-width:40em){ /* ~640px sin usar px explícitos */
+  .exchange{ flex-direction:column; gap:6vh; }
+  .logo-wrap{ width:clamp(30vw, 38vw, 42vw); }
 }
 </style>
 </head>
