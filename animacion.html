@@ -6,90 +6,139 @@
 <title>AYACUCHO — COAR & IB</title>
 <style>
 :root{
-  --ink:#fff;           /* texto AYACUCHO */
-  --stroke:#000;        /* trazo del título */
-  --a:#ffd166; --b:#06d6a0; /* subrayado */
-  --A: clamp(110px, 12vw, 150px); /* amplitud lateral */
-  --T: 3.2s;                         /* duración del ciclo */
-  --ease: cubic-bezier(.35,.02,.2,1); /* rápido→lento, muy suave */
+  --ink:#fff;                 /* Color texto AYACUCHO */
+ 
+  --A: 15vw;                  /* Amplitud del movimiento lateral (solo vw) */
+  --T: 3.2s;                  /* Duración de UN ciclo completo */
+  --ease: cubic-bezier(.3,.02,.2,1); /* Curva suave rápido→lento */
 }
+
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
 body{
-  min-height:100%; overflow-x:hidden;
-  font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,"Noto Sans";
+  min-height:100%;
+  overflow-x:hidden;
+  font-family:"Noto Sans";
   color:var(--ink);
   background:#000; /* fallback */
 }
 
-/* Fondo (sin superposición) */
+/* ====== HERO ====== */
 .hero{
-  position:relative; min-height:100svh;
-  display:grid; grid-template-rows:1fr auto; place-items:center;
-  padding:clamp(16px,3vw,48px); isolation:isolate; overflow:hidden;
+  position:relative;
+  min-height:100svh;
+  display:grid;
+  grid-template-rows:1fr auto;
+  place-items:center;
+  padding:clamp(1rem, 2vw, 2rem);
+  isolation:isolate;
+  overflow:hidden;
 }
 .hero::before{
-  content:""; position:absolute; inset:0;
-  background:url("img/Foto1.jpg") center/cover no-repeat; z-index:-1;
+  content:"";
+  position:absolute; inset:0;
+  background:url("img/Foto11.jpg") center/cover no-repeat;
+  z-index:-1;
 }
 
-/* Título con fondito solo para el texto */
-.wrap{width:min(1200px,96vw); text-align:center}
+/* ====== TÍTULO ====== */
+.wrap{
+  width:min(96vw, 100%);
+  max-width:120ch;  /* relativo a tipografía, no px visuales */
+  text-align:center;
+  padding-top:0; /* Ajusta en %/vh si quieres mover el bloque completo */
+}
+
+/* Bloque del título */
 .word{
-  --s:clamp(48px,12vw,140px);
-  display:inline-block; font-size:var(--s); line-height:1.1; letter-spacing:.08em; font-weight:900; text-transform:uppercase;
-  color:var(--ink); -webkit-text-stroke:1px var(--stroke);
-  padding:.3em .6em; border-radius:12px; margin-top:clamp(8px,2vw,16px);
-  background:rgba(0,0,0,.6); box-shadow:0 4px 10px rgba(0,0,0,.4);
+  --s: clamp(2.25rem, 8vw, 5.5rem);   /* Tamaño con rem+vw */
+  display:inline-block;
+  font-size:var(--s);
+  line-height:1.05;
+  letter-spacing:.06em;
+  font-weight:900;
+  text-transform:uppercase;
+  color:var(--ink);
+
+  -webkit-text-stroke:.06em var(--stroke); /* sin px */
+  padding:.2em .5em;
+  border-radius:2em;
+  margin-top:clamp(.5rem, 2vh, 1.5rem); /* separación superior */
+
+  /* Fondo y sombra en unidades relativas */
+  background:rgba(0,0,0,.6);
+  box-shadow:0 .25em .8em rgba(0,0,0,.35);
+
+  /* Ajuste fino de altura con unidades relativas (evita px negativos) */
+  transform:translateY(calc(-1 * min(6vh, 4rem))); /* “sube” AYACUCHO */
 }
+
+/* Subrayado degradado */
 .underline{
-  margin:.6rem auto 0; width:min(78vw,820px); height:5px; border-radius:999px;
-  background:linear-gradient(90deg,var(--a),var(--b));
-  box-shadow:0 0 .5rem rgba(255,209,102,.3),0 0 1rem rgba(6,214,160,.25);
+  margin:.6rem auto 0;
+  width:60vw;                 /* solo vw */
+  max-width:80ch;             /* relativo a texto */
+  height:.25rem;              /* sin px */
+  border-radius:9999em;       /* no px */
+  background:linear-gradient(90deg, var(--a,#000000), var(--b,#000000));
+  box-shadow:0 0 .4rem rgba(0, 0, 0, 0.3), 0 0 .8rem rgba(0, 0, 0, 0.25);
 }
 
-/* Zona del intercambio (canicas en línea) */
+/* ====== SECCIÓN LOGOS ====== */
 .exchange{
-  display:flex; align-items:center; justify-content:center;
-  gap:clamp(40px,6vw,100px);
-  margin:clamp(28px,5vw,72px) auto 0;
-  width:min(1100px,96vw);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:clamp(2rem, 4vw, 4.5rem);
+  margin:clamp(1.2rem, 4vh, 3rem) auto 0;
+  width:min(90vw, 120ch);
 }
 
-/* Logos SIN fondo */
-.logo-wrap{ width:clamp(180px,28vw,300px); display:flex; align-items:center; justify-content:center; }
-.logo{ width:100%; height:auto; object-fit:contain; filter:drop-shadow(0 2px 6px rgba(0,0,0,.45)); will-change:transform; }
+/* Contenedor del logo (solo unidades relativas) */
+.logo-wrap{
+  width:clamp(8rem, 20vw, 12rem);
+  display:flex; align-items:center; justify-content:center;
+}
 
-/* Animación tipo canicas: fluida, uno golpea y se queda; el otro se va y regresa */
+/* Imágenes */
+.logo{
+  width:100%;
+  height:auto;
+  object-fit:contain;
+  filter:drop-shadow(0 .2em .6em rgba(0,0,0,.4));
+  will-change:transform;
+}
+
+/* ====== ANIMACIÓN DE CANICAS ====== */
 .logo--right{ animation:rightMarble var(--T) var(--ease) infinite; }
 .logo--left { animation:leftMarble  var(--T) var(--ease) infinite; }
 
-/* DERECHA: +A -> 0 (golpe) -> queda en 0 mientras el otro va y vuelve -> regresa a +A */
+/* CANICA DERECHA */
 @keyframes rightMarble{
   0%   { transform:translateX(var(--A)); }
-  25%  { transform:translateX(0); }   /* llega y golpea */
-  75%  { transform:translateX(0); }   /* se queda quieto mientras el otro se mueve */
-  100% { transform:translateX(var(--A)); } /* vuelve a su lado */
+  25%  { transform:translateX(0); }
+  75%  { transform:translateX(0); }
+  100% { transform:translateX(var(--A)); }
 }
 
-/* IZQUIERDA: espera en 0 -> se va a -A -> regresa a 0 (golpea) -> se queda */
+/* CANICA IZQUIERDA */
 @keyframes leftMarble{
-  0%   { transform:translateX(0); }      /* quieto */
-  25%  { transform:translateX(0); }      /* recibe golpe */
-  50%  { transform:translateX(calc(-1 * var(--A))); } /* se aleja */
-  75%  { transform:translateX(0); }      /* regresa y golpea, se queda */
+  0%   { transform:translateX(0); }
+  25%  { transform:translateX(0); }
+  50%  { transform:translateX(calc(-1 * var(--A))); }
+  75%  { transform:translateX(0); }
   100% { transform:translateX(0); }
 }
 
-/* Respeta reduce motion */
+/* ====== ACCESIBILIDAD / REDUCE MOTION ====== */
 @media (prefers-reduced-motion:reduce){
   .logo--left,.logo--right{animation:none}
 }
 
-/* Responsive */
-@media (max-width:640px){
-  .exchange{ flex-direction:column; gap:28px; }
-  .logo-wrap{ width:clamp(140px,50vw,220px); }
+/* ====== RESPONSIVE ====== */
+@media (max-width:40rem){ /* ~640px pero expresado en rem */
+  .exchange{ flex-direction:column; gap:1.4rem; }
+  .logo-wrap{ width:clamp(6.5rem, 45vw, 9.5rem); }
 }
 </style>
 </head>
@@ -99,12 +148,12 @@ body{
     <h1 class="word">AYACUCHO</h1>
     <div class="underline" aria-hidden="true"></div>
 
-    <section class="exchange" aria-label="Dos canicas chocando en línea">
-      <!-- Canica izquierda (COAR) -->
+    <section class="exchange" aria-label="Animación de canicas en línea">
+      <!-- Canica izquierda -->
       <div class="logo-wrap">
         <img class="logo logo--left" src="animacion/coar.png" alt="Logo COAR">
       </div>
-      <!-- Canica derecha (IB) -->
+      <!-- Canica derecha -->
       <div class="logo-wrap">
         <img class="logo logo--right" src="animacion/ib.png" alt="Logo IB">
       </div>
