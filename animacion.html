@@ -7,11 +7,13 @@
 <style>
 :root{
   --ink:#fff;                 /* Color texto AYACUCHO */
-  --stroke:#000;              /* Trazo del título */
-  --A: clamp(8vw, 10vw, 14vw);/* Amplitud del movimiento lateral (sin px) */
-  --T: 3.2s;                  /* Duración de UN ciclo completo */
-  --ease: cubic-bezier(.3,.02,.2,1); /* Curva suave rápido→lento */
+  --A: 15vw;                  /* Amplitud del movimiento lateral (solo vw) */
+  --T: 3.2s;                  /* Duración de UN ciclo completo (marbles) */
+  --ease: cubic-bezier(.3,.02,.2,1);
+  --T-orbit: 8s;              /* Duración de la órbita en móvil */
+  --R-orbit: 34%;             /* Radio de la órbita en móvil (del tamaño del lienzo) */
 }
+
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
 body{
@@ -29,25 +31,26 @@ body{
   display:grid;
   grid-template-rows:1fr auto;
   place-items:center;
-  padding:clamp(1.2vh, 2vw, 3.2vh);
+  padding:clamp(1rem, 2vw, 2rem);
   isolation:isolate;
   overflow:hidden;
 }
 .hero::before{
   content:"";
   position:absolute; inset:0;
-  background:url("img/Foto1.jpg") center/cover no-repeat;
+  background:url("img/Foto11.jpg") center/cover no-repeat;
   z-index:-1;
 }
 
 /* ====== TÍTULO ====== */
 .wrap{
-  width:92vw;
+  width:min(96vw, 100%);
+  max-width:120ch;
   text-align:center;
-  padding-top:0%;
+  padding-top:0;
 }
 .word{
-  --s:clamp(3.6rem, 8vw, 9rem); /* Título responsivo sin px directos */
+  --s: clamp(2.25rem, 8vw, 5.5rem);
   display:inline-block;
   font-size:var(--s);
   line-height:1.05;
@@ -55,55 +58,59 @@ body{
   font-weight:900;
   text-transform:uppercase;
   color:var(--ink);
-  -webkit-text-stroke:.12em var(--stroke);
+  -webkit-text-stroke:.06em var(--stroke);
   padding:.2em .5em;
-  border-radius:2vw;
+  border-radius:2em;
+  margin-top:clamp(.5rem, 2vh, 1.5rem);
   background:rgba(0,0,0,.6);
-  box-shadow:0 .3em .8em rgba(0,0,0,.35);
-  margin-top:-6vh; /* ⬅️ Subimos AYACUCHO con porcentaje de alto */
+  box-shadow:0 .25em .8em rgba(0,0,0,.35);
+  transform:translateY(calc(-1 * min(6vh, 4rem))); /* “sube” AYACUCHO */
 }
-
 .underline{
-  margin:.4rem auto 0;
+  margin:.6rem auto 0;
   width:60vw;
-  height:.4rem;
-  border-radius:9999px;
-  background:linear-gradient(90deg, var(--a, #ffd166), var(--b, #06d6a0));
-  box-shadow:0 0 .4rem rgba(255,209,102,.3), 0 0 .8rem rgba(6,214,160,.25);
+  max-width:80ch;
+  height:.25rem;
+  border-radius:9999em;
+  background:linear-gradient(90deg, var(--a,#000000), var(--b,#000000));
+  box-shadow:0 0 .4rem rgba(0, 0, 0, 0.3), 0 0 .8rem rgba(0, 0, 0, 0.25);
 }
 
 /* ====== SECCIÓN LOGOS ====== */
 .exchange{
-  display:flex; align-items:center; justify-content:center;
-  gap:clamp(3vw, 5vw, 7vw);
-  margin:clamp(2.4vh, 4vh, 5vh) auto 0;
-  width:92vw;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:clamp(2rem, 4vw, 4.5rem);
+  margin:clamp(1.2rem, 4vh, 3rem) auto 0;
+  width:min(90vw, 120ch);
 }
 
-/* LOGOS (tamaño en vw, sin px) */
+/* Contenedor del logo (solo unidades relativas) */
 .logo-wrap{
-  width:clamp(12vw, 15vw, 18vw); /* Tamaño reducido y responsivo */
+  width:clamp(8rem, 20vw, 12rem);
   display:flex; align-items:center; justify-content:center;
 }
+
+/* Imágenes */
 .logo{
-  width:100%; height:auto; object-fit:contain;
+  width:100%;
+  height:auto;
+  object-fit:contain;
   filter:drop-shadow(0 .2em .6em rgba(0,0,0,.4));
   will-change:transform;
 }
 
-/* ====== ANIMACIÓN DE CANICAS ====== */
+/* ====== ANIMACIÓN DE CANICAS (DESKTOP/TABLET) ====== */
 .logo--right{ animation:rightMarble var(--T) var(--ease) infinite; }
 .logo--left { animation:leftMarble  var(--T) var(--ease) infinite; }
 
-/* CANICA DERECHA: +A → centro (queda) → +A */
 @keyframes rightMarble{
   0%   { transform:translateX(var(--A)); }
   25%  { transform:translateX(0); }
   75%  { transform:translateX(0); }
   100% { transform:translateX(var(--A)); }
 }
-
-/* CANICA IZQUIERDA: espera → -A → centro (queda) */
 @keyframes leftMarble{
   0%   { transform:translateX(0); }
   25%  { transform:translateX(0); }
@@ -112,13 +119,71 @@ body{
   100% { transform:translateX(0); }
 }
 
-/* ====== RESPONSIVE ====== */
+/* ====== ACCESIBILIDAD / REDUCE MOTION ====== */
 @media (prefers-reduced-motion:reduce){
-  .logo--left,.logo--right{animation:none}
+  .logo--left,.logo--right,
+  .orb, .logo--upright { animation:none !important; }
 }
-@media (max-width:40em){ /* ~640px sin usar px explícitos */
-  .exchange{ flex-direction:column; gap:6vh; }
-  .logo-wrap{ width:clamp(30vw, 38vw, 42vw); }
+
+/* ====== SÓLO EN CELULAR: ÓRBITA ====== */
+@media (max-width:48rem){ /* ~768px */
+  /* Lienzo cuadrado para la órbita */
+  .exchange{
+    position:relative;
+    width:min(72vw, 22rem);
+    aspect-ratio:1/1;
+    display:block;      /* dejamos de usar flex en móvil */
+  }
+
+  /* Anillo que rota (los hijos “orbitan”) */
+  .orb{
+    position:absolute; inset:0;
+    margin:auto;
+    width:100%; height:100%;
+    animation: spin var(--T-orbit) linear infinite;
+    transform-origin:50% 50%;
+  }
+
+  /* Desactivamos las “canicas” en móvil */
+  .logo--left,.logo--right{ animation:none !important; }
+
+  /* Colocamos cada logo en el anillo a 180° de separación */
+  .orb .logo-wrap{
+    position:absolute;
+    top:50%; left:50%;
+    width:clamp(6rem, 38vw, 8.5rem);
+    transform-origin:0 0; /* clave para la órbita */
+  }
+  .orb .logo-wrap:nth-child(1){
+    transform: rotate(0deg) translateX(var(--R-orbit)) rotate(0deg);
+  }
+  .orb .logo-wrap:nth-child(2){
+    transform: rotate(180deg) translateX(var(--R-orbit)) rotate(0deg);
+  }
+
+  /* Contra-rotamos las imágenes para que no se volteen */
+  .orb .logo{
+    animation: keepUpright var(--T-orbit) linear infinite;
+    will-change: transform;
+  }
+
+  /* Un poco menos de separación vertical */
+  .wrap{ padding-top:0 }
+}
+
+/* ====== KEYFRAMES ÓRBITA ====== */
+@keyframes spin{
+  to{ transform:rotate(360deg); }
+}
+@keyframes keepUpright{
+  to{ transform:rotate(-360deg); }
+}
+
+/* ====== RESPONSIVE EXTRA ====== */
+@media (max-width:40rem){
+  /* Este bloque afecta solo el layout no-orbital (desktop/tablet),
+     en móvil ya usamos el lienzo cuadrado de arriba */
+  .logo-wrap{ width:clamp(6.5rem, 45vw, 9.5rem); }
 }
 </style>
 </head>
@@ -128,16 +193,20 @@ body{
     <h1 class="word">AYACUCHO</h1>
     <div class="underline" aria-hidden="true"></div>
 
-    <section class="exchange" aria-label="Animación de canicas en línea">
-      <!-- Canica izquierda -->
-      <div class="logo-wrap">
-        <img class="logo logo--left" src="animacion/coar.png" alt="Logo COAR">
-      </div>
-      <!-- Canica derecha -->
-      <div class="logo-wrap">
-        <img class="logo logo--right" src="animacion/ib.png" alt="Logo IB">
+    <!-- En desktop: siguen “canicas”. En móvil: órbita -->
+    <section class="exchange" aria-label="Animación de logos orbitando">
+      <div class="orb" aria-hidden="true">
+        <!-- Planeta 1 -->
+        <div class="logo-wrap">
+          <img class="logo logo--left" src="animacion/coar.png" alt="Logo COAR">
+        </div>
+        <!-- Planeta 2 (opuesto) -->
+        <div class="logo-wrap">
+          <img class="logo logo--right" src="animacion/ib.png" alt="Logo IB">
+        </div>
       </div>
     </section>
+
   </div>
 </main>
 </body>
