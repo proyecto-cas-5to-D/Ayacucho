@@ -1,70 +1,26 @@
 /* ==========================================================
    STYLES + ANIMACIONES — v4 (optimizado, COLORES ORIGINALES)
-   - Mantiene menú superior como antes (nav + ul/li/a)
-   - Paleta original: acento negro (#000), fondos blancos
-   - Compatibilidad con tu HTML anterior y el nuevo
-   - Accesibilidad + rendimiento
    ========================================================== */
 
 /*── 1) VARIABLES (COLORES ORIGINALES) ──────────────────*/
 :root{
-  /* Paleta original */
-  --c-bg:#fdfdfd;            /* fondo base claro */
-  --c-surface:#ffffff;       /* superficies/cards */
-  --c-text:#222;             /* texto base */
-  --c-muted:rgba(0,0,0,.6);  /* texto tenue */
-  --c-accent:#000;           /* ACENTO NEGRO (como al inicio) */
-
-  /* Superficies auxiliares (modales/overlays) */
-  --surface-alt:#0b1220;
-  --primary-dark:#cfe3ff;
-  --accent-light:#1f3a8a;
-
-  /* Tipografía / radios / gaps */
+  --c-bg:#fdfdfd; --c-surface:#ffffff; --c-text:#222; --c-muted:rgba(0,0,0,.6); --c-accent:#000;
+  --surface-alt:#0b1220; --primary-dark:#cfe3ff; --accent-light:#1f3a8a;
   --font:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-  --radius:.7rem;
-  --gap:1.6rem;
-
-  /* Timing */
-  --easing:cubic-bezier(.4,0,.2,1);
-  --t-fast:.25s var(--easing);
-  --t-mid:.6s var(--easing);
-
-  /* Sombras */
-  --shadow-1:0 1px 3px rgba(0,0,0,.07);
-  --shadow-2:0 8px 18px rgba(0,0,0,.09);
-  --shadow-img:0 12px 32px rgba(0,0,0,.15);
-  --shadow-img-lg:0 26px 66px rgba(0,0,0,.30);
-
-  /* Slider (valores por defecto) */
-  --img-w:380px;
-  --img-h:260px;
-  --img-unique:8;
-  --scroll-dur:40s;
-
-  /* Glow decorativo (se mantiene pero discreto) */
-  --glow-1:#6b7280;
-  --glow-2:#a3a3a3;
-  --glow-3:#111827;
-
-  /* Safe areas iOS */
-  --safe-l: env(safe-area-inset-left, 0px);
-  --safe-r: env(safe-area-inset-right, 0px);
-  --safe-t: env(safe-area-inset-top, 0px);
-  --safe-b: env(safe-area-inset-bottom, 0px);
+  --radius:.7rem; --gap:1.6rem;
+  --easing:cubic-bezier(.4,0,.2,1); --t-fast:.25s var(--easing); --t-mid:.6s var(--easing);
+  --shadow-1:0 1px 3px rgba(0,0,0,.07); --shadow-2:0 8px 18px rgba(0,0,0,.09);
+  --shadow-img:0 12px 32px rgba(0,0,0,.15); --shadow-img-lg:0 26px 66px rgba(0,0,0,.30);
+  --img-w:380px; --img-h:260px; --img-unique:8; --scroll-dur:40s;
+  --glow-1:#6b7280; --glow-2:#a3a3a3; --glow-3:#111827;
+  --safe-l:env(safe-area-inset-left,0px); --safe-r:env(safe-area-inset-right,0px);
+  --safe-t:env(safe-area-inset-top,0px); --safe-b:env(safe-area-inset-bottom,0px);
 }
-
-@media (prefers-color-scheme: dark){
+@media (prefers-color-scheme: light){
   :root{
-    --c-bg:#151515;
-    --c-surface:#161616;
-    --c-text:#eaeaea;
-    --c-muted:#9a9a9a;
-
-    --shadow-1:0 1px 3px rgba(0,0,0,.45);
-    --shadow-2:0 8px 18px rgba(0,0,0,.55);
-    --shadow-img:0 12px 32px rgba(0,0,0,.6);
-    --shadow-img-lg:0 26px 66px rgba(0,0,0,.75);
+    --c-bg:#151515; --c-surface:#161616; --c-text:#eaeaea; --c-muted:#9a9a9a;
+    --shadow-1:0 1px 3px rgba(0,0,0,.45); --shadow-2:0 8px 18px rgba(0,0,0,.55);
+    --shadow-img:0 12px 32px rgba(0,0,0,.6); --shadow-img-lg:0 26px 66px rgba(0,0,0,.75);
   }
 }
 
@@ -78,32 +34,22 @@ section{padding:calc(var(--gap)*2) var(--gap)}
 h1,h2,h3{font-weight:600;line-height:1.2;margin:0 0 .55em}
 h1 small{display:block;font-size:.55em;font-weight:400}
 :focus-visible{outline:2px dashed currentColor;outline-offset:3px}
-
-/* Utilidad accesible */
 .sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
-/*── 3) MENÚ SUPERIOR (como estaba antes) ──────────────*/
-/* Soporta <nav> “clásico” y también .navbar si lo usas */
+/*── 3) MENÚ SUPERIOR ──────────────────────────────────*/
 nav,.navbar{
-  position:sticky; top:0; z-index:50;
-  display:flex; align-items:center; justify-content:space-between;
+  position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;
   gap:clamp(.4rem,2vw,1rem);
-  padding:.55rem clamp(.9rem,3.2vw, var(--gap)) .55rem calc(clamp(.9rem,3.2vw,var(--gap)) + var(--safe-r));
-  background:var(--c-surface);
-  border-bottom:1px solid rgba(0,0,0,.06);
-  box-shadow:0 2px 4px rgba(0,0,0,.05);
-  white-space:nowrap; overflow-x:auto; scrollbar-gutter:stable both-edges;
-  -webkit-overflow-scrolling:touch; contain:paint;
+  padding:.55rem clamp(.9rem,3.2vw,var(--gap)) .55rem calc(clamp(.9rem,3.2vw,var(--gap)) + var(--safe-r));
+  background:var(--c-surface);border-bottom:1px solid rgba(0,0,0,.06);box-shadow:0 2px 4px rgba(0,0,0,.05);
+  white-space:nowrap;overflow-x:auto;scrollbar-gutter:stable both-edges;-webkit-overflow-scrolling:touch;contain:paint;
 }
 nav .logo,.navbar .logo{display:inline-flex;align-items:center;gap:.55rem;font-weight:800;font-size:clamp(1rem,2.2vw,1.15rem)}
 nav .logo svg,.navbar .logo svg{width:26px;height:26px}
 nav ul,.nav-links{display:flex;gap:clamp(.8rem,2.5vw,1.2rem);list-style:none;margin:0;padding:0}
 nav a,.nav-links a{
-  position:relative; line-height:1.2; color:inherit; text-decoration:none;
-  /* subrayado minimal NEGRO al hover (acento original) */
-  background-image:linear-gradient(var(--c-accent),var(--c-accent));
-  background-repeat:no-repeat; background-position:0 100%; background-size:0 2px;
-  transition:background-size var(--t-fast)
+  position:relative;line-height:1.2;background-image:linear-gradient(var(--c-accent),var(--c-accent));
+  background-repeat:no-repeat;background-position:0 100%;background-size:0 2px;transition:background-size var(--t-fast)
 }
 nav a:hover,.nav-links a:hover{background-size:100% 2px}
 
@@ -115,47 +61,19 @@ nav a:hover,.nav-links a:hover{background-size:100% 2px}
 .btn:hover{opacity:.9;transform:translateY(-1px)}
 
 /*── 5) HERO ───────────────────────────────────────────*/
-.hero {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 72vh;
-  padding: 0 var(--gap);
-  color: #fff;
-  overflow: hidden;
+.hero{position:relative;display:flex;justify-content:center;align-items:center;min-height:72vh;padding:0 var(--gap);color:#fff;overflow:hidden}
+.hero::before{
+  content:"";position:absolute;inset:0;background-image:inherit;background-size:cover;background-position:center;
+  filter:blur(18px) brightness(0.7);transform:scale(1.1);z-index:1
 }
-
-/* Imagen de fondo desenfocada que se ajusta a toda la pantalla */
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: inherit;
-  background-size: cover;
-  background-position: center;
-  filter: blur(18px) brightness(0.7);
-  transform: scale(1.1);
-  z-index: 1;
+.hero img{
+  position:relative;max-width:100%;max-height:70vh;height:auto;width:auto;border-radius:var(--radius);
+  box-shadow:var(--shadow-img-lg);object-fit:contain;z-index:2
 }
-
-/* Contenedor de la imagen principal */
-.hero img {
-  position: relative;
-  max-width: 100%;
-  max-height: 70vh;
-  height: auto;
-  width: auto;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-img-lg);
-  object-fit: contain;
-  z-index: 2;
-}
-
 .hero h1{font-size:clamp(1.9rem,6vw,3.4rem);text-shadow:0 4px 8px rgba(0,0,0,.35);animation:fadeUp .95s .25s both}
 .hero .btn{background:#fff;color:var(--c-text);animation:fadeUp .8s .6s both}
 
-/*── 6) GRID & CARDS GENERALES ─────────────────────────*/
+/*── 6) GRID & CARDS ───────────────────────────────────*/
 .grid{display:grid;gap:var(--gap)}
 .grid-3{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
 .card{
@@ -168,119 +86,93 @@ nav a:hover,.nav-links a:hover{background-size:100% 2px}
 .card h3{margin-top:.9rem;font-size:1.25rem}
 .card p{font-size:.93rem;opacity:.82}
 
-/*── 7) FOTOOS (cards que usas en varias páginas) ──────*/
+/*── 7) FOTOOS ─────────────────────────────────────────*/
 .fotoos{
   position:relative;background:var(--c-surface);padding:1.1rem;border-radius:var(--radius);
-  box-shadow:var(--shadow-1);transition:transform .3s,box-shadow .3s;will-change:transform;
-  max-width:380px
+  box-shadow:var(--shadow-1);transition:transform .3s,box-shadow .3s;will-change:transform;max-width:380px
 }
 .fotoos:hover{transform:translateY(-8px) scale(1.04);box-shadow:var(--shadow-2)}
 .fotoos img{width:100%;height:auto;transition:transform .6s,filter .6s}
 .fotoos:hover img{transform:scale(1.08);filter:brightness(1.05)}
 .fotoos h3{margin-top:.9rem;font-size:1.1rem}
 .fotoos p{font-size:.93rem;color:var(--c-muted)}
+.fotoos a{display:block;color:inherit}
 
 /*── 8) SLIDER ─────────────────────────────────────────*/
-.slider{
-  position:relative;overflow-x:auto;margin-block:3rem;
-  -webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;scrollbar-width:none
-}
+.slider{position:relative;overflow-x:auto;margin-block:3rem;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;scrollbar-width:none}
 .slider::-webkit-scrollbar{display:none}
-.slide-track{
-  display:flex;gap:var(--gap);width:max-content;padding-block:1rem;
-  animation:auto-scroll var(--scroll-dur) linear infinite
-}
-@keyframes auto-scroll{
-  to{transform:translateX(calc(-1 * (var(--img-w) + var(--gap)) * var(--img-unique)))}
-}
+.slide-track{display:flex;gap:var(--gap);width:max-content;padding-block:1rem;animation:auto-scroll var(--scroll-dur) linear infinite}
+@keyframes auto-scroll{to{transform:translateX(calc(-1 * (var(--img-w) + var(--gap)) * var(--img-unique)))}}
 .slider:hover .slide-track{animation-play-state:paused}
 .slide-track a{position:relative;display:block;border-radius:var(--radius);overflow:hidden;transition:transform .3s cubic-bezier(.16,1,.3,1)}
 .slide-track img{
   width:var(--img-w);height:var(--img-h);object-fit:cover;border-radius:var(--radius);
   box-shadow:var(--shadow-img);background:#333;transition:transform .6s cubic-bezier(.16,1,.3,1),filter .4s,box-shadow .4s;
-  content-visibility:auto;contain-intrinsic-size: var(--img-w) var(--img-h);
+  content-visibility:auto;contain-intrinsic-size:var(--img-w) var(--img-h)
 }
-/* Glow discreto en escala de grises */
 .slide-track a::before{
-  content:"";position:absolute;inset:-3px;border-radius:inherit;
-  background:conic-gradient(from 180deg,var(--glow-1),var(--glow-2),var(--glow-3),var(--glow-1));
+  content:"";position:absolute;inset:-3px;border-radius:inherit;background:conic-gradient(from 180deg,var(--glow-1),var(--glow-2),var(--glow-3),var(--glow-1));
   z-index:-1;filter:blur(8px) grayscale(.8);opacity:0;transition:opacity .4s;animation:hueSpin 10s linear infinite
 }
 .slide-track a::after{
-  content:"";position:absolute;inset:-20px;border-radius:inherit;
-  background:radial-gradient(ellipse at center,var(--glow-2),transparent 60%);
+  content:"";position:absolute;inset:-20px;border-radius:inherit;background:radial-gradient(ellipse at center,var(--glow-2),transparent 60%);
   z-index:-2;filter:blur(20px) grayscale(.8);opacity:0;transition:opacity .4s
 }
 @keyframes hueSpin{to{filter:blur(8px) hue-rotate(360deg) grayscale(.8)}}
 .slide-track a:hover img{transform:translateY(-8px) rotateY(-10deg) rotateX(4deg) scale(1.1);box-shadow:var(--shadow-img-lg);filter:brightness(1.1)}
 .slide-track a:hover::before,.slide-track a:hover::after{opacity:.5}
 
-/* Botones opcionales del slider */
+/* Botones slider */
 .slider-btn{
-  position:absolute;top:50%;translate:0 -50%;z-index:5;display:grid;place-items:center;
-  width:56px;aspect-ratio:1;border:0;border-radius:50%;cursor:pointer;
+  position:absolute;top:50%;translate:0 -50%;z-index:5;display:grid;place-items:center;width:56px;aspect-ratio:1;border:0;border-radius:50%;cursor:pointer;
   background:rgba(0,0,0,.5);color:#fff;font-size:1.9rem;transition:.28s;backdrop-filter:blur(2px)
 }
 .slider-btn:hover{background:rgba(0,0,0,.75);transform:scale(1.08)}
 .slider-btn.prev{left:8px}.slider-btn.next{right:8px}
 
-/*── 9) PHOTO WALL (polaroid) ──────────────────────────*/
-.photo-wall{
-  display:flex;flex-wrap:wrap;justify-content:center;gap:2rem;padding:3rem 1rem;perspective:1500px
-}
+/*── 9) PHOTO WALL ─────────────────────────────────────*/
+.photo-wall{display:flex;flex-wrap:wrap;justify-content:center;gap:2rem;padding:3rem 1rem;perspective:1500px}
 .photo-wall a{
   flex-basis:300px;display:block;position:relative;padding:1rem 1rem 4.5rem;border-radius:var(--radius);
   box-shadow:5px 5px 15px rgba(0,0,0,.4);transition:transform .4s cubic-bezier(.175,.885,.32,1.275),box-shadow .4s
 }
 .photo-wall img{
   width:100%;height:320px;object-fit:cover;border-radius:6px;border:1px solid rgba(0,0,0,.1);
-  content-visibility:auto;contain-intrinsic-size: 300px 320px;
+  content-visibility:auto;contain-intrinsic-size:300px 320px
 }
 .photo-wall a::after{
-  content:attr(data-title);position:absolute;left:1rem;right:1rem;bottom:1.5rem;text-align:center;
-  font-weight:700;font-size:1.05rem;color:#444
+  content:attr(data-title);position:absolute;left:1rem;right:1rem;bottom:1.5rem;text-align:center;font-weight:700;font-size:1.05rem;color:#444
 }
 .photo-wall a:hover{transform:scale(1.15) translateZ(50px);box-shadow:0 15px 40px rgba(0,0,0,.6);z-index:99}
 
-/*── 10) MODALES (hash-based) ──────────────────────────*/
+/*── 10) MODALES ───────────────────────────────────────*/
 .modal{
-  position:fixed;inset:0;display:none;place-content:center;padding:1rem;
-  background:rgba(0,0,0,.5);backdrop-filter:blur(10px);
+  position:fixed;inset:0;display:none;place-content:center;padding:1rem;background:rgba(0,0,0,.5);backdrop-filter:blur(10px);
   opacity:0;pointer-events:none;transition:opacity .3s;z-index:1000;overflow:auto
 }
 .modal:target{display:grid;opacity:1;pointer-events:auto}
 .modal-card{
-  position:relative;background:var(--c-surface);color:var(--c-text);
-  border:1px solid rgba(0,0,0,.06);border-radius:1rem;padding:1rem;max-width:min(92vw,900px);width:100%;
-  box-shadow:0 25px 50px -12px rgba(0,0,0,.5);transform:scale(.96);transition:transform .3s
+  position:relative;background:var(--c-surface);color:var(--c-text);border:1px solid rgba(0,0,0,.06);border-radius:1rem;padding:1rem;
+  max-width:min(92vw,900px);width:100%;box-shadow:0 25px 50px -12px rgba(0,0,0,.5);transform:scale(.96);transition:transform .3s
 }
 .modal:target .modal-card{transform:scale(1)}
-.modal-img-wrapper{
-  display:flex;justify-content:center;align-items:center;max-height:80vh;margin-bottom:.75rem;border-radius:.8rem;overflow:hidden
-}
+.modal-img-wrapper{display:flex;justify-content:center;align-items:center;max-height:80vh;margin-bottom:.75rem;border-radius:.8rem;overflow:hidden}
 .modal-img-wrapper img{max-width:100%;max-height:80vh;object-fit:contain;height:auto;width:auto;border-radius:.6rem}
 .modal-caption{margin:.25rem 0 0;text-align:center;color:var(--c-muted)}
 .close{
   position:absolute;top:.6rem;right:.9rem;width:36px;height:36px;border-radius:999px;display:grid;place-items:center;
-  text-decoration:none;font-size:1.6rem;background:var(--c-surface);color:var(--c-text);
-  border:1px solid rgba(0,0,0,.08);transition:opacity .18s
+  text-decoration:none;font-size:1.6rem;background:var(--c-surface);color:var(--c-text);border:1px solid rgba(0,0,0,.08);transition:opacity .18s
 }
 .close:hover{opacity:.9}
 
-/*── 11) BUSCADOR FLOTANTE (neutral, minimal) ──────────*/
-.floating-search{
-  position:fixed;right:20px;bottom:20px;z-index:1100;display:grid;gap:10px;font-family:var(--font)
-}
+/*── 11) BUSCADOR FLOTANTE ─────────────────────────────*/
+.floating-search{position:fixed;right:20px;bottom:20px;z-index:1100;display:grid;gap:10px;font-family:var(--font)}
 .fs-toggle{
   width:52px;height:52px;border:1px solid rgba(0,0,0,.12);background:var(--c-surface);color:var(--c-text);
-  border-radius:50%;display:grid;place-items:center;font-size:18px;line-height:1;box-shadow:var(--shadow-2);
-  cursor:pointer;transition:transform .12s,box-shadow .12s
+  border-radius:50%;display:grid;place-items:center;font-size:18px;line-height:1;box-shadow:var(--shadow-2);cursor:pointer;transition:transform .12s,box-shadow .12s
 }
 .fs-toggle:hover{transform:translateY(-1px)}
-.fs-panel{
-  display:none;background:var(--c-surface);border:1px solid rgba(0,0,0,.12);
-  border-radius:12px;padding:10px;width:min(92vw,420px);box-shadow:var(--shadow-2)
-}
+.fs-panel{display:none;background:var(--c-surface);border:1px solid rgba(0,0,0,.12);border-radius:12px;padding:10px;width:min(92vw,420px);box-shadow:var(--shadow-2)}
 .fs-panel.open{display:block}
 .fs-row{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center}
 .fs-input{
@@ -300,12 +192,11 @@ nav a:hover,.nav-links a:hover{background-size:100% 2px}
 .fs-meta kbd{
   border:1px solid rgba(0,0,0,.12);padding:2px 6px;border-radius:6px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;background:transparent;color:inherit
 }
-/* Estado de filtro */
 [data-search-item]{transition:opacity .14s,transform .14s}
 .hidden{opacity:.12;transform:scale(.995);pointer-events:none}
 .match-outline img{outline:2px solid currentColor;outline-offset:2px;border-radius:6px}
 
-/*── 12) STATS / VIDEO / CTA (compatibilidad) ──────────*/
+/*── 12) STATS / VIDEO / CTA ───────────────────────────*/
 .stat{text-align:center;padding:1rem}
 .stat h3{font-size:2rem;color:var(--c-accent);margin-bottom:.25rem;animation:pop .85s both}
 .stat p{font-size:.9rem}
@@ -329,8 +220,6 @@ section.in-view{opacity:1;transform:none}
 @keyframes heroZoom{from{background-size:118%}to{background-size:135%}}
 @keyframes pop{0%{opacity:0;transform:scale(.65)}70%{transform:scale(1.12)}100%{opacity:1;transform:scale(1)}}
 @keyframes pulseRing{0%{box-shadow:0 0 0 0 rgba(0,0,0,.18)}100%{box-shadow:0 0 0 16px rgba(0,0,0,0)}}
-
-/* Olas decorativas (si usas .wave) */
 .wave path{animation:bob 9s ease-in-out infinite}
 @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
 
@@ -374,118 +263,154 @@ a,button{-webkit-tap-highlight-color:transparent}
 button,.btn{min-height:44px}
 nav ul,.nav-links{scroll-snap-type:x proximity}
 nav a,.nav-links a{scroll-snap-align:start}
-
-/* Reduce motion global */
 @media (prefers-reduced-motion: reduce){
-  *,*::before,*::after{
-    animation-duration:.01ms !important;
-    animation-iteration-count:1 !important;
-    transition-duration:.01ms !important;
-    scroll-behavior:auto !important;
-    transform:none !important;
-  }
-  .slide-track{animation:none !important}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important;transform:none!important}
+  .slide-track{animation:none!important}
 }
 
 /* === HERO con video -> transición a imagen === */
 .hero-video{
-  position: relative;
-  min-height: clamp(70vh, 78vh, 88vh);
-  display: grid;
-  place-items: center;
-  overflow: hidden;
-  /* Usamos la misma imagen en una var para reusar en capas */
-  --img: var(--hero-img);
+  position:relative;min-height:clamp(70vh,78vh,88vh);display:grid;place-items:center;overflow:hidden;--img:var(--hero-img)
 }
-
-/* Capas posicionadas */
-.hero-video .hero-media,
-.hero-video .hero-image,
-.hero-video .hero-blur-bg,
-.hero-video .hero-content{
-  position: absolute;
-  inset: 0;
-}
-
-/* Video: cubre todo, sin bordes negros */
-.hero-video .hero-media{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;        /* llena, prioriza impacto del video */
-  object-position: center;
-  z-index: 1;
-}
-
-/* Fondo difuminado para rellenar cuando mostremos la imagen completa */
+.hero-video .hero-media,.hero-video .hero-image,.hero-video .hero-blur-bg,.hero-video .hero-content{position:absolute;inset:0}
+.hero-video .hero-media{width:100%;height:100%;object-fit:cover;object-position:center;z-index:1}
 .hero-video .hero-blur-bg{
-  z-index: 2;
-  background-image: var(--img);
-  background-size: cover;
-  background-position: center;
-  filter: blur(20px) brightness(.75);
-  transform: scale(1.08);
-  opacity: 0;               /* aparece cuando pasamos a imagen */
-  transition: opacity .7s var(--easing), transform .7s var(--easing);
+  z-index:2;background-image:var(--img);background-size:cover;background-position:center;
+  filter:blur(20px) brightness(.75);transform:scale(1.08);opacity:0;transition:opacity .7s var(--easing),transform .7s var(--easing)
 }
-
-/* Imagen principal: se muestra ENTERA (contain) y centrada */
 .hero-video .hero-image{
-  z-index: 3;
-  object-fit: contain;      /* clave para que no se recorte */
-  width: min(100%, 1200px); /* controla tamaño máximo en laptop */
-  height: min(70vh, 78vh);  /* cómoda para laptop y móvil */
-  margin: auto;             /* centra dentro del header */
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-img-lg);
-  opacity: 0;
-  transform: scale(1.04) translateY(6px);
-  transition:
-    opacity .8s var(--easing),
-    transform .9s var(--easing);
+  z-index:3;object-fit:contain;width:min(100%,1200px);height:min(70vh,78vh);margin:auto;border-radius:var(--radius);
+  box-shadow:var(--shadow-img-lg);opacity:0;transform:scale(1.04) translateY(6px);
+  transition:opacity .8s var(--easing),transform .9s var(--easing)
 }
-
-/* Contenido (título/CTA/skip) va por encima */
-.hero-video .hero-content{
-  z-index: 4;
-  display: grid;
-  place-items: center;
-  text-align: center;
-  padding: 0 var(--gap);
-  color: #fff;
-}
-
-/* Botón “Saltar” discreto */
+.hero-video .hero-content{z-index:4;display:grid;place-items:center;text-align:center;padding:0 var(--gap);color:#fff}
 .skip-hero{
-  margin-top: 1rem;
-  border: 1px solid rgba(255,255,255,.35);
-  background: rgba(0,0,0,.35);
-  color: #fff;
-  padding: .55rem .9rem;
-  border-radius: 999px;
-  font-size: .9rem;
-  cursor: pointer;
-  backdrop-filter: blur(4px);
+  margin-top:1rem;border:1px solid rgba(255,255,255,.35);background:rgba(0,0,0,.35);color:#fff;padding:.55rem .9rem;border-radius:999px;
+  font-size:.9rem;cursor:pointer;backdrop-filter:blur(4px)
 }
-
-/* --- ESTADOS: Al terminar o saltar el video, mostramos la imagen --- */
-.hero-video.show-image .hero-media{
-  opacity: 0;
-  transition: opacity .7s var(--easing);
-}
-
-.hero-video.show-image .hero-blur-bg{
-  opacity: 1;
-  transform: scale(1.02);
-}
-
-.hero-video.show-image .hero-image{
-  opacity: 1;
-  transform: scale(1) translateY(0);
-}
-
-/* Ajustes móviles */
+.hero-video.show-image .hero-media{opacity:0;transition:opacity .7s var(--easing)}
+.hero-video.show-image .hero-blur-bg{opacity:1;transform:scale(1.02)}
+.hero-video.show-image .hero-image{opacity:1;transform:scale(1) translateY(0)}
 @media (max-width:600px){
-  .hero-video{ min-height: 68vh; }
-  .hero-video .hero-image{ height: 60vh; width: 100%; }
+  .hero-video{min-height:68vh}
+  .hero-video .hero-image{height:60vh;width:100%}
 }
+
+/* menu de fotos */
+.menu:hover{width:260px}
+.menu:hover li span:nth-child(2){display:block}
+.menu-content li{list-style:none;border-radius:0 50px 50px 0;transition:.3s;margin-bottom:20px;padding-left:20px}
+.menu-content li:hover{background:#0c0c0c}
+
+/* === PATCH — Página "Gastronomía | Ayacucho" === */
+:root{
+  /* --hero-img: url("img/Gastronomia.jpg"); */
+  --hero-img:none;
+}
+.hero{background-image:var(--hero-img);background-repeat:no-repeat;background-position:center;background-size:cover;background-color:#111}
+.hero h1{margin:0 0 .8rem}
+.hero .btn#destacados{margin-top:.4rem}
+.section{max-width:min(1100px,92vw);margin-inline:auto;padding-top:calc(var(--gap)*2);padding-bottom:calc(var(--gap)*2)}
+.navbar .logo{gap:.6rem}
+.navbar .logo svg{flex:0 0 auto;color:currentColor}
+.site-footer{padding:1.25rem 0}
+.footer-inner{gap:.6rem}
+html{scroll-behavior:smooth}
+
+/* ==== MENÚ CIRCULAR — ARCO INTELIGENTE (izquierda, sobre la lupita) ==== */
+:root{
+  --cm-n:8;
+  --cm-r-open:clamp(120px,18vmin,220px);
+  --cm-size:clamp(56px,10vmin,88px);
+}
+
+.circular-menu{
+  position:fixed;
+  left:clamp(3vw,6vw,8vw);
+  right:auto;
+  bottom:clamp(4vh,6vh,8vh);
+  width:var(--cm-size); height:var(--cm-size);
+  z-index:1300;                 /* por encima del buscador (1100) */
+  --cm-r:0px;                   /* radio cerrado */
+  --cm-r-auto: var(--cm-r-open, 110px); /* radio auto (lo ajusta JS) */
+}
+@supports (left: env(safe-area-inset-left)){
+  .circular-menu{
+    left:calc(env(safe-area-inset-left) + clamp(3vw,6vw,8vw));
+    bottom:calc(env(safe-area-inset-bottom) + clamp(4vh,6vh,8vh));
+  }
+}
+
+#cm-toggle{ display:none }
+
+.cm-center,.cm-item{
+  position:absolute; top:50%; left:50%;
+  width:var(--cm-size); height:var(--cm-size);
+  margin:calc(-0.5 * var(--cm-size)) 0 0 calc(-0.5 * var(--cm-size));
+  border-radius:50%; display:grid; place-items:center;
+  background:#fff; color:#000; box-shadow:0 2px 10px rgba(0,0,0,.15);
+  text-decoration:none; cursor:pointer;
+}
+.material-icons{ font-size:32px; line-height:1; color:#000 }
+
+/* CERRADO: usa --angle=0deg y radio 0 */
+.cm-item{
+  opacity:0; pointer-events:none;
+  --angle: 0deg;
+  transform:
+    rotate(var(--angle))
+    translate(0)
+    rotate(calc(-1 * var(--angle)));
+  transition: transform .45s cubic-bezier(.25,.8,.25,1), opacity .25s ease;
+  transition-delay: calc(var(--i,0) * 60ms);
+}
+
+/* ABIERTO por :checked */
+.cm-center .cm-close{ display:none }
+#cm-toggle:checked + .cm-center .cm-open{ display:none }
+#cm-toggle:checked + .cm-center .cm-close{ display:inline-block }
+#cm-toggle:checked ~ .cm-item{
+  opacity:1; pointer-events:auto;
+  transform:
+    rotate(var(--angle))
+    translate(var(--cm-r-auto))
+    rotate(calc(-1 * var(--angle)));
+}
+
+/* ABIERTO por clase .open (JS) */
+.circular-menu.open .cm-item{
+  opacity:1; pointer-events:auto;
+  transform:
+    rotate(var(--angle))
+    translate(var(--cm-r-auto))
+    rotate(calc(-1 * var(--angle)));
+}
+.circular-menu.open .cm-open{ display:none }
+.circular-menu.open .cm-close{ display:inline-block }
+
+/* Hover */
+.cm-item:hover,.cm-center:hover{ background:#000 }
+.cm-item:hover .material-icons,.cm-center:hover .material-icons{ color:#fff }
+
+/* Evitar solapes: la lupita queda abajo-derecha */
+.floating-search{
+  z-index:1100;
+  right:clamp(3vw,4vw,6vw);
+  bottom:clamp(4vh,6vh,8vh);
+}
+
+/* Móvil */
+@media (max-width:480px){
+  .circular-menu{
+    left:clamp(3vw,4vw,6vw);
+    bottom:clamp(4vh,6vh,8vh);
+  }
+}
+
+/* ==== FIX: cierre de modal sin saltar al inicio ==== */
+html:target { scroll-behavior:auto; }
+
+
+
+
 
