@@ -87,12 +87,31 @@ nav a:hover,.nav-links a:hover{background-size:100% 2px}
 .card p{font-size:.93rem;opacity:.82}
 
 /*── 7) FOTOOS ─────────────────────────────────────────*/
+/*── 7) FOTOOS ─────────────────────────────────────────*/
 .fotoos{
-  position:relative;background:var(--c-surface);padding:1.1rem;border-radius:var(--radius);
-  box-shadow:var(--shadow-1);transition:transform .3s,box-shadow .3s;will-change:transform;max-width:380px
+position:relative;background:var(--c-surface);padding:1.1rem;border-radius:var(--radius);
+box-shadow:var(--shadow-1);transition:transform .3s,box-shadow .3s;will-change:transform;max-width:380px
 }
 .fotoos:hover{transform:translateY(-8px) scale(1.04);box-shadow:var(--shadow-2)}
-.fotoos img{width:100%;height:auto;transition:transform .6s,filter .6s}
+
+/* CÓDIGO MINIMALISTA PARA LIMITAR ALTURA Y REDONDEAR IMAGEN */
+.fotoos img{
+  /* Límites de Altura y Proporción */
+  max-height: 220px; 
+  height: 220px; /* Establece una altura fija para forzar el recorte */
+  width: 100%;
+  
+  /* Esencial para mantener la proporción y rellenar el espacio */
+  object-fit: cover; 
+  display: block; 
+  
+  /* BORDES REDONDEADOS Y MARGEN */
+  border-radius: var(--radius); 
+  margin-bottom: 0.9rem; /* Separa un poco del texto h3 */
+
+  transition:transform .6s,filter .6s
+}
+
 .fotoos:hover img{transform:scale(1.08);filter:brightness(1.05)}
 .fotoos h3{margin-top:.9rem;font-size:1.1rem}
 .fotoos p{font-size:.93rem;color:var(--c-muted)}
@@ -278,10 +297,18 @@ nav a,.nav-links a{scroll-snap-align:start}
   z-index:2;background-image:var(--img);background-size:cover;background-position:center;
   filter:blur(20px) brightness(.75);transform:scale(1.08);opacity:0;transition:opacity .7s var(--easing),transform .7s var(--easing)
 }
-.hero-video .hero-image{
-  z-index:3;object-fit:contain;width:min(100%,1200px);height:min(70vh,78vh);margin:auto;border-radius:var(--radius);
-  box-shadow:var(--shadow-img-lg);opacity:0;transform:scale(1.04) translateY(6px);
-  transition:opacity .8s var(--easing),transform .9s var(--easing)
+.hero-video .hero-image {
+  z-index: 3;
+  object-fit: cover; /* o contain si prefieres */
+  width: min(100%, 1200px);
+  height: min(70vh, 78vh);
+  margin: auto;
+  border-radius: 20px; /* <-- esquinas redondeadas */
+  box-shadow: var(--shadow-img-lg);
+  opacity: 0;
+  transform: scale(1.04) translateY(6px);
+  transition: opacity .8s var(--easing), transform .9s var(--easing);
+
 }
 .hero-video .hero-content{z-index:4;display:grid;place-items:center;text-align:center;padding:0 var(--gap);color:#fff}
 .skip-hero{
