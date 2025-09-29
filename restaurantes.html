@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="es" class="page-restaurantes">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Restaurantes y Gastronomía | Guía Futurista Ayacucho</title>
+
+    <link rel="stylesheet" href="styles.css" />
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+
+    <meta name="description" content="Descubre la ruta gastronómica de Ayacucho: desde el auténtico Puca Picante hasta las nuevas propuestas de cocina andina fusión."/>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo" aria-label="Inicio Ayacucho">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <circle cx="12" cy="12" r="4.2" fill="currentColor"></circle>
+                <g stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+                    <line x1="12" y1="1.6"  x2="12" y2="4.2"></line>
+                    <line x1="12" y1="19.8" x2="12" y2="22.4"></line>
+                    <line x1="1.6" y1="12"  x2="4.2" y2="12"></line>
+                    <line x1="19.8" y1="12" x2="22.4" y2="12"></line>
+                    <line x1="4.4" y1="4.4"  x2="6.2" y2="6.2"></line>
+                    <line x1="17.8" y1="17.8" x2="19.6" y2="19.6"></line>
+                    <line x1="4.4" y1="19.6" x2="6.2" y2="17.8"></line>
+                    <line x1="17.8" y1="6.2" x2="19.6" y2="4.4"></line>
+                </g>
+            </svg>
+            <span>Restaurantes</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html#categorias">Inicio</a></li>
+            <li><a href="#r-tradicional">Tradicional</a></li>
+            <li><a href="#r-gourmet">Fusión</a></li>
+            <li><a href="#r-economico">Económico</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero" style="background-image:url('img/restaurantes-hero.jpg'); min-height:50vh;">
+        <div class="hero-content">
+            <img class="hero-image" src="img/restaurantes-hero-logo.png" alt="Icono de plato y cubiertos" style="max-width:300px; box-shadow:none;">
+            <h1 style="font-size:clamp(1.7rem, 5vw, 3rem); text-align:center;">
+                Sabores de la Sierra Andina
+            </h1>
+            <a href="#r-tradicional" class="btn" id="destacados">Ver Gastronomía</a>
+        </div>
+    </header>
+
+    <section id="r-tradicional" class="section in-view" aria-labelledby="t-tradicional">
+        <h2 id="t-tradicional" style="text-align:center;">Cocina Ayacuchana Clásica</h2>
+        <p style="text-align:center; max-width:650px; margin:auto; color:var(--c-muted);">
+            Lugares que honran las recetas ancestrales: Puca Picante, Patachi, y más platos típicos de la región.
+        </p>
+
+        <div class="grid grid-3" style="margin-top:2.5rem;">
+            <article class="card">
+                <a href="#modal-r-puca" data-search-item>
+                    <img src="img/restaurantes/r-puca.jpg" alt="Plato de Puca Picante tradicional" loading="lazy">
+                    <h3>El Rincón Picante</h3>
+                    <p style="color:var(--c-accent-light); font-weight:600;">Especialistas en Puca Picante</p>
+                    <p>Considerado por muchos como el mejor lugar para probar el plato bandera de Ayacucho. Ambiente rústico y acogedor. Visítalo para el almuerzo.</p>
+                </a>
+            </article>
+
+            <article class="card">
+                <a href="#modal-r-chicharron" data-search-item>
+                    <img src="img/restaurantes/r-chicharron.jpg" alt="Porción generosa de chicharrón de cerdo" loading="lazy">
+                    <h3>Doña María</h3>
+                    <p style="color:var(--c-accent-light); font-weight:600;">Chicharronería Clásica</p>
+                    <p>Famosos por su chicharrón crujiente, servido con mote y papas doradas. Ideal para un desayuno contundente o un almuerzo familiar.</p>
+                </a>
+            </article>
+
+            <article class="card">
+                <a href="#modal-r-andino" data-search-item>
+                    <img src="img/restaurantes/r-andino.jpg" alt="Sopa Patachi en un tazón de arcilla" loading="lazy">
+                    <h3>Sabores Andinos</h3>
+                    <p style="color:var(--c-accent-light); font-weight:600;">Caldo y Sopa Tradicional</p>
+                    <p>Especialidad en caldos y sopas como el Patachi o el Caldo de Gallina. Perfecto para combatir el frío de la sierra. Abre temprano.</p>
+                </a>
+            </article>
+        </div>
+    </section>
+
+    <section id="r-gourmet" class="section in-view" aria-labelledby="t-gourmet">
+        <h2 id="t-gourmet" style="text-align:center;">Experiencia Fusión y Gourmet</h2>
+        <p style="text-align:center; max-width:650px; margin:auto; color:var(--c-muted);">
+            Propuestas modernas que combinan ingredientes andinos con técnicas contemporáneas. Reserva recomendada.
+        </p>
+
+        <div class="grid grid-3" style="margin-top:2.5rem;">
+            <article class="card">
+                <a href="#modal-r-carbon" data-search-item>
+                    <img src="https://lh3.googleusercontent.com/d/1cRbE7hUs3Jfm8YITgL5degU3zgywj_P0" alt="Plato del restaurante Carbón y Vino" loading="lazy">
+                    <h3>Carbón y Vino</h3>
+                    <p style="color:var(--c-accent-light); font-weight:600;">Cocina a la Brasa</p>
+                    <p>Un restaurante que eleva la cocina a la brasa a otro nivel, con una excelente carta de vinos para acompañar.</p>
+                </a>
+            </article>
+
+            <article class="card">
+                <a href="#modal-r-catedral" data-search-item>
+                    <img src="https://lh3.googleusercontent.com/d/1tGwq3l_keYQumZ4197criLOnRhUUi1dg" alt="Plato del restaurante La Catedral" loading="lazy">
+                    <h3>La Catedral</h3>
+                    <p style="color:var(--c-accent-light); font-weight:600;">Ambiente Histórico</p>
+                    <p>Ofrece una cena inolvidable en un ambiente elegante. Su especialidad es la gastronomía local con un toque moderno.</p>
+                </a>
+            </article>
+
+            <article class="card">
+                <a href="#modal-r-pizza" data-search-item>
+                    <img src="img/restaurantes/r-pizza.jpg" alt="Pizza en horno de barro con queso andino" loading="lazy">
+                    <h3>Horno de Leña</h3>
+                    <p style="color:var(--c-accent-light); font-weight:600;">Pizzas y Pastas</p>
+                    <p>Un respiro de la cocina local. Pizzas cocinadas en horno de barro, con ingredientes frescos y la opción de incluir quesos y hongos de la sierra.</p>
+                </a>
+            </article>
+        </div>
+    </section>
+
+    <section id="r-economico" class="section in-view" aria-labelledby="t-economico">
+        <h2 id="t-economico" style="text-align:center;">Menús, Desayunos y Opciones Veganas</h2>
+        <p style="text-align:center; max-width:650px; margin:auto; color:var(--c-muted);">
+            Alternativas económicas, rápidas o especializadas, frecuentadas por estudiantes y viajeros.
+        </p>
+
+        <div class="grid grid-3" style="margin-top:2.5rem;">
+            <article class="card">
+                <a href="#modal-r-univer" data-search-item>
+                    <img src="img/restaurantes/r-universitario.jpg" alt="Lugar concurrido para menú de estudiantes" loading="lazy">
+                    <h3>El Buen Menú</h3>
+                    <p style="color:var(--c-accent-light); font-weight:600;">Menús Diarios Económicos</p>
+                    <p>Famoso entre la comunidad universitaria por sus menús de 3 tiempos a precios muy accesibles. Comida casera y abundante. Servicio rápido.</p>
+                </a>
+            </article>
+
+            <article class="card">
+                <a href="#modal-r-desayuno" data-search-item>
+                    <img src="img/restaurantes/r-desayuno.jpg" alt="Taza de café andino y pan con palta" loading="lazy">
+                    <h3>Café del Centro</h3>
+                    <p style="color:var(--c-accent-light); font-weight:600;">Desayunos y Cafetería</p>
+                    <p>El lugar perfecto para empezar el día. Jugos frescos, café de altura y panes artesanales, incluyendo opciones con palta y huevo.</p>
+                </a>
+            </article>
+
+            <article class="card">
+                <a href="#modal-r-vegano" data-search-item>
+                    <img src="img/restaurantes/r-vegano.jpg" alt="Plato vegano con quinua y vegetales andinos" loading="lazy">
+                    <h3>Tierra Viva</h3>
+                    <p style="color:var(--c-accent-light); font-weight:600;">Cocina Vegana Andina</p>
+                    <p>Un espacio innovador que ofrece platos vegetarianos y veganos basados en la quinua, tarwi y otros superalimentos andinos. Menús saludables.</p>
+                </a>
+            </article>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <small>© 2025 — COAR Ayacucho 5° D</small>
+            <a href="https://instagram.com/" target="_blank" class="footer-social" aria-label="Instagram">
+                <i class="fa-brands fa-instagram" aria-hidden="true"></i><span class="sr-only">Instagram</span>
+            </a>
+        </div>
+    </footer>
+
+    <div id="modal-r-puca" class="modal" aria-hidden="true">
+        <div class="modal-card">
+            <a class="close" href="#" aria-label="Cerrar modal">&times;</a>
+            <div class="modal-img-wrapper">
+                <img src="img/restaurantes/r-puca.jpg" alt="Plato de Puca Picante tradicional">
+            </div>
+            <p class="modal-caption">**El Rincón Picante** — Horario: 12:00 PM - 4:00 PM. Aceptan efectivo.</p>
+        </div>
+    </div>
+    <div id="modal-r-chicharron" class="modal" aria-hidden="true">
+        <div class="modal-card">
+            <a class="close" href="#" aria-label="Cerrar modal">&times;</a>
+            <div class="modal-img-wrapper">
+                <img src="img/restaurantes/r-chicharron.jpg" alt="Porción generosa de chicharrón de cerdo">
+            </div>
+            <p class="modal-caption">**Doña María** — Sirven chicharrón hasta agotar stock. Llegar temprano los fines de semana.</p>
+        </div>
+    </div>
+    <div id="modal-r-andino" class="modal" aria-hidden="true">
+        <div class="modal-card">
+            <a class="close" href="#" aria-label="Cerrar modal">&times;</a>
+            <div class="modal-img-wrapper">
+                <img src="img/restaurantes/r-andino.jpg" alt="Sopa Patachi en un tazón de arcilla">
+            </div>
+            <p class="modal-caption">**Sabores Andinos** — El mejor lugar para probar el Patachi y el Qapchi clásico. Cierra temprano (6 PM).</p>
+        </div>
+    </div>
+    <div id="modal-r-carbon" class="modal" aria-hidden="true">
+        <div class="modal-card">
+            <a class="close" href="#" aria-label="Cerrar modal">&times;</a>
+            <div class="modal-img-wrapper">
+                <img src="https://lh3.googleusercontent.com/d/1cRbE7hUs3Jfm8YITgL5degU3zgywj_P0" alt="Plato del restaurante Carbón y Vino">
+            </div>
+            <p class="modal-caption">**Carbón y Vino** — Requiere reserva. Ideal para cenas o eventos especiales.</p>
+        </div>
+    </div>
+    <div id="modal-r-catedral" class="modal" aria-hidden="true">
+        <div class="modal-card">
+            <a class="close" href="#" aria-label="Cerrar modal">&times;</a>
+            <div class="modal-img-wrapper">
+                <img src="https://lh3.googleusercontent.com/d/1tGwq3l_keYQumZ4197criLOnRhUUi1dg" alt="Plato del restaurante La Catedral">
+            </div>
+            <p class="modal-caption">**La Catedral** — Excelente vista. Horario: 5:00 PM a 11:00 PM.</p>
+        </div>
+    </div>
+    <div id="modal-r-pizza" class="modal" aria-hidden="true">
+        <div class="modal-card">
+            <a class="close" href="#" aria-label="Cerrar modal">&times;</a>
+            <div class="modal-img-wrapper">
+                <img src="img/restaurantes/r-pizza.jpg" alt="Pizza en horno de barro con queso andino">
+            </div>
+            <p class="modal-caption">**Horno de Leña** — Opciones vegetarianas disponibles. Entrega a domicilio por la noche.</p>
+        </div>
+    </div>
+    <div id="modal-r-univer" class="modal" aria-hidden="true">
+        <div class="modal-card">
+            <a class="close" href="#" aria-label="Cerrar modal">&times;</a>
+            <div class="modal-img-wrapper">
+                <img src="img/restaurantes/r-universitario.jpg" alt="Lugar concurrido para menú de estudiantes">
+            </div>
+            <p class="modal-caption">**El Buen Menú** — Precio fijo muy bajo. Ideal para el bolsillo estudiantil. Solo almuerzo.</p>
+        </div>
+    </div>
+    <div id="modal-r-desayuno" class="modal" aria-hidden="true">
+        <div class="modal-card">
+            <a class="close" href="#" aria-label="Cerrar modal">&times;</a>
+            <div class="modal-img-wrapper">
+                <img src="img/restaurantes/r-desayuno.jpg" alt="Taza de café andino y pan con palta">
+            </div>
+            <p class="modal-caption">**Café del Centro** — Abierto desde las 7:00 AM. Servicio de Wi-Fi y cómodos asientos.</p>
+        </div>
+    </div>
+    <div id="modal-r-vegano" class="modal" aria-hidden="true">
+        <div class="modal-card">
+            <a class="close" href="#" aria-label="Cerrar modal">&times;</a>
+            <div class="modal-img-wrapper">
+                <img src="img/restaurantes/r-vegano.jpg" alt="Plato vegano con quinua y vegetales andinos">
+            </div>
+            <p class="modal-caption">**Tierra Viva** — Menús de almuerzo y cena con opción vegana y vegetariana. Cocina saludable.</p>
+        </div>
+    </div>
+
+    <script>
+        // Aparición suave por sección
+        (function(){
+            if (!('IntersectionObserver' in window)) return;
+            const io = new IntersectionObserver(entries => {
+                entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in-view'); });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('section').forEach(sec => io.observe(sec));
+        })();
+
+        // Modales auto a partir de anchors con img — FIX DE SCROLL AL CERRAR
+        (function setupModals(){
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                if (anchor.closest('nav') || anchor.classList.contains('btn') || anchor.classList.contains('close')) return;
+                
+                const id = anchor.getAttribute('href').slice(1);
+                const img = anchor.querySelector('img');
+                if (!id || !img) return;
+
+                // Crear modal si no existiera
+                if (!document.getElementById(id)) {
+                    const modal = document.createElement('div');
+                    modal.id = id;
+                    modal.className = 'modal';
+                    modal.innerHTML = `
+                        <div class="modal-card">
+                            <a class="close" href="#" aria-label="Cerrar modal">&times;</a>
+                            <div class="modal-img-wrapper"><img src="${img.src}" alt="${img.alt}"></div>
+                            <p class="modal-caption">${img.alt}</p>
+                        </div>`;
+                    document.body.appendChild(modal);
+                }
+            });
+
+            function clearHashNoScroll(){
+                if (!location.hash) return;
+                // FIX: Usamos replaceState para reemplazar el estado sin scroll
+                history.replaceState(null, '', window.location.pathname + window.location.search);
+                const activeModal = document.querySelector('.modal:target');
+                if (activeModal) {
+                    activeModal.style.display = 'none';
+                    activeModal.style.opacity = '0';
+                    activeModal.style.pointerEvents = 'none';
+                }
+            }
+
+            document.addEventListener('click', e => {
+                const target = e.target;
+                if (target.classList && target.classList.contains('modal')) {
+                    e.preventDefault();
+                    clearHashNoScroll();
+                }
+                const closeBtn = target.closest('.modal .close');
+                if (closeBtn) {
+                    e.preventDefault();
+                    clearHashNoScroll();
+                }
+            });
+
+            window.addEventListener('keydown', e => {
+                if (e.key === 'Escape' && location.hash) {
+                    e.preventDefault();
+                    clearHashNoScroll();
+                }
+            });
+            
+            if(window.location.hash && window.location.hash.startsWith('#modal-')) {
+                 clearHashNoScroll();
+            }
+        })();
+
+        // (El script del Buscador Flotante también debe ser incluido aquí)
+        // ...
+    </script>
+    <div class="floating-search">
+    <button class="fs-toggle" title="Buscar contenidos (/)">🔎</button>
+    <div class="fs-panel" role="dialog" aria-label="Buscador de contenidos">
+        <div class="fs-row">
+            <input class="fs-input" type="search" placeholder="Buscar: 'Ingeniería', 'UNAH', 'Privada'…" />
+            <div class="fs-actions">
+                <button class="fs-btn fs-clear" title="Limpiar">Limpiar</button>
+                <button class="fs-btn fs-close" title="Cerrar">Cerrar</button>
+            </div>
+        </div>
+        <div class="fs-meta">
+            <span class="fs-count">0 resultados</span>
+            <span>Atajos: <kbd>/</kbd> abrir • <kbd>Enter</kbd> abrir 1.º</span>
+        </div>
+    </div>
+</div>
+<script>
+    (function makeFloatingSearch(){
+        // Esta función espera que el HTML del buscador esté presente en el body
+        const wrap = document.querySelector('.floating-search');
+        if (!wrap) return; // Detiene el script si no encuentra el HTML
+
+        const panel   = wrap.querySelector('.fs-panel');
+        const input   = wrap.querySelector('.fs-input');
+        const btnClear= wrap.querySelector('.fs-clear');
+        const btnClose= wrap.querySelector('.fs-close');
+        const lbCount = wrap.querySelector('.fs-count');
+        const toggle  = wrap.querySelector('.fs-toggle');
+        
+        // Recolección de items a buscar: busca todos los enlaces con 'data-search-item'
+        const items = Array.from(document.querySelectorAll('a[data-search-item]')).map(a => {
+            const img = a.querySelector('img');
+            // Concatena todo el texto relevante para crear el "pajar" de búsqueda (haystack)
+            const text = [
+                img?.alt || '',
+                a.querySelector('h3')?.textContent || '',
+                a.querySelector('p')?.textContent || '',
+                (img?.src?.split('/').pop() || '')
+            ].join(' ');
+            return { el: a, img, haystack: text.toLowerCase() };
+        });
+
+        function openPanel(){ panel.classList.add('open'); setTimeout(()=> input.focus(), 0); }
+        function closePanel(){ panel.classList.remove('open'); }
+        function setCount(n){ lbCount.textContent = n === 1 ? '1 resultado' : `${n} resultados`; }
+        function clearHighlights(){ items.forEach(c => c.el.classList.remove('match-outline')); }
+        
+        function filter(q){
+            const term = q.trim().toLowerCase();
+            clearHighlights();
+            if (!term){
+                items.forEach(c => c.el.classList.remove('hidden'));
+                setCount(items.length);
+                return [];
+            }
+            const matches = [];
+            items.forEach(c => {
+                const ok = c.haystack.includes(term);
+                c.el.classList.toggle('hidden', !ok); // Oculta o muestra el elemento
+                if (ok){ matches.push(c); c.el.classList.add('match-outline'); } // Si coincide, lo resalta
+            });
+            setCount(matches.length);
+            // Si hay match, hace scroll al primer resultado
+            if (matches[0]) matches[0].el.scrollIntoView({ behavior:'smooth', block:'center' });
+            return matches;
+        }
+
+        // Eventos de interacción:
+        toggle.addEventListener('click', () => panel.classList.contains('open') ? closePanel() : openPanel());
+        btnClose.addEventListener('click', closePanel);
+        btnClear.addEventListener('click', () => { input.value=''; filter(''); input.focus(); });
+        
+        // Atajos de teclado: / para abrir, Enter para ir al primer resultado
+        window.addEventListener('keydown', e => {
+            const activeIsInput = ['INPUT','TEXTAREA'].includes(document.activeElement.tagName) || document.activeElement.isContentEditable;
+            if (e.key === '/' && !activeIsInput){ e.preventDefault(); openPanel(); }
+            if (e.key === 'Enter' && panel.classList.contains('open')){
+                const matches = filter(input.value);
+                if (matches[0]) matches[0].el.click();
+            }
+        });
+        
+        // Retraso en la búsqueda (debounce) para no sobrecargar al escribir
+        let t; 
+        input.addEventListener('input', () => {
+            clearTimeout(t); t = setTimeout(()=> filter(input.value), 110);
+        });
+        
+        // Inicializa el contador
+        setCount(items.length);
+    })();
+</script>
+</body>
+</html>
