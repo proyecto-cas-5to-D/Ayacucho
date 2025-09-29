@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="es" class="page-iglesias">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Iglesias y Templos | Guía Futurista Ayacucho</title>
+
+    <link rel="stylesheet" href="styles.css" />
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+
+    <meta name="description" content="Explora las 33 iglesias coloniales de Ayacucho. Conoce la Catedral, los conventos más antiguos y su rica arquitectura barroca y churrigueresca."/>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo" aria-label="Inicio Ayacucho">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <circle cx="12" cy="12" r="4.2" fill="currentColor"></circle>
+                <g stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+                    <line x1="12" y1="1.6"  x2="12" y2="4.2"></line>
+                    <line x1="12" y1="19.8" x2="12" y2="22.4"></line>
+                    <line x1="1.6" y1="12"  x2="4.2" y2="12"></line>
+                    <line x1="19.8" y1="12" x2="22.4" y2="12"></line>
+                    <line x1="4.4" y1="4.4"  x2="6.2" y2="6.2"></line>
+                    <line x1="17.8" y1="17.8" x2="19.6" y2="19.6"></line>
+                    <line x1="4.4" y1="19.6" x2="6.2" y2="17.8"></line>
+                    <line x1="17.8" y1="6.2" x2="19.6" y2="4.4"></line>
+                </g>
+            </svg>
+            <span>Iglesias</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html#categorias">Inicio</a></li>
+            <li><a href="#i-plaza">Plaza Central</a></li>
+            <li><a href="#i-barrios">Barrios Antiguos</a></li>
+            <li><a href="#i-conventos">Conventos y Capillas</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero" style="background-image:url('img/iglesias-hero.jpg'); min-height:50vh;">
+        <div class="hero-content">
+            <img class="hero-image" src="img/iglesias-hero-logo.png" alt="Icono de cúpula de iglesia" style="max-width:300px; box-shadow:none;">
+            <h1 style="font-size:clamp(1.7rem, 5vw, 3rem); text-align:center;">
+                La Ciudad de las 33 Iglesias
+            </h1>
+            <a href="#i-plaza" class="btn" id="destacados">Iniciar Ruta</a>
+        </div>
+    </header>
+
+    <section id="i-plaza" class="section in-view" aria-labelledby="t-plaza">
+        <h2 id="t-plaza" style="text-align:center;">Templos del Centro Histórico</h2>
+        <p style="text-align:center; max-width:650px; margin:auto; color:var(--c-muted);">
+            Las edificaciones más imponentes, con la mejor arquitectura barroca y las puertas más antiguas de la ciudad.
+        </p>
+
+        <div class="grid grid-3" style="margin-top:2.5rem;">
+            <article class="card">
+                <a href="#modal-i-catedral" data-search-item>
+                    <img src="img/iglesias/i-catedral.jpg" alt="Fachada de la Catedral de Ayacucho al atardecer" loading="lazy">
+                    <h3>La Catedral</h3>
+                    <p style="color:var(--c-accent-light); font-weight:600;">Santa María Magdalena</p>
+                    <p>El punto central religioso. Destaca por su fachada de piedra rojiza, sus torres gemelas y el rico altar mayor de estilo barroco.</p>
+                </a>
+            </article>
+
+            <article class="card">
+                <a href="#modal-i-sanfran" data-search-item>
+                    <img src="img/iglesias/i-sanfran.jpg" alt="Iglesia de San Francisco con un campanario alto" loading="lazy">
+                    <h3>San Francisco</h3>
+                    <p style="color:var(--c-accent-light); font-weight:600;">Arte Religioso Virreinal</p>
+                    <p>Una de las más grandes y antiguas (fundada en el siglo XVI). Alberga el Museo de Arte Religioso y tiene un claustro hermoso.</p>
+                </a>
+            </article>
+
+            <article class="card">
+                <a href="#modal-i-compania" data-search-item>
+                    <img src="img/iglesias/i-compania.jpg" alt="Fachada detallada de la Compañía de Jesús" loading="lazy">
+                    <h3>Compañía de Jesús</h3>
+                    <p style="color:var(--c-accent-light); font-weight:600;">Estilo Churrigueresco</p>
+                    <p>Conocida por sus detalles ornamentales exagerados y su impresionante altar dorado. Fue clave durante la época jesuita.</p>
+                </a>
+            </article>
+        </div>
+    </section>
+
+    <section id="i-barrios" class="section in-view" aria-labelledby="t-barrios">
+        <h2 id="t-barrios" style="text-align:center;">Iglesias de los Barrios Antiguos</h2>
+        <p style="text-align:center; max-width:650px; margin:auto; color:var(--c-muted);">
+            Joyas arquitectónicas que marcan la identidad de los barrios tradicionales, como el de Santa Ana y Carmen Alto.
+        </p>
+
+        <div class="grid grid-3" style="margin-top:2.5rem;">
+            <article class="card">
+                <a href="#modal-i-santaana" data-search-item>
+                    <img src="img/iglesias/i-santaana.jpg" alt="Iglesia sencilla en el barrio de Santa Ana" loading="lazy">
+                    <h3>Santa Ana</h3>
+                    <p style="color:var(--c-accent-light); font-weight:600;">Barrio Artesanal</p>
+                    <p>Ubicada en el barrio de los artesanos, es famosa por sus celebraciones de Semana Santa y su ambiente tranquilo y tradicional.</p>
+                </a>
+            </article>
+
+            <article class="card">
+                <a href="#modal-i-sansebastian" data-search-item>
+                    <img src="img/iglesias/i-sansebastian.jpg" alt="Piedra de Huamanga en la fachada de San Sebastián" loading="lazy">
+                    <h3>San Sebastián</h3>
+                    <p style="color:var(--c-accent-light); font-weight:600;">Piedra de Huamanga</p>
+                    <p>Su fachada es un excelente ejemplo del uso de la piedra de Huamanga. Tiene una fuerte devoción local a su patrón.</p>
+                </a>
+            </article>
+
+            <article class="card">
+                <a href="#modal-i-belen" data-search-item>
+                    <img src="img/iglesias/i-belen.jpg" alt="Iglesia con gran portal de madera tallada" loading="lazy">
+                    <h3>Belén</h3>
+                    <p style="color:var(--c-accent-light); font-weight:600;">Capilla y Hospital</p>
+                    <p>Antiguamente ligada al hospital colonial. Es una iglesia de arquitectura sobria pero con un interior rico en detalles de madera tallada.</p>
+                </a>
+            </article>
+        </div>
+    </section>
+
+    <section id="i-conventos" class="section in-view" aria-labelledby="t-conventos">
+        <h2 id="t-conventos" style="text-align:center;">Conventos y Capillas de Clausura</h2>
+        <p style="text-align:center; max-width:650px; margin:auto; color:var(--c-muted);">
+            Edificaciones históricas que en su día sirvieron como claustros y centros de vida monástica.
+        </p>
+
+        <div class="grid grid-3" style="margin-top:2.5rem;">
+            <article class="card">
+                <a href="#modal-i-santaclara" data-search-item>
+                    <img src="img/iglesias/i-santaclara.jpg" alt="Puerta de entrada del Convento de Santa Clara" loading="lazy">
+                    <h3>Santa Clara</h3>
+                    <p style="color:var(--c-accent-light); font-weight:600;">Claustro Femenino</p>
+                    <p>Uno de los conventos de clausura más antiguos. Famoso por su fabricación de dulces tradicionales. Visitas limitadas al claustro.</p>
+                </a>
+            </article>
+
+            <article class="card">
+                <a href="#modal-i-stodomingo" data-search-item>
+                    <img src="img/iglesias/i-stodomingo.jpg" alt="Vista del claustro de Santo Domingo" loading="lazy">
+                    <h3>Santo Domingo</h3>
+                    <p style="color:var(--c-accent-light); font-weight:600;">Claustro Dominico</p>
+                    <p>Sede de la orden de los dominicos. Su iglesia es un ejemplo de transición entre estilos, con un bello patio interior de arquerías.</p>
+                </a>
+            </article>
+
+            <article class="card">
+                <a href="#modal-i-loreto" data-search-item>
+                    <img src="img/iglesias/i-loreto.jpg" alt="Pequeña capilla en la cima de una colina" loading="lazy">
+                    <h3>Santuario de Loreto</h3>
+                    <p style="color:var(--c-accent-light); font-weight:600;">Vista Panorámica</p>
+                    <p>Ubicada en una pequeña colina, es una capilla más modesta, pero ofrece una vista inmejorable de Ayacucho. Punto de peregrinación.</p>
+                </a>
+            </article>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <small>© 2025 — COAR Ayacucho 5° D</small>
+            <a href="https://instagram.com/" target="_blank" class="footer-social" aria-label="Instagram">
+                <i class="fa-brands fa-instagram" aria-hidden="true"></i><span class="sr-only">Instagram</span>
+            </a>
+        </div>
+    </footer>
+
+    <div id="modal-i-catedral" class="modal" aria-hidden="true">
+        <div class="modal-card">
+            <a class="close" href="#" aria-label="Cerrar modal">&times;</a>
+            <div class="modal-img-wrapper">
+                <img src="img/iglesias/i-catedral.jpg" alt="Fachada de la Catedral de Ayacucho">
+            </div>
+            <p class="modal-caption">**Catedral** — Abierta para visitas turísticas por las mañanas. Entrada con tarifa.</p>
+        </div>
+    </div>
+    <div id="modal-i-sanfran" class="modal" aria-hidden="true">
+        <div class="modal-card">
+            <a class="close" href="#" aria-label="Cerrar modal">&times;</a>
+            <div class="modal-img-wrapper">
+                <img src="img/iglesias/i-sanfran.jpg" alt="Iglesia de San Francisco de Asís">
+            </div>
+            <p class="modal-caption">**San Francisco** — Excelente museo de arte sacro. Preguntar por horarios de misa.</p>
+        </div>
+    </div>
+    <div id="modal-i-compania" class="modal" aria-hidden="true">
+        <div class="modal-card">
+            <a class="close" href="#" aria-label="Cerrar modal">&times;</a>
+            <div class="modal-img-wrapper">
+                <img src="img/iglesias/i-compania.jpg" alt="Iglesia de la Compañía de Jesús">
+            </div>
+            <p class="modal-caption">**Compañía de Jesús** — Destaca por su retablo dorado. Uno de los mejores ejemplos del barroco andino.</p>
+        </div>
+    </div>
+    <div id="modal-i-santaana" class="modal" aria-hidden="true">
+        <div class="modal-card">
+            <a class="close" href="#" aria-label="Cerrar modal">&times;</a>
+            <div class="modal-img-wrapper">
+                <img src="img/iglesias/i-santaana.jpg" alt="Iglesia de Santa Ana">
+            </div>
+            <p class="modal-caption">**Santa Ana** — Centro de la Semana Santa. Ubicada a pocas cuadras de la Plaza.</p>
+        </div>
+    </div>
+    <div id="modal-i-sansebastian" class="modal" aria-hidden="true">
+        <div class="modal-card">
+            <a class="close" href="#" aria-label="Cerrar modal">&times;</a>
+            <div class="modal-img-wrapper">
+                <img src="img/iglesias/i-sansebastian.jpg" alt="Iglesia San Sebastián">
+            </div>
+            <p class="modal-caption">**San Sebastián** — Arquitectura robusta y tradicional, con fuerte arraigo en el barrio.</p>
+        </div>
+    </div>
+    <div id="modal-i-belen" class="modal" aria-hidden="true">
+        <div class="modal-card">
+            <a class="close" href="#" aria-label="Cerrar modal">&times;</a>
+            <div class="modal-img-wrapper">
+                <img src="img/iglesias/i-belen.jpg" alt="Iglesia de Belén">
+            </div>
+            <p class="modal-caption">**Belén** — Un lugar con mucha historia social por su relación con el antiguo hospital de la ciudad.</p>
+        </div>
+    </div>
+    <div id="modal-i-santaclara" class="modal" aria-hidden="true">
+        <div class="modal-card">
+            <a class="close" href="#" aria-label="Cerrar modal">&times;</a>
+            <div class="modal-img-wrapper">
+                <img src="img/iglesias/i-santaclara.jpg" alt="Convento de Santa Clara de Asís">
+            </div>
+            <p class="modal-caption">**Santa Clara** — Se puede comprar sus famosos dulces. La iglesia tiene horarios de visita específicos.</p>
+        </div>
+    </div>
+    <div id="modal-i-stodomingo" class="modal" aria-hidden="true">
+        <div class="modal-card">
+            <a class="close" href="#" aria-label="Cerrar modal">&times;</a>
+            <div class="modal-img-wrapper">
+                <img src="img/iglesias/i-stodomingo.jpg" alt="Iglesia y Convento de Santo Domingo">
+            </div>
+            <p class="modal-caption">**Santo Domingo** — El convento ofrece un recorrido guiado por su claustro y capilla.</p>
+        </div>
+    </div>
+    <div id="modal-i-loreto" class="modal" aria-hidden="true">
+        <div class="modal-card">
+            <a class="close" href="#" aria-label="Cerrar modal">&times;</a>
+            <div class="modal-img-wrapper">
+                <img src="img/iglesias/i-loreto.jpg" alt="Capilla de Loreto (Santuario)">
+            </div>
+            <p class="modal-caption">**Loreto** — La subida es un poco empinada, pero la vista al valle lo vale.</p>
+        </div>
+    </div>
+
+    <script>
+        // Aparición suave por sección
+        (function(){
+            if (!('IntersectionObserver' in window)) return;
+            const io = new IntersectionObserver(entries => {
+                entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in-view'); });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('section').forEach(sec => io.observe(sec));
+        })();
+
+        // Modales auto a partir de anchors con img — FIX DE SCROLL AL CERRAR
+        (function setupModals(){
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                if (anchor.closest('nav') || anchor.classList.contains('btn') || anchor.classList.contains('close')) return;
+                
+                const id = anchor.getAttribute('href').slice(1);
+                const img = anchor.querySelector('img');
+                if (!id || !img) return;
+
+                // Crear modal si no existiera
+                if (!document.getElementById(id)) {
+                    const modal = document.createElement('div');
+                    modal.id = id;
+                    modal.className = 'modal';
+                    modal.innerHTML = `
+                        <div class="modal-card">
+                            <a class="close" href="#" aria-label="Cerrar modal">&times;</a>
+                            <div class="modal-img-wrapper"><img src="${img.src}" alt="${img.alt}"></div>
+                            <p class="modal-caption">${img.alt}</p>
+                        </div>`;
+                    document.body.appendChild(modal);
+                }
+            });
+
+            function clearHashNoScroll(){
+                if (!location.hash) return;
+                // FIX: Usamos replaceState para reemplazar el estado sin scroll
+                history.replaceState(null, '', window.location.pathname + window.location.search);
+                const activeModal = document.querySelector('.modal:target');
+                if (activeModal) {
+                    activeModal.style.display = 'none';
+                    activeModal.style.opacity = '0';
+                    activeModal.style.pointerEvents = 'none';
+                }
+            }
+
+            document.addEventListener('click', e => {
+                const target = e.target;
+                if (target.classList && target.classList.contains('modal')) {
+                    e.preventDefault();
+                    clearHashNoScroll();
+                }
+                const closeBtn = target.closest('.modal .close');
+                if (closeBtn) {
+                    e.preventDefault();
+                    clearHashNoScroll();
+                }
+            });
+
+            window.addEventListener('keydown', e => {
+                if (e.key === 'Escape' && location.hash) {
+                    e.preventDefault();
+                    clearHashNoScroll();
+                }
+            });
+            
+            if(window.location.hash && window.location.hash.startsWith('#modal-')) {
+                 clearHashNoScroll();
+            }
+        })();
+
+        // (El script del Buscador Flotante también debe ser incluido aquí)
+        // ...
+    </script>
+   <div class="floating-search">
+    <button class="fs-toggle" title="Buscar contenidos (/)">🔎</button>
+    <div class="fs-panel" role="dialog" aria-label="Buscador de contenidos">
+        <div class="fs-row">
+            <input class="fs-input" type="search" placeholder="Buscar: 'Ingeniería', 'UNAH', 'Privada'…" />
+            <div class="fs-actions">
+                <button class="fs-btn fs-clear" title="Limpiar">Limpiar</button>
+                <button class="fs-btn fs-close" title="Cerrar">Cerrar</button>
+            </div>
+        </div>
+        <div class="fs-meta">
+            <span class="fs-count">0 resultados</span>
+            <span>Atajos: <kbd>/</kbd> abrir • <kbd>Enter</kbd> abrir 1.º</span>
+        </div>
+    </div>
+</div>
+<script>
+    (function makeFloatingSearch(){
+        // Esta función espera que el HTML del buscador esté presente en el body
+        const wrap = document.querySelector('.floating-search');
+        if (!wrap) return; // Detiene el script si no encuentra el HTML
+
+        const panel   = wrap.querySelector('.fs-panel');
+        const input   = wrap.querySelector('.fs-input');
+        const btnClear= wrap.querySelector('.fs-clear');
+        const btnClose= wrap.querySelector('.fs-close');
+        const lbCount = wrap.querySelector('.fs-count');
+        const toggle  = wrap.querySelector('.fs-toggle');
+        
+        // Recolección de items a buscar: busca todos los enlaces con 'data-search-item'
+        const items = Array.from(document.querySelectorAll('a[data-search-item]')).map(a => {
+            const img = a.querySelector('img');
+            // Concatena todo el texto relevante para crear el "pajar" de búsqueda (haystack)
+            const text = [
+                img?.alt || '',
+                a.querySelector('h3')?.textContent || '',
+                a.querySelector('p')?.textContent || '',
+                (img?.src?.split('/').pop() || '')
+            ].join(' ');
+            return { el: a, img, haystack: text.toLowerCase() };
+        });
+
+        function openPanel(){ panel.classList.add('open'); setTimeout(()=> input.focus(), 0); }
+        function closePanel(){ panel.classList.remove('open'); }
+        function setCount(n){ lbCount.textContent = n === 1 ? '1 resultado' : `${n} resultados`; }
+        function clearHighlights(){ items.forEach(c => c.el.classList.remove('match-outline')); }
+        
+        function filter(q){
+            const term = q.trim().toLowerCase();
+            clearHighlights();
+            if (!term){
+                items.forEach(c => c.el.classList.remove('hidden'));
+                setCount(items.length);
+                return [];
+            }
+            const matches = [];
+            items.forEach(c => {
+                const ok = c.haystack.includes(term);
+                c.el.classList.toggle('hidden', !ok); // Oculta o muestra el elemento
+                if (ok){ matches.push(c); c.el.classList.add('match-outline'); } // Si coincide, lo resalta
+            });
+            setCount(matches.length);
+            // Si hay match, hace scroll al primer resultado
+            if (matches[0]) matches[0].el.scrollIntoView({ behavior:'smooth', block:'center' });
+            return matches;
+        }
+
+        // Eventos de interacción:
+        toggle.addEventListener('click', () => panel.classList.contains('open') ? closePanel() : openPanel());
+        btnClose.addEventListener('click', closePanel);
+        btnClear.addEventListener('click', () => { input.value=''; filter(''); input.focus(); });
+        
+        // Atajos de teclado: / para abrir, Enter para ir al primer resultado
+        window.addEventListener('keydown', e => {
+            const activeIsInput = ['INPUT','TEXTAREA'].includes(document.activeElement.tagName) || document.activeElement.isContentEditable;
+            if (e.key === '/' && !activeIsInput){ e.preventDefault(); openPanel(); }
+            if (e.key === 'Enter' && panel.classList.contains('open')){
+                const matches = filter(input.value);
+                if (matches[0]) matches[0].el.click();
+            }
+        });
+        
+        // Retraso en la búsqueda (debounce) para no sobrecargar al escribir
+        let t; 
+        input.addEventListener('input', () => {
+            clearTimeout(t); t = setTimeout(()=> filter(input.value), 110);
+        });
+        
+        // Inicializa el contador
+        setCount(items.length);
+    })();
+</script> 
+</body>
+</html>
