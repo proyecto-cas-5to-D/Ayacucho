@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="es" class="page-universidades">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Universidades | Guía Futurista Ayacucho</title>
+
+    <link rel="stylesheet" href="styles.css" />
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+
+    <meta name="description" content="Explora las principales universidades y centros de estudio superior en Ayacucho. Conoce sus campus y oferta académica."/>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo" aria-label="Inicio Ayacucho">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <circle cx="12" cy="12" r="4.2" fill="currentColor"></circle>
+                <g stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+                    <line x1="12" y1="1.6"  x2="12" y2="4.2"></line>
+                    <line x1="12" y1="19.8" x2="12" y2="22.4"></line>
+                    <line x1="1.6" y1="12"  x2="4.2" y2="12"></line>
+                    <line x1="19.8" y1="12" x2="22.4" y2="12"></line>
+                    <line x1="4.4" y1="4.4"  x2="6.2" y2="6.2"></line>
+                    <line x1="17.8" y1="17.8" x2="19.6" y2="19.6"></line>
+                    <line x1="4.4" y1="19.6" x2="6.2" y2="17.8"></line>
+                    <line x1="17.8" y1="6.2" x2="19.6" y2="4.4"></line>
+                </g>
+            </svg>
+            <span>Universidades</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html#categorias">Inicio</a></li>
+            <li><a href="#un-unsch">UNSCH</a></li>
+            <li><a href="#un-otras-pub">Otros Campus</a></li>
+            <li><a href="#un-privadas">Privadas</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero" style="background-image:url('https://lh3.googleusercontent.com/d/149e7LpCvUYDr819bxjZv8NQ7hHo3ERAG'); min-height:50vh;">
+        <div class="hero-content">
+            <img class="hero-image" src="img/universidades-hero-logo.png" alt="Logo de Universidades de Ayacucho" style="max-width:300px; box-shadow:none;">
+            <h1 style="font-size:clamp(1.7rem, 5vw, 3rem); text-align:center;">
+                Campus y Vida Académica
+            </h1>
+            <a href="#un-unsch" class="btn" id="destacados">Explorar Campus</a>
+        </div>
+    </header>
+
+    <section id="un-unsch" class="section in-view" aria-labelledby="t-unsch">
+        <h2 id="t-unsch" style="text-align:center;">UNSCH: Facultad y Escuelas Principales</h2>
+        <p style="text-align:center; max-width:650px; margin:auto; color:var(--c-muted);">
+            Descubre las facultades más influyentes de la universidad más antigua de la región: la Universidad Nacional de San Cristóbal de Huamanga.
+        </p>
+
+        <div class="grid grid-3" style="margin-top:2.5rem;">
+            <article class="card">
+                <a href="#modal-unsch-ing" data-search-item>
+                    <img src="https://lh3.googleusercontent.com/d/15e0trGAS4SKtPh7qSwx8aUF6-tBWOADH" alt="Patio principal de la Universidad Nacional de San Cristóbal de Huamanga" loading="lazy">
+                    <h3>Ingeniería</h3>
+                    <p style="color:var(--c-accent-light); font-weight:600;">Minas, Civil y Sistemas</p>
+                    <p>Programas con alta demanda y un fuerte enfoque en la infraestructura regional y la gestión de recursos tecnológicos.</p>
+                </a>
+            </article>
+
+            <article class="card">
+                <a href="#modal-unsch-sociales" data-search-item>
+                    <img src="https://lh3.googleusercontent.com/d/1g5_UeZdM6TIOcu_zjW6uq04Aua8bYe5l" alt="Frontis de la Escuela de Educación de la UNSCH" loading="lazy">
+                    <h3>Humanidades</h3>
+                    <p style="color:var(--c-accent-light); font-weight:600;">Sociales, Educación y Lenguas</p>
+                    <p>El corazón de la investigación histórica y cultural de Ayacucho, formando profesionales en historia, literatura y docencia.</p>
+                </a>
+            </article>
+
+            <article class="card">
+                <a href="#modal-unsch-salud" data-search-item>
+                    <img src="https://lh3.googleusercontent.com/d/1LVV3mD-wnb-o6Q-KIPTCmOQEy84zJrwC" alt="Edificio de la Escuela de Enfermería de la UNSCH" loading="lazy">
+                    <h3>Salud</h3>
+                    <p style="color:var(--c-accent-light); font-weight:600;">Medicina Humana y Enfermería</p>
+                    <p>Formación crucial para el sector salud, con convenios en hospitales locales y énfasis en salud comunitaria andina.</p>
+                </a>
+            </article>
+        </div>
+    </section>
+
+    <section id="un-otras-pub" class="section in-view" aria-labelledby="t-otras-pub">
+        <h2 id="t-otras-pub" style="text-align:center;">Otros Campus y Centros de Emprendimiento</h2>
+        <p style="text-align:center; max-width:650px; margin:auto; color:var(--c-muted);">
+            Explora otros campus nacionales en la región y centros especializados en carreras técnicas y desarrollo empresarial.
+        </p>
+
+        <div class="grid grid-3" style="margin-top:2.5rem;">
+            <article class="card">
+                <a href="#modal-unah" data-search-item>
+                    <img src="https://lh3.googleusercontent.com/d/1rjbdfUL0KUJ3Psrqr6aMZZlp2dMm9rY9" alt="Edificio moderno de campus universitario en Ayacucho" loading="lazy">
+                    <h3>UNAH</h3>
+                    <p style="color:var(--c-accent-light); font-weight:600;">Nacional Autónoma de Huanta</p>
+                    <p>Ubicada en Huanta, se enfoca en recursos naturales, gestión ambiental y agronomía, vital para la sierra central.</p>
+                </a>
+            </article>
+
+            <article class="card">
+                <a href="#modal-ispa" data-search-item>
+                    <img src="https://lh3.googleusercontent.com/d/144aG63t-McONBvQNZL3rVZY8dlBInOno" alt="Estudiantes en un aula del Instituto Superior Pedagógico" loading="lazy">
+                    <h3>ISPA</h3>
+                    <p style="color:var(--c-accent-light); font-weight:600;">Pedagógico "Nuestra Sra. de la Asunción"</p>
+                    <p>El centro de formación magisterial más relevante, crucial para el desarrollo de la educación básica y secundaria en Ayacucho.</p>
+                </a>
+            </article>
+            
+            <article class="card">
+                <a href="#modal-unsch-inn" data-search-item>
+                    <img src="https://lh3.googleusercontent.com/d/1KQYyLmaOS-Wwayu7Hw1K_63kyjC5OEpt" alt="Interior de la Biblioteca Central, un espacio para la innovación y el estudio." loading="lazy">
+                    <h3>Innovación</h3>
+                    <p style="color:var(--c-accent-light); font-weight:600;">Incubadora UNSCH-Wayra</p>
+                    <p>Espacio clave para estudiantes que buscan crear startups y proyectos con base tecnológica y social. Fomenta la mentoría y la inversión.</p>
+                </a>
+            </article>
+        </div>
+    </section>
+
+    <section id="un-privadas" class="section in-view" aria-labelledby="t-privadas">
+        <h2 id="t-privadas" style="text-align:center;">Centros de Estudio Privados y Filiales</h2>
+        <p style="text-align:center; max-width:650px; margin:auto; color:var(--c-muted);">
+            Conoce la oferta académica privada, con modernos convenios internacionales y enfoques especializados.
+        </p>
+
+        <div class="grid grid-3" style="margin-top:2.5rem;">
+            <article class="card">
+                <a href="#modal-upsjb" data-search-item>
+                    <img src="https://lh3.googleusercontent.com/d/175FdI20DlT0P4pqIkn407m07xlLSZVPF" alt="Sede universitaria con áreas verdes en Ayacucho" loading="lazy">
+                    <h3>UPSJB</h3>
+                    <p style="color:var(--c-accent-light); font-weight:600;">Privada San Juan Bautista</p>
+                    <p>Destaca en Ciencias de la Salud y programas de posgrado. Su sede moderna atrae a estudiantes de toda la región sur.</p>
+                </a>
+            </article>
+
+            <article class="card">
+                <a href="#modal-uap" data-search-item>
+                    <img src="https://lh3.googleusercontent.com/d/1IKXxpDnPkjdv9sn3uYMWnWszpsDwpUtR" alt="Vista del campus principal de la UAP en Ayacucho" loading="lazy">
+                    <h3>UAP</h3>
+                    <p style="color:var(--c-accent-light); font-weight:600;">Alas Peruanas (Filial Ayacucho)</p>
+                    <p>Ofrece una amplia gama de carreras, incluyendo Administración y Derecho, con enfoque en la gestión empresarial local.</p>
+                </a>
+            </article>
+
+            <article class="card">
+                <a href="#modal-emprendimiento" data-search-item>
+                    <img src="https://lh3.googleusercontent.com/d/1n-bD2lx5RIep0083UVIKoNR23vhWVHfQ" alt="Jóvenes estudiando en un centro de emprendimiento" loading="lazy">
+                    <h3>IEP</h3>
+                    <p style="color:var(--c-accent-light); font-weight:600;">Instituto de Emprendimiento Privado</p>
+                    <p>Centro de estudios técnicos y de corta duración enfocados en habilidades de negocio y desarrollo tecnológico.</p>
+                </a>
+            </article>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <small>© 2025 — COAR Ayacucho 5° D</small>
+            <a href="https://instagram.com/" target="_blank" class="footer-social" aria-label="Instagram">
+                <i class="fa-brands fa-instagram" aria-hidden="true"></i><span class="sr-only">Instagram</span>
+            </a>
+        </div>
+    </footer>
+
+    <div id="modal-unsch-ing" class="modal" aria-hidden="true">
+        <div class="modal-card">
+            <a class="close" href="#" aria-label="Cerrar modal">&times;</a>
+            <div class="modal-img-wrapper">
+                <img src="https://lh3.googleusercontent.com/d/15e0trGAS4SKtPh7qSwx8aUF6-tBWOADH" alt="Patio principal de la Universidad Nacional de San Cristóbal de Huamanga">
+            </div>
+            <p class="modal-caption">**Ingeniería UNSCH** — Carreras: Minas, Civil, Sistemas, Industrial. El motor del desarrollo técnico regional.</p>
+        </div>
+    </div>
+    <div id="modal-unsch-sociales" class="modal" aria-hidden="true">
+        <div class="modal-card">
+            <a class="close" href="#" aria-label="Cerrar modal">&times;</a>
+            <div class="modal-img-wrapper">
+                <img src="https://lh3.googleusercontent.com/d/1g5_UeZdM6TIOcu_zjW6uq04Aua8bYe5l" alt="Frontis de la Escuela de Educación de la UNSCH">
+            </div>
+            <p class="modal-caption">**Humanidades UNSCH** — Cátedras en Historia, Arqueología y Antropología. Clave para el patrimonio cultural.</p>
+        </div>
+    </div>
+    <div id="modal-unsch-salud" class="modal" aria-hidden="true">
+        <div class="modal-card">
+            <a class="close" href="#" aria-label="Cerrar modal">&times;</a>
+            <div class="modal-img-wrapper">
+                <img src="https://lh3.googleusercontent.com/d/1LVV3mD-wnb-o6Q-KIPTCmOQEy84zJrwC" alt="Edificio de la Escuela de Enfermería de la UNSCH">
+            </div>
+            <p class="modal-caption">**Salud UNSCH** — La escuela de Medicina más prestigiosa. Con énfasis en atención primaria y rural.</p>
+        </div>
+    </div>
+    <div id="modal-unsch-inn" class="modal" aria-hidden="true">
+        <div class="modal-card">
+            <a class="close" href="#" aria-label="Cerrar modal">&times;</a>
+            <div class="modal-img-wrapper">
+                <img src="https://lh3.googleusercontent.com/d/1KQYyLmaOS-Wwayu7Hw1K_63kyjC5OEpt" alt="Interior de la Biblioteca Central, un espacio para la innovación y el estudio.">
+            </div>
+            <p class="modal-caption">**UNSCH-Wayra** — Programas de aceleración y financiamiento para nuevos negocios.</p>
+        </div>
+    </div>
+    <div id="modal-unah" class="modal" aria-hidden="true">
+        <div class="modal-card">
+            <a class="close" href="#" aria-label="Cerrar modal">&times;</a>
+            <div class="modal-img-wrapper">
+                <img src="https://lh3.googleusercontent.com/d/1rjbdfUL0KUJ3Psrqr6aMZZlp2dMm9rY9" alt="Edificio moderno de campus universitario en Ayacucho">
+            </div>
+            <p class="modal-caption">**UNAH** — Carreras enfocadas en el desarrollo sostenible y la economía local de Huanta.</p>
+        </div>
+    </div>
+    <div id="modal-ispa" class="modal" aria-hidden="true">
+        <div class="modal-card">
+            <a class="close" href="#" aria-label="Cerrar modal">&times;</a>
+            <div class="modal-img-wrapper">
+                <img src="https://lh3.googleusercontent.com/d/144aG63t-McONBvQNZL3rVZY8dlBInOno" alt="Estudiantes en un aula del Instituto Superior Pedagógico">
+            </div>
+            <p class="modal-caption">**ISPA** — Centro de excelencia para la formación de futuros educadores.</p>
+        </div>
+    </div>
+    <div id="modal-upsjb" class="modal" aria-hidden="true">
+        <div class="modal-card">
+            <a class="close" href="#" aria-label="Cerrar modal">&times;</a>
+            <div class="modal-img-wrapper">
+                <img src="https://lh3.googleusercontent.com/d/175FdI20DlT0P4pqIkn407m07xlLSZVPF" alt="Sede universitaria con áreas verdes en Ayacucho">
+            </div>
+            <p class="modal-caption">**UPSJB** — Campus con enfoque en salud y tecnología médica en la ciudad.</p>
+        </div>
+    </div>
+    <div id="modal-uap" class="modal" aria-hidden="true">
+        <div class="modal-card">
+            <a class="close" href="#" aria-label="Cerrar modal">&times;</a>
+            <div class="modal-img-wrapper">
+                <img src="https://lh3.googleusercontent.com/d/1IKXxpDnPkjdv9sn3uYMWnWszpsDwpUtR" alt="Vista del campus principal de la UAP en Ayacucho">
+            </div>
+            <p class="modal-caption">**UAP** — Oferta de carreras amplias con horarios flexibles y tecnología en el aula.</p>
+        </div>
+    </div>
+    <div id="modal-emprendimiento" class="modal" aria-hidden="true">
+        <div class="modal-card">
+            <a class="close" href="#" aria-label="Cerrar modal">&times;</a>
+            <div class="modal-img-wrapper">
+                <img src="https://lh3.googleusercontent.com/d/1n-bD2lx5RIep0083UVIKoNR23vhWVHfQ" alt="Jóvenes estudiando en un centro de emprendimiento">
+            </div>
+            <p class="modal-caption">**IEP** — Programas especializados para incubar ideas de negocio.</p>
+        </div>
+    </div>
+
+    <script>
+        // Aparición suave por sección
+        (function(){
+            if (!('IntersectionObserver' in window)) return;
+            const io = new IntersectionObserver(entries => {
+                entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in-view'); });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('section').forEach(sec => io.observe(sec));
+        })();
+    </script>
+
+    <script>
+        // Modales auto a partir de anchors con img — FIX DE SCROLL AL CERRAR
+        (function setupModals(){
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                // Excluir navegación y botones normales
+                if (anchor.closest('nav') || anchor.classList.contains('btn') || anchor.classList.contains('close')) return;
+                
+                const id = anchor.getAttribute('href').slice(1);
+                const img = anchor.querySelector('img');
+                if (!id || !img) return;
+
+                // Crear modal si no existiera (asumimos que ya están creados en este HTML)
+                if (!document.getElementById(id)) {
+                    const modal = document.createElement('div');
+                    modal.id = id;
+                    modal.className = 'modal';
+                    modal.innerHTML = `
+                        <div class="modal-card">
+                            <a class="close" href="#" aria-label="Cerrar modal">&times;</a>
+                            <div class="modal-img-wrapper"><img src="${img.src}" alt="${img.alt}"></div>
+                            <p class="modal-caption">${img.alt}</p>
+                        </div>`;
+                    document.body.appendChild(modal);
+                }
+            });
+
+            /**
+             * FUNCIÓN CLAVE: Limpia el #hash de la URL sin que la página se mueva.
+             * Esto soluciona el problema de que el scroll salte al inicio.
+             */
+            function clearHashNoScroll(){
+                if (!location.hash) return;
+                // Usamos replaceState para reemplazar el estado actual sin añadirlo al historial
+                // y sin que el navegador intente hacer scroll.
+                history.replaceState(null, '', window.location.pathname + window.location.search);
+                // Si el modal está abierto, forzamos el cierre con la clase para una transición suave.
+                const activeModal = document.querySelector('.modal:target');
+                if (activeModal) {
+                    activeModal.style.display = 'none';
+                    activeModal.style.opacity = '0';
+                    activeModal.style.pointerEvents = 'none';
+                }
+            }
+
+            document.addEventListener('click', e => {
+                const target = e.target;
+                // Cerrar si clic en fondo del modal
+                if (target.classList && target.classList.contains('modal')) {
+                    e.preventDefault();
+                    clearHashNoScroll();
+                }
+                // Cerrar si clic en la X (o algún hijo dentro de ese enlace .close)
+                const closeBtn = target.closest('.modal .close');
+                if (closeBtn) {
+                    e.preventDefault();
+                    clearHashNoScroll();
+                }
+            });
+
+            window.addEventListener('keydown', e => {
+                if (e.key === 'Escape' && location.hash) {
+                    e.preventDefault();
+                    clearHashNoScroll();
+                }
+            });
+            
+            // Fix para el bug inicial de recarga: asegura que el hash esté limpio al cargar
+            if(window.location.hash && window.location.hash.startsWith('#modal-')) {
+                 clearHashNoScroll();
+            }
+        })();
+    </script>
+
+    <script>
+        // Buscador flotante (debes copiar el HTML de este componente de tu otro archivo)
+        // Por la extensión, aquí solo incluyo el JS para la funcionalidad
+
+        (function makeFloatingSearch(){
+            // Esta función espera que el HTML del buscador esté presente en el body
+            // (fs-toggle, fs-panel, fs-input, etc.)
+
+            // Si no incluiste el HTML del buscador, esto generará errores.
+            let wrap = document.querySelector('.floating-search');
+            if (!wrap) {
+                // Si no existe, lo creamos (para asegurar que el script funcione si no se copió el HTML)
+                const newWrap = document.createElement('div');
+                newWrap.className = 'floating-search';
+                newWrap.innerHTML = `
+                    <button class="fs-toggle" title="Buscar contenidos (/)" aria-label="Abrir buscador">🔎</button>
+                    <div class="fs-panel" role="dialog" aria-label="Buscador de contenidos">
+                        <div class="fs-row">
+                            <input class="fs-input" type="search" placeholder="Buscar: 'UNSCH', 'Salud', 'Innovación'…" />
+                            <div class="fs-actions">
+                                <button class="fs-btn fs-clear" title="Limpiar">Limpiar</button>
+                                <button class="fs-btn fs-close" title="Cerrar">Cerrar</button>
+                            </div>
+                        </div>
+                        <div class="fs-meta">
+                            <span class="fs-count">0 resultados</span>
+                            <span>Atajos: <kbd>/</kbd> abrir • <kbd>Enter</kbd> abrir 1.º</span>
+                        </div>
+                    </div>
+                `;
+                document.body.appendChild(newWrap);
+                wrap = newWrap;
+            }
+            
+            const toggle  = wrap.querySelector('.fs-toggle');
+            const panel   = wrap.querySelector('.fs-panel');
+            const input   = wrap.querySelector('.fs-input');
+            const btnClear= wrap.querySelector('.fs-clear');
+            const btnClose= wrap.querySelector('.fs-close');
+            const lbCount = wrap.querySelector('.fs-count');
+            
+            // Recolección de items a buscar
+            const items = Array.from(document.querySelectorAll('a[data-search-item]')).map(a => {
+                const img = a.querySelector('img');
+                const text = [
+                    img?.alt || '',
+                    a.querySelector('h3')?.textContent || '',
+                    a.querySelector('p')?.textContent || '',
+                    (img?.src?.split('/').pop() || '')
+                ].join(' ');
+                return { el: a, img, haystack: text.toLowerCase() };
+            });
+
+            function openPanel(){ panel.classList.add('open'); setTimeout(()=> input.focus(), 0); }
+            function closePanel(){ panel.classList.remove('open'); }
+            function setCount(n){ lbCount.textContent = n === 1 ? '1 resultado' : `${n} resultados`; }
+            function clearHighlights(){ items.forEach(c => c.el.classList.remove('match-outline')); }
+            
+            function filter(q){
+                const term = q.trim().toLowerCase();
+                clearHighlights();
+                if (!term){
+                    items.forEach(c => c.el.classList.remove('hidden'));
+                    setCount(items.length);
+                    return [];
+                }
+                const matches = [];
+                items.forEach(c => {
+                    const ok = c.haystack.includes(term);
+                    c.el.classList.toggle('hidden', !ok);
+                    if (ok){ matches.push(c); c.el.classList.add('match-outline'); }
+                });
+                setCount(matches.length);
+                // Si hay match, scroll al primero
+                if (matches[0]) matches[0].el.scrollIntoView({ behavior:'smooth', block:'center' });
+                return matches;
+            }
+
+            toggle.addEventListener('click', () => panel.classList.contains('open') ? closePanel() : openPanel());
+            btnClose.addEventListener('click', closePanel);
+            btnClear.addEventListener('click', () => { input.value=''; filter(''); input.focus(); });
+            
+            window.addEventListener('keydown', e => {
+                const activeIsInput = ['INPUT','TEXTAREA'].includes(document.activeElement.tagName) || document.activeElement.isContentEditable;
+                if (e.key === '/' && !activeIsInput){ e.preventDefault(); openPanel(); }
+                if (e.key === 'Enter' && panel.classList.contains('open')){
+                    const matches = filter(input.value);
+                    if (matches[0]) matches[0].el.click();
+                }
+            });
+            
+            let t; 
+            input.addEventListener('input', () => {
+                clearTimeout(t); t = setTimeout(()=> filter(input.value), 110);
+            });
+            
+            setCount(items.length);
+        })();
+    </script>
+    
+    <script>
+        // Hero: botón "Saltar animación" (Intacto, solo para la página principal que tiene video)
+        // Se mantiene si se copia y adapta el hero a video.
+        (function(){
+            const hero = document.querySelector('.hero-video');
+            const btn = document.getElementById('skipHero');
+            if (!hero || !btn) return;
+            btn.addEventListener('click', ()=> hero.classList.add('show-image'));
+            // Fallback: si el video tarda, mostramos imagen tras unos segundos
+            setTimeout(()=> hero.classList.add('show-image'), 6000);
+        })();
+    </script>
+
+</body>
+</html>
