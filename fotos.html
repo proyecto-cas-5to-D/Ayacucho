@@ -1,17 +1,23 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="page-gastro">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Gastronomía | Ayacucho</title>
+  <title>Guía Futurista | Ayacucho</title>
 
-  <!-- CSS (te paso los archivos luego) -->
+  <!-- Estilos del proyecto (no se tocan) -->
   <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="style-fotos.css" />
+
+  <!-- Iconos (solo Font Awesome) -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+
+  <!-- Meta -->
+  <meta name="description" content="Explora Ayacucho: universidades, museos, restaurantes, artesanías, miradores y más — con un diseño futurista y accesible."/>
 </head>
 <body>
+
+  <!-- NAV SUPERIOR -->
   <nav class="navbar">
-    <!-- Logo SVG minimal (sol andino) -->
     <a href="index.html" class="logo" aria-label="Inicio Ayacucho">
       <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
         <circle cx="12" cy="12" r="4.2" fill="currentColor"></circle>
@@ -29,34 +35,189 @@
       <span>Ayacucho</span>
     </a>
     <ul class="nav-links">
-      <li><a href="historia.html">Historia</a></li>
-      <li><a href="gastronomia.html">Gastronomía</a></li>
-      <li><a href="lugares.html">Lugares</a></li>
-      <li><a href="fotos.html">Fotos</a></li>
+      <li><a href="#categorias">Categorías</a></li>
+      <li><a href="#destacados">Destacados</a></li>
+      <li><a href="#muro">Galería</a></li>
     </ul>
   </nav>
 
-  <header class="hero">
-    <h1>Guía Visual de Ayacucho</h1>
-    <a href="#iglesias" class="btn" id="destacados">Explorar</a>
+  <!-- HERO VIDEO → IMAGEN -->
+  <header class="hero-video" aria-label="Portada Ayacucho" style="--hero-img:url('img/hero-fallback.jpg')">
+    <video class="hero-media" autoplay muted playsinline loop poster="img/hero-fallback.jpg">
+      <source src="video/ayacucho-hero.webm" type="video/webm">
+      <source src="video/ayacucho-hero.mp4" type="video/mp4">
+    </video>
+    <div class="hero-blur-bg" aria-hidden="true"></div>
+    <img class="hero-image" src="img/hero-fallback.jpg" alt="Paisaje icónico de Ayacucho al atardecer">
+    <div class="hero-content">
+      <h1><small>Experiencia inmersiva</small>Guía Visual de Ayacucho</h1>
+      <a href="#categorias" class="btn" id="destacados">Explorar ahora</a>
+      <button class="skip-hero" id="skipHero" aria-label="Saltar a imagen">Saltar animación</button>
+    </div>
   </header>
 
-  <section id="restaurantes" class="section">
-    <h2>Restaurantes recomendados</h2>
-
-
-    <!-- Card que abre modal por hash -->
-    <div class="fotoos">
-      <a href="#gastronomia" data-search-item>
-        <img src="img/Gastronomia.jpg" alt="Gastronomía ayacuchana">
-        <h3>Gastronomía</h3>
-        <p>Puca picante, qapchi y los aromas andinos más auténticos.</p>
-      </a>
+  <!-- CATEGORÍAS PRINCIPALES -->
+  <section id="categorias" class="section" aria-labelledby="t-categorias">
+    <h2 id="t-categorias">Explora por categorías</h2>
+    <div class="grid grid-3" style="margin-top:1rem">
+      <!-- Universidades -->
+      <article class="fotoos">
+        <a href="universidades.html" data-search-item>
+          <img src="img/categorias/universidades.jpg" alt="Universidades de Ayacucho">
+          <h3>Universidades</h3>
+          <p>Vida académica y campus con historia.</p>
+        </a>
+      </article>
+      <!-- Museos -->
+      <article class="fotoos">
+        <a href="museos.html" data-search-item>
+          <img src="img/categorias/museos.jpg" alt="Museos y centros culturales">
+          <h3>Museos</h3>
+          <p>Patrimonio arqueológico y arte vivo.</p>
+        </a>
+      </article>
+      <!-- Restaurantes -->
+      <article class="fotoos">
+        <a href="restaurantes.html" data-search-item>
+          <img src="img/categorias/restaurantes.jpg" alt="Restaurantes recomendados">
+          <h3>Restaurantes</h3>
+          <p>Puca picante, qapchi y más sabores andinos.</p>
+        </a>
+      </article>
+      <!-- Iglesias -->
+      <article class="fotoos">
+        <a href="iglesias.html" data-search-item>
+          <img src="img/categorias/iglesias.jpg" alt="Iglesias coloniales">
+          <h3>Iglesias</h3>
+          <p>Rutas barrocas, tallas y festividades.</p>
+        </a>
+      </article>
+      <!-- Artesanías -->
+      <article class="fotoos">
+        <a href="artesanias.html" data-search-item>
+          <img src="img/categorias/artesanias.jpg" alt="Artesanías tradicionales">
+          <h3>Artesanías</h3>
+          <p>Retablos, tejidos y cerámica con alma.</p>
+        </a>
+      </article>
+      <!-- Parques y Miradores -->
+      <article class="fotoos">
+        <a href="parques-y-miradores.html" data-search-item>
+          <img src="img/categorias/miradores.jpg" alt="Parques y miradores">
+          <h3>Parques y miradores</h3>
+          <p>Horizontes que se quedan en la retina.</p>
+        </a>
+      </article>
     </div>
   </section>
 
-  <!-- JS: apariciones suaves -->
+  <!-- SLIDER DESTACADOS -->
+  <section id="destacados" class="section" aria-labelledby="t-destacados">
+    <h2 id="t-destacados">Destacados para hoy</h2>
+    <div class="slider" aria-label="Carrusel de destinos">
+      <div class="slide-track" style="--img-unique: 8">
+        <a href="#d1" data-search-item><img src="img/slider/1.jpg" alt="Plaza Mayor al amanecer"></a>
+        <a href="#d2" data-search-item><img src="img/slider/2.jpg" alt="Retablo ayacuchano clásico"></a>
+        <a href="#d3" data-search-item><img src="img/slider/3.jpg" alt="Callejón histórico"></a>
+        <a href="#d4" data-search-item><img src="img/slider/4.jpg" alt="Mirador con vista a la ciudad"></a>
+        <a href="#d5" data-search-item><img src="img/slider/5.jpg" alt="Iglesia barroca"></a>
+        <a href="#d6" data-search-item><img src="img/slider/6.jpg" alt="Mercado de artesanías"></a>
+        <a href="#d7" data-search-item><img src="img/slider/7.jpg" alt="Gastronomía local"></a>
+        <a href="#d8" data-search-item><img src="img/slider/8.jpg" alt="Museo de sitio"></a>
+      </div>
+      <button class="slider-btn prev" aria-label="Anterior">‹</button>
+      <button class="slider-btn next" aria-label="Siguiente">›</button>
+    </div>
+  </section>
+
+  <!-- MURO POLAROID -->
+  <section id="muro" class="section" aria-labelledby="t-muro">
+    <h2 id="t-muro">Muro fotográfico</h2>
+    <div class="photo-wall">
+      <a href="#p1" data-title="Semana Santa" data-search-item><img src="img/polaroid/ssanta.jpg" alt="Procesión de Semana Santa"></a>
+      <a href="#p2" data-title="Retablos" data-search-item><img src="img/polaroid/retablos.jpg" alt="Retablos artesanales"></a>
+      <a href="#p3" data-title="Gastronomía" data-search-item><img src="img/polaroid/gastro.jpg" alt="Plato típico ayacuchano"></a>
+      <a href="#p4" data-title="Arquitectura" data-search-item><img src="img/polaroid/arq.jpg" alt="Fachada colonial"></a>
+      <a href="#p5" data-title="Paisajes" data-search-item><img src="img/polaroid/paisaje.jpg" alt="Valle andino"></a>
+      <a href="#p6" data-title="Tejidos" data-search-item><img src="img/polaroid/tejidos.jpg" alt="Telar tradicional"></a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <small>© 2025 — COAR Ayacucho 5° D</small>
+      <a href="https://instagram.com/" target="_blank" class="footer-social" aria-label="Instagram">
+        <i class="fa-brands fa-instagram" aria-hidden="true"></i><span class="sr-only">Instagram</span>
+      </a>
+    </div>
+  </footer>
+
+  <!-- MODALES AUTO (para anchors con imgs) -->
+  <!-- Mantengo estos modales de ejemplo por si usas ids existentes -->
+  <div id="mod-universidades" class="modal" aria-hidden="true">
+    <div class="modal-card">
+      <a class="close" href="#" aria-label="Cerrar modal">&times;</a>
+      <div class="modal-img-wrapper">
+        <img src="img/categorias/universidades.jpg" alt="Universidades de Ayacucho">
+      </div>
+      <p class="modal-caption">Universidades — oferta académica, ubicación de campus, ferias y eventos.</p>
+    </div>
+  </div>
+
+  <div id="mod-museos" class="modal" aria-hidden="true">
+    <div class="modal-card">
+      <a class="close" href="#" aria-label="Cerrar modal">&times;</a>
+      <div class="modal-img-wrapper">
+        <img src="img/categorias/museos.jpg" alt="Museos y centros culturales">
+      </div>  
+      <p class="modal-caption">Museos — arqueología, arte virreinal, memoria y cultura viva.</p>
+    </div>
+  </div>
+
+  <div id="mod-restaurantes" class="modal" aria-hidden="true">
+    <div class="modal-card">
+      <a class="close" href="#" aria-label="Cerrar modal">&times;</a>
+      <div class="modal-img-wrapper">
+        <img src="img/categorias/restaurantes.jpg" alt="Restaurantes recomendados">
+      </div>
+      <p class="modal-caption">Restaurantes — platos típicos, rutas de sabor y horarios.</p>
+    </div>
+  </div>
+
+  <div id="mod-iglesias" class="modal" aria-hidden="true">
+    <div class="modal-card">
+      <a class="close" href="#" aria-label="Cerrar modal">&times;</a>
+      <div class="modal-img-wrapper">
+        <img src="img/categorias/iglesias.jpg" alt="Iglesias coloniales">
+      </div>
+      <p class="modal-caption">Iglesias — estilos arquitectónicos, circuitos y festividades.</p>
+    </div>
+  </div>
+
+  <div id="mod-artesanias" class="modal" aria-hidden="true">
+    <div class="modal-card">
+      <a class="close" href="#" aria-label="Cerrar modal">&times;</a>
+      <div class="modal-img-wrapper">
+        <img src="img/categorias/artesanias.jpg" alt="Artesanías tradicionales">
+      </div>
+      <p class="modal-caption">Artesanías — retablos, tejidos, cerámica; talleres y mercados.</p>
+    </div>
+  </div>
+
+  <div id="mod-miradores" class="modal" aria-hidden="true">
+    <div class="modal-card">
+      <a class="close" href="#" aria-label="Cerrar modal">&times;</a>
+      <div class="modal-img-wrapper">
+        <img src="img/categorias/miradores.jpg" alt="Miradores y vistas panorámicas">
+      </div>
+      <p class="modal-caption">Miradores — atardeceres y rutas de trekking cercanas.</p>
+    </div>
+  </div>
+
+  <!-- SCRIPTS -->
   <script>
+    // Aparición suave por sección
     (function(){
       if (!('IntersectionObserver' in window)) return;
       const io = new IntersectionObserver(entries => {
@@ -66,17 +227,16 @@
     })();
   </script>
 
-  <!-- JS: modales generados automáticamente desde anchors con img -->
   <script>
+    // Modales auto a partir de anchors con img
     (function setupModals(){
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         if (anchor.closest('nav') || anchor.classList.contains('btn')) return;
-
         const id = anchor.getAttribute('href').slice(1);
         const img = anchor.querySelector('img');
         if (!id || !img) return;
 
-        // Accesible title (invisible por CSS que te paso después)
+        // Etiqueta accesible (solo una vez)
         if (!anchor.querySelector('.card-title')) {
           const title = document.createElement('span');
           title.className = 'card-title sr-only';
@@ -84,33 +244,51 @@
           anchor.appendChild(title);
         }
 
+        // Crear modal si no existiera
         if (document.getElementById(id)) return;
-
         const modal = document.createElement('div');
         modal.id = id;
         modal.className = 'modal';
         modal.innerHTML = `
           <div class="modal-card">
-            <a class="close" href="#">&times;</a>
+            <a class="close" href="#" aria-label="Cerrar modal">&times;</a>
             <div class="modal-img-wrapper"><img src="${img.src}" alt="${img.alt}"></div>
             <p class="modal-caption">${img.alt}</p>
           </div>`;
         document.body.appendChild(modal);
       });
 
+      // Cerrar sin volver al inicio y asegurando que la X funcione siempre
+      function clearHashNoScroll(){
+        if (!location.hash) return;
+        history.replaceState(null, '', window.location.pathname + window.location.search);
+      }
+
       document.addEventListener('click', e => {
-        const modal = e.target.classList.contains('modal') ? e.target : null;
-        if (modal) location.hash = '';
+        // Cerrar si clic en fondo del modal
+        if (e.target.classList && e.target.classList.contains('modal')) {
+          e.preventDefault();
+          clearHashNoScroll();
+        }
+        // Cerrar si clic en la X (o algún hijo dentro de ese enlace)
+        const closeBtn = e.target.closest('.modal .close');
+        if (closeBtn) {
+          e.preventDefault();
+          clearHashNoScroll();
+        }
       });
 
       window.addEventListener('keydown', e => {
-        if (e.key === 'Escape' && location.hash) location.hash = '';
+        if (e.key === 'Escape' && location.hash) {
+          e.preventDefault();
+          clearHashNoScroll();
+        }
       });
     })();
   </script>
 
-  <!-- JS: buscador flotante minimal -->
   <script>
+    // Buscador flotante (intacto)
     (function makeFloatingSearch(){
       const wrap = document.createElement('div');
       wrap.className = 'floating-search';
@@ -131,20 +309,17 @@
         </div>
       `;
       document.body.appendChild(wrap);
-
       const toggle  = wrap.querySelector('.fs-toggle');
       const panel   = wrap.querySelector('.fs-panel');
       const input   = wrap.querySelector('.fs-input');
       const btnClear= wrap.querySelector('.fs-clear');
       const btnClose= wrap.querySelector('.fs-close');
       const lbCount = wrap.querySelector('.fs-count');
-
-      // Elementos buscables: anchors con img + cualquier [data-search-item]
       const anchorsWithImg = Array.from(document.querySelectorAll('a')).filter(a => a.querySelector('img'));
       const explicitItems  = Array.from(document.querySelectorAll('[data-search-item]'));
       const uniqueSet = new Set([...anchorsWithImg, ...explicitItems]);
       const items = Array.from(uniqueSet).map(a => {
-        a.setAttribute('data-search-item',''); // asegura atributo
+        a.setAttribute('data-search-item','');
         const img = a.querySelector('img');
         const text = [
           img?.alt || '',
@@ -154,7 +329,6 @@
         ].join(' ');
         return { el: a, img, haystack: text.toLowerCase() };
       });
-
       function openPanel(){ panel.classList.add('open'); setTimeout(()=> input.focus(), 0); }
       function closePanel(){ panel.classList.remove('open'); }
       function setCount(n){ lbCount.textContent = n === 1 ? '1 resultado' : `${n} resultados`; }
@@ -177,11 +351,9 @@
         if (matches[0]) matches[0].el.scrollIntoView({ behavior:'smooth', block:'center' });
         return matches;
       }
-
       toggle.addEventListener('click', () => panel.classList.contains('open') ? closePanel() : openPanel());
       btnClose.addEventListener('click', closePanel);
       btnClear.addEventListener('click', () => { input.value=''; filter(''); input.focus(); });
-
       window.addEventListener('keydown', e => {
         const activeIsInput = ['INPUT','TEXTAREA'].includes(document.activeElement.tagName) || document.activeElement.isContentEditable;
         if (e.key === '/' && !activeIsInput){ e.preventDefault(); openPanel(); }
@@ -190,24 +362,46 @@
           if (matches[0]) matches[0].el.click();
         }
       });
-
       let t; input.addEventListener('input', () => {
         clearTimeout(t); t = setTimeout(()=> filter(input.value), 110);
       });
-
       setCount(items.length);
     })();
   </script>
 
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <small>© 2025 — COAR Ayacucho 5° D</small>
-      <a href="https://instagram.com/" target="_blank" class="footer-social" aria-label="Instagram">
-        <i class="fa-brands fa-instagram" aria-hidden="true"></i><span class="sr-only">Instagram</span>
-      </a>
-    </div>
-  </footer>
+  <script>
+    // Hero: botón "Saltar animación"
+    (function(){
+      const hero = document.querySelector('.hero-video');
+      const btn = document.getElementById('skipHero');
+      if (!hero || !btn) return;
+      btn.addEventListener('click', ()=> hero.classList.add('show-image'));
+      // Fallback: si el video tarda, mostramos imagen tras unos segundos
+      setTimeout(()=> hero.classList.add('show-image'), 6000);
+    })();
+  </script>
 
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+  <script>
+    // Botones del slider: scroll suave del contenedor
+    (function(){
+      const slider = document.querySelector('.slider');
+      if (!slider) return;
+      const track = slider.querySelector('.slide-track');
+      const prev = slider.querySelector('.prev');
+      const next = slider.querySelector('.next');
+      function step(dir){
+        const cardW = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--img-w')) || 320;
+        const gap = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--gap')) || 16;
+        slider.scrollBy({ left: dir*(cardW+gap)*2, behavior:'smooth' });
+      }
+      prev?.addEventListener('click', ()=> step(-1));
+      next?.addEventListener('click', ()=> step(1));
+      // Pausa animación al interactuar
+      slider.addEventListener('pointerenter', ()=> track.style.animationPlayState='paused');
+      slider.addEventListener('pointerleave', ()=> track.style.animationPlayState='running');
+    })();
+  </script>
+
 </body>
 </html>
+  
