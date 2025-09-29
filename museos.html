@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="es" class="page-museos">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Museos y Cultura | Guía Futurista Ayacucho</title>
+
+    <link rel="stylesheet" href="styles.css" />
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+
+    <meta name="description" content="Explora los museos de Ayacucho: historia preinca, arte virreinal, memoria y sitios arqueológicos inmersivos."/>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo" aria-label="Inicio Ayacucho">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <circle cx="12" cy="12" r="4.2" fill="currentColor"></circle>
+                <g stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+                    <line x1="12" y1="1.6"  x2="12" y2="4.2"></line>
+                    <line x1="12" y1="19.8" x2="12" y2="22.4"></line>
+                    <line x1="1.6" y1="12"  x2="4.2" y2="12"></line>
+                    <line x1="19.8" y1="12" x2="22.4" y2="12"></line>
+                    <line x1="4.4" y1="4.4"  x2="6.2" y2="6.2"></line>
+                    <line x1="17.8" y1="17.8" x2="19.6" y2="19.6"></line>
+                    <line x1="4.4" y1="19.6" x2="6.2" y2="17.8"></line>
+                    <line x1="17.8" y1="6.2" x2="19.6" y2="4.4"></line>
+                </g>
+            </svg>
+            <span>Museos</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html#categorias">Inicio</a></li>
+            <li><a href="#m-historia">Historia</a></li>
+            <li><a href="#m-arte">Arte y Memoria</a></li>
+            <li><a href="#m-sitios">Sitios</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero" style="background-image:url('img/museos-hero.jpg'); min-height:50vh;">
+        <div class="hero-content">
+            <img class="hero-image" src="img/museos-hero-logo.png" alt="Icono de una vasija antigua" style="max-width:300px; box-shadow:none;">
+            <h1 style="font-size:clamp(1.7rem, 5vw, 3rem); text-align:center;">
+                Patrimonio y Memoria Viva
+            </h1>
+            <a href="#m-historia" class="btn" id="destacados">Descubrir Museos</a>
+        </div>
+    </header>
+
+    <section id="m-historia" class="section in-view" aria-labelledby="t-historia">
+        <h2 id="t-historia" style="text-align:center;">Historia Prehispánica y Colonial</h2>
+        <p style="text-align:center; max-width:650px; margin:auto; color:var(--c-muted);">
+            Centros dedicados a las grandes culturas que florecieron en la región, desde Wari hasta la Colonia.
+        </p>
+
+        <div class="grid grid-3" style="margin-top:2.5rem;">
+            <article class="card">
+                <a href="#modal-m-unanue" data-search-item>
+                    <img src="img/museos/m-unanue.jpg" alt="Fachada del Museo Hipólito Unanue" loading="lazy">
+                    <h3>Arqueológico</h3>
+                    <p style="color:var(--c-accent-light); font-weight:600;">Hipólito Unanue (UNSCH)</p>
+                    <p>Posee colecciones extensas de cerámica y textiles de la cultura Wari, además de piezas de la época incaica y virreinal. Ubicado en el campus universitario.</p>
+                </a>
+            </article>
+
+            <article class="card">
+                <a href="#modal-m-wari" data-search-item>
+                    <img src="img/museos/m-wari.jpg" alt="Entrada al Museo de Sitio de Wari" loading="lazy">
+                    <h3>Museo de Sitio</h3>
+                    <p style="color:var(--c-accent-light); font-weight:600;">Complejo Arqueológico Wari</p>
+                    <p>Exhibe los hallazgos de la capital del primer imperio andino, Wari. Permite complementar la visita al sitio arqueológico con piezas restauradas.</p>
+                </a>
+            </article>
+
+            <article class="card">
+                <a href="#modal-m-casona" data-search-item>
+                    <img src="img/museos/m-casona.jpg" alt="Interior de una casona colonial con exhibiciones" loading="lazy">
+                    <h3>Casona Colonial</h3>
+                    <p style="color:var(--c-accent-light); font-weight:600;">Casa Vivanco/Palacio Cultural</p>
+                    <p>Una muestra itinerante en una de las casonas más bellas de la Plaza Mayor. Enfocado en la arquitectura y vida social del siglo XVIII.</p>
+                </a>
+            </article>
+        </div>
+    </section>
+
+    <section id="m-arte" class="section in-view" aria-labelledby="t-arte">
+        <h2 id="t-arte" style="text-align:center;">Arte Religioso, Memoria y Expresión</h2>
+        <p style="text-align:center; max-width:650px; margin:auto; color:var(--c-muted);">
+            Espacios dedicados al arte sacro, la artesanía tradicional ayacuchana y la memoria histórica reciente.
+        </p>
+
+        <div class="grid grid-3" style="margin-top:2.5rem;">
+            <article class="card">
+                <a href="#modal-m-religioso" data-search-item>
+                    <img src="img/museos/m-religioso.jpg" alt="Interior con cuadros de arte sacro colonial" loading="lazy">
+                    <h3>Arte Religioso</h3>
+                    <p style="color:var(--c-accent-light); font-weight:600;">Templo de San Francisco</p>
+                    <p>Alberga una valiosa colección de lienzos, esculturas y objetos litúrgicos de los siglos XVII y XVIII. Destacan sus tallas barrocas.</p>
+                </a>
+            </article>
+
+            <article class="card">
+                <a href="#modal-m-memoria" data-search-item>
+                    <img src="img/museos/m-memoria.jpg" alt="Mural o exhibición relacionada con la memoria histórica" loading="lazy">
+                    <h3>Memoria Histórica</h3>
+                    <p style="color:var(--c-accent-light); font-weight:600;">Asociación ANFASEP</p>
+                    <p>Un centro crucial para la historia reciente de Ayacucho. Exhibiciones de arte popular y testimonios sobre la violencia política en los 80s y 90s.</p>
+                </a>
+            </article>
+
+            <article class="card">
+                <a href="#modal-m-taller" data-search-item>
+                    <img src="img/museos/m-taller.jpg" alt="Artesanos trabajando en un retablo ayacuchano" loading="lazy">
+                    <h3>Taller Artesanal</h3>
+                    <p style="color:var(--c-accent-light); font-weight:600;">Retablos y Piedra de Huamanga</p>
+                    <p>No es solo un museo, es un espacio donde se puede observar a los maestros artesanos crear retablos y tallas en vivo. Exhibición y venta.</p>
+                </a>
+            </article>
+        </div>
+    </section>
+
+    <section id="m-sitios" class="section in-view" aria-labelledby="t-sitios">
+        <h2 id="t-sitios" style="text-align:center;">Ruta Arqueológica y Naturaleza</h2>
+        <p style="text-align:center; max-width:650px; margin:auto; color:var(--c-muted);">
+            Sitios históricos cercanos que complementan la experiencia museística de la región.
+        </p>
+
+        <div class="grid grid-3" style="margin-top:2.5rem;">
+            <article class="card">
+                <a href="#modal-m-quinua" data-search-item>
+                    <img src="img/museos/m-quinua.jpg" alt="Monumento de la Pampa de la Quinua" loading="lazy">
+                    <h3>Pampa de la Quinua</h3>
+                    <p style="color:var(--c-accent-light); font-weight:600;">Museo Histórico</p>
+                    <p>Ubicado en el campo de batalla de la Independencia. Exhibe armas, uniformes y documentos de la Batalla de Ayacucho.</p>
+                </a>
+            </article>
+
+            <article class="card">
+                <a href="#modal-m-vilcas" data-search-item>
+                    <img src="img/museos/m-vilcas.jpg" alt="Vista del Templo del Sol y la Luna en Vilcashuamán" loading="lazy">
+                    <h3>Vilcashuamán</h3>
+                    <p style="color:var(--c-accent-light); font-weight:600;">Centro Inca Regional</p>
+                    <p>El sitio arqueológico inca más importante de la zona. Destaca por su Templo del Sol y su impresionante arquitectura ceremonial.</p>
+                </a>
+            </article>
+
+            <article class="card">
+                <a href="#modal-m-huanta" data-search-item>
+                    <img src="img/museos/m-huanta.jpg" alt="Exhibiciones en el Museo de Huanta" loading="lazy">
+                    <h3>Museo de Huanta</h3>
+                    <p style="color:var(--c-accent-light); font-weight:600;">Arqueología y Etnografía</p>
+                    <p>Un museo dedicado a la historia y las costumbres de la provincia de Huanta, con piezas arqueológicas únicas del valle.</p>
+                </a>
+            </article>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <small>© 2025 — COAR Ayacucho 5° D</small>
+            <a href="https://instagram.com/" target="_blank" class="footer-social" aria-label="Instagram">
+                <i class="fa-brands fa-instagram" aria-hidden="true"></i><span class="sr-only">Instagram</span>
+            </a>
+        </div>
+    </footer>
+
+    <div id="modal-m-unanue" class="modal" aria-hidden="true">
+        <div class="modal-card">
+            <a class="close" href="#" aria-label="Cerrar modal">&times;</a>
+            <div class="modal-img-wrapper">
+                <img src="img/museos/m-unanue.jpg" alt="Museo Arqueológico Hipólito Unanue">
+            </div>
+            <p class="modal-caption">**Museo UNSCH** — Colección permanente de la Cultura Wari. Horario: 9:00 AM - 5:00 PM.</p>
+        </div>
+    </div>
+    <div id="modal-m-wari" class="modal" aria-hidden="true">
+        <div class="modal-card">
+            <a class="close" href="#" aria-label="Cerrar modal">&times;</a>
+            <div class="modal-img-wrapper">
+                <img src="img/museos/m-wari.jpg" alt="Museo de Sitio de Wari">
+            </div>
+            <p class="modal-caption">**Museo Wari** — Ideal para visitantes del Complejo Arqueológico. Ubicación: a 22 km de Ayacucho.</p>
+        </div>
+    </div>
+    <div id="modal-m-casona" class="modal" aria-hidden="true">
+        <div class="modal-card">
+            <a class="close" href="#" aria-label="Cerrar modal">&times;</a>
+            <div class="modal-img-wrapper">
+                <img src="img/museos/m-casona.jpg" alt="Casona Museo Cultural">
+            </div>
+            <p class="modal-caption">**Casona Colonial** — Consulta el cronograma, usualmente abierto para exhibiciones temporales de arte local.</p>
+        </div>
+    </div>
+    <div id="modal-m-religioso" class="modal" aria-hidden="true">
+        <div class="modal-card">
+            <a class="close" href="#" aria-label="Cerrar modal">&times;</a>
+            <div class="modal-img-wrapper">
+                <img src="img/museos/m-religioso.jpg" alt="Museo de Arte Religioso (Templo de San Francisco de Asís)">
+            </div>
+            <p class="modal-caption">**Arte Religioso** — Horario limitado, abierto por la tarde. Ingreso por la sacristía.</p>
+        </div>
+    </div>
+    <div id="modal-m-memoria" class="modal" aria-hidden="true">
+        <div class="modal-card">
+            <a class="close" href="#" aria-label="Cerrar modal">&times;</a>
+            <div class="modal-img-wrapper">
+                <img src="img/museos/m-memoria.jpg" alt="Museo de la Memoria (ANFASEP)">
+            </div>
+            <p class="modal-caption">**ANFASEP** — Un espacio para la reflexión y la paz. Entrada libre.</p>
+        </div>
+    </div>
+    <div id="modal-m-taller" class="modal" aria-hidden="true">
+        <div class="modal-card">
+            <a class="close" href="#" aria-label="Cerrar modal">&times;</a>
+            <div class="modal-img-wrapper">
+                <img src="img/museos/m-taller.jpg" alt="Museo Taller de Artesanía">
+            </div>
+            <p class="modal-caption">**Taller Artesanal** — Ubicado en el barrio de Santa Ana. Se pueden solicitar clases o demostraciones.</p>
+        </div>
+    </div>
+    <div id="modal-m-quinua" class="modal" aria-hidden="true">
+        <div class="modal-card">
+            <a class="close" href="#" aria-label="Cerrar modal">&times;</a>
+            <div class="modal-img-wrapper">
+                <img src="img/museos/m-quinua.jpg" alt="Pampa de la Quinua">
+            </div>
+            <p class="modal-caption">**Pampa de la Quinua** — Sitio histórico nacional. Ideal para combinar con la visita a Quinua pueblo.</p>
+        </div>
+    </div>
+    <div id="modal-m-vilcas" class="modal" aria-hidden="true">
+        <div class="modal-card">
+            <a class="close" href="#" aria-label="Cerrar modal">&times;</a>
+            <div class="modal-img-wrapper">
+                <img src="img/museos/m-vilcas.jpg" alt="Ruinas de Vilcashuamán">
+            </div>
+            <p class="modal-caption">**Vilcashuamán** — Un viaje de día completo. Imprescindible para entender la expansión Inca en la sierra.</p>
+        </div>
+    </div>
+    <div id="modal-m-huanta" class="modal" aria-hidden="true">
+        <div class="modal-card">
+            <a class="close" href="#" aria-label="Cerrar modal">&times;</a>
+            <div class="modal-img-wrapper">
+                <img src="img/museos/m-huanta.jpg" alt="Museo Antropológico de Huanta">
+            </div>
+            <p class="modal-caption">**Museo Huanta** — Pequeño pero rico en etnografía de la provincia. Ideal si se visita Huanta.</p>
+        </div>
+    </div>
+
+    <script>
+        // Aparición suave por sección
+        (function(){
+            if (!('IntersectionObserver' in window)) return;
+            const io = new IntersectionObserver(entries => {
+                entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in-view'); });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('section').forEach(sec => io.observe(sec));
+        })();
+
+        // Modales auto a partir de anchors con img — FIX DE SCROLL AL CERRAR
+        (function setupModals(){
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                if (anchor.closest('nav') || anchor.classList.contains('btn') || anchor.classList.contains('close')) return;
+                
+                const id = anchor.getAttribute('href').slice(1);
+                const img = anchor.querySelector('img');
+                if (!id || !img) return;
+
+                // Crear modal si no existiera (mantenido por si se usa en otras páginas)
+                if (!document.getElementById(id)) {
+                    const modal = document.createElement('div');
+                    modal.id = id;
+                    modal.className = 'modal';
+                    modal.innerHTML = `
+                        <div class="modal-card">
+                            <a class="close" href="#" aria-label="Cerrar modal">&times;</a>
+                            <div class="modal-img-wrapper"><img src="${img.src}" alt="${img.alt}"></div>
+                            <p class="modal-caption">${img.alt}</p>
+                        </div>`;
+                    document.body.appendChild(modal);
+                }
+            });
+
+            function clearHashNoScroll(){
+                if (!location.hash) return;
+                // FIX: Usamos replaceState para reemplazar el estado sin scroll
+                history.replaceState(null, '', window.location.pathname + window.location.search);
+                const activeModal = document.querySelector('.modal:target');
+                if (activeModal) {
+                    activeModal.style.display = 'none';
+                    activeModal.style.opacity = '0';
+                    activeModal.style.pointerEvents = 'none';
+                }
+            }
+
+            document.addEventListener('click', e => {
+                const target = e.target;
+                if (target.classList && target.classList.contains('modal')) {
+                    e.preventDefault();
+                    clearHashNoScroll();
+                }
+                const closeBtn = target.closest('.modal .close');
+                if (closeBtn) {
+                    e.preventDefault();
+                    clearHashNoScroll();
+                }
+            });
+
+            window.addEventListener('keydown', e => {
+                if (e.key === 'Escape' && location.hash) {
+                    e.preventDefault();
+                    clearHashNoScroll();
+                }
+            });
+            
+            if(window.location.hash && window.location.hash.startsWith('#modal-')) {
+                 clearHashNoScroll();
+            }
+        })();
+
+        // (El script del Buscador Flotante también debe ser incluido aquí)
+        // ...
+    </script>
+    <div class="floating-search">
+    <button class="fs-toggle" title="Buscar contenidos (/)">🔎</button>
+    <div class="fs-panel" role="dialog" aria-label="Buscador de contenidos">
+        <div class="fs-row">
+            <input class="fs-input" type="search" placeholder="Buscar: 'Ingeniería', 'UNAH', 'Privada'…" />
+            <div class="fs-actions">
+                <button class="fs-btn fs-clear" title="Limpiar">Limpiar</button>
+                <button class="fs-btn fs-close" title="Cerrar">Cerrar</button>
+            </div>
+        </div>
+        <div class="fs-meta">
+            <span class="fs-count">0 resultados</span>
+            <span>Atajos: <kbd>/</kbd> abrir • <kbd>Enter</kbd> abrir 1.º</span>
+        </div>
+    </div>
+</div>
+<script>
+    // Buscador flotante
+    (function makeFloatingSearch(){
+        // Esta función espera que el HTML del buscador esté presente en el body
+        const wrap = document.querySelector('.floating-search');
+        if (!wrap) return; // Si no encuentra el HTML, detiene el script.
+
+        const panel   = wrap.querySelector('.fs-panel');
+        const input   = wrap.querySelector('.fs-input');
+        const btnClear= wrap.querySelector('.fs-clear');
+        const btnClose= wrap.querySelector('.fs-close');
+        const lbCount = wrap.querySelector('.fs-count');
+        
+        // Recolección de items a buscar: busca todos los enlaces con 'data-search-item'
+        const items = Array.from(document.querySelectorAll('a[data-search-item]')).map(a => {
+            const img = a.querySelector('img');
+            // Concatena todo el texto relevante para crear el "pajar" de búsqueda (haystack)
+            const text = [
+                img?.alt || '',
+                a.querySelector('h3')?.textContent || '',
+                a.querySelector('p')?.textContent || '',
+                (img?.src?.split('/').pop() || '')
+            ].join(' ');
+            return { el: a, img, haystack: text.toLowerCase() };
+        });
+
+        function openPanel(){ panel.classList.add('open'); setTimeout(()=> input.focus(), 0); }
+        function closePanel(){ panel.classList.remove('open'); }
+        function setCount(n){ lbCount.textContent = n === 1 ? '1 resultado' : `${n} resultados`; }
+        function clearHighlights(){ items.forEach(c => c.el.classList.remove('match-outline')); }
+        
+        function filter(q){
+            const term = q.trim().toLowerCase();
+            clearHighlights();
+            if (!term){
+                items.forEach(c => c.el.classList.remove('hidden'));
+                setCount(items.length);
+                return [];
+            }
+            const matches = [];
+            items.forEach(c => {
+                const ok = c.haystack.includes(term);
+                c.el.classList.toggle('hidden', !ok); // Oculta o muestra el elemento
+                if (ok){ matches.push(c); c.el.classList.add('match-outline'); } // Si coincide, lo resalta
+            });
+            setCount(matches.length);
+            // Si hay match, hace scroll al primer resultado
+            if (matches[0]) matches[0].el.scrollIntoView({ behavior:'smooth', block:'center' });
+            return matches;
+        }
+
+        // Eventos de interacción:
+        document.querySelector('.fs-toggle').addEventListener('click', () => panel.classList.contains('open') ? closePanel() : openPanel());
+        btnClose.addEventListener('click', closePanel);
+        btnClear.addEventListener('click', () => { input.value=''; filter(''); input.focus(); });
+        
+        // Atajos de teclado: / para abrir, Enter para ir al primer resultado
+        window.addEventListener('keydown', e => {
+            const activeIsInput = ['INPUT','TEXTAREA'].includes(document.activeElement.tagName) || document.activeElement.isContentEditable;
+            if (e.key === '/' && !activeIsInput){ e.preventDefault(); openPanel(); }
+            if (e.key === 'Enter' && panel.classList.contains('open')){
+                const matches = filter(input.value);
+                if (matches[0]) matches[0].el.click();
+            }
+        });
+        
+        // Retraso en la búsqueda (debounce) para no sobrecargar al escribir
+        let t; 
+        input.addEventListener('input', () => {
+            clearTimeout(t); t = setTimeout(()=> filter(input.value), 110);
+        });
+        
+        // Inicializa el contador
+        setCount(items.length);
+    })();
+</script>
+    
+</body>
+</html>
