@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="es" class="page-parques">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Parques y Miradores | Guía Futurista Ayacucho</title>
+
+    <link rel="stylesheet" href="styles.css" />
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+
+    <meta name="description" content="Explora los mejores parques, plazas y miradores de Ayacucho para disfrutar de vistas panorámicas y momentos de recreación al aire libre."/>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo" aria-label="Inicio Ayacucho">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <circle cx="12" cy="12" r="4.2" fill="currentColor"></circle>
+                <g stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+                    <line x1="12" y1="1.6"  x2="12" y2="4.2"></line>
+                    <line x1="12" y1="19.8" x2="12" y2="22.4"></line>
+                    <line x1="1.6" y1="12"  x2="4.2" y2="12"></line>
+                    <line x1="19.8" y1="12" x2="22.4" y2="12"></line>
+                    <line x1="4.4" y1="4.4"  x2="6.2" y2="6.2"></line>
+                    <line x1="17.8" y1="17.8" x2="19.6" y2="19.6"></line>
+                    <line x1="4.4" y1="19.6" x2="6.2" y2="17.8"></line>
+                    <line x1="17.8" y1="6.2" x2="19.6" y2="4.4"></line>
+                </g>
+            </svg>
+            <span>Parques</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html#categorias">Inicio</a></li>
+            <li><a href="#p-urbano">Recreación Urbana</a></li>
+            <li><a href="#p-miradores">Miradores</a></li>
+            <li><a href="#p-natural">Zonas Naturales</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero" style="background-image:url('img/parques-hero.jpg'); min-height:50vh;">
+        <div class="hero-content">
+            <img class="hero-image" src="img/parques-hero-logo.png" alt="Icono de un árbol en un parque" style="max-width:300px; box-shadow:none;">
+            <h1 style="font-size:clamp(1.7rem, 5vw, 3rem); text-align:center;">
+                Verde, Aire Puro y Panorámicas
+            </h1>
+            <a href="#p-urbano" class="btn" id="destacados">Explorar Espacios</a>
+        </div>
+    </header>
+
+    <section id="p-urbano" class="section in-view" aria-labelledby="t-urbano">
+        <h2 id="t-urbano" style="text-align:center;">Parques de la Ciudad y Plazas</h2>
+        <p style="text-align:center; max-width:650px; margin:auto; color:var(--c-muted);">
+            Lugares céntricos para el descanso, la actividad física y el encuentro social.
+        </p>
+
+        <div class="grid grid-3" style="margin-top:2.5rem;">
+            <article class="card">
+                <a href="#modal-p-mariscal" data-search-item>
+                    <img src="https://lh3.googleusercontent.com/d/1mMic_-0X4VZUKrAynOfQGaVZMfe1U_Kb" alt="Vista del Parque Mariscal Cáceres" loading="lazy">
+                    <h3>Parque Mariscal Cáceres</h3>
+                    <p style="color:var(--c-accent-light); font-weight:600;">Espacio Amplio</p>
+                    <p>Un parque grande y popular, ideal para actividades deportivas y eventos al aire libre. Un pulmón verde en la ciudad.</p>
+                </a>
+            </article>
+            <article class="card">
+                <a href="#modal-p-mariscal-2" data-search-item>
+                    <img src="https://lh3.googleusercontent.com/d/1caJ8lUEE0l7HiToTU4QAJi-5owV267U0" alt="Otra vista del Parque Mariscal Cáceres" loading="lazy">
+                    <h3>Parque Mariscal Cáceres</h3>
+                </a>
+            </article>
+            <article class="card">
+                <a href="#modal-p-mariscal-3" data-search-item>
+                    <img src="https://lh3.googleusercontent.com/d/1VI5HUBVsQ7wmowjiDZZdfAzo6SWEvKzz" alt="Áreas verdes del Parque Mariscal Cáceres" loading="lazy">
+                    <h3>Parque Mariscal Cáceres</h3>
+                </a>
+            </article>
+
+            <article class="card">
+                <a href="#modal-p-plaza" data-search-item>
+                    <img src="https://lh3.googleusercontent.com/d/1hbMNYC213hoUadSZT0zY1vR9FY5STf9J" alt="Pileta central de la Plaza Mayor de Huamanga" loading="lazy">
+                    <h3>Plaza Mayor</h3>
+                    <p style="color:var(--c-accent-light); font-weight:600;">Centro Histórico</p>
+                    <p>El corazón social y político de la ciudad. Rodeada de casonas y la Catedral, perfecta para observar la vida local.</p>
+                </a>
+            </article>
+            <article class="card">
+                <a href="#modal-p-plaza-2" data-search-item>
+                    <img src="https://lh3.googleusercontent.com/d/1JtsV_2T5Yc2I-uwbFJ1Zkzl7Kf3fh45-" alt="Arcos de la Plaza Mayor de Huamanga" loading="lazy">
+                    <h3>Plaza Mayor</h3>
+                </a>
+            </article>
+
+            <article class="card">
+                <a href="#modal-p-memoria" data-search-item>
+                    <img src="https://lh3.googleusercontent.com/d/1D097RtZPUaQxNvS4cCbW9L9EL4aNHKSv" alt="Monumento en el Parque de la Memoria" loading="lazy">
+                    <h3>Parque de la Memoria</h3>
+                    <p style="color:var(--c-accent-light); font-weight:600;">Espacio Conmemorativo</p>
+                    <p>Un lugar para la reflexión y el recuerdo. Cuenta con monumentos y áreas verdes que invitan a la tranquilidad.</p>
+                </a>
+            </article>
+            <article class="card">
+                <a href="#modal-p-memoria-2" data-search-item>
+                    <img src="https://lh3.googleusercontent.com/d/1OCL4nabT3r3-kghfrt7kY1BCSlhpLCTr" alt="Detalle del monumento en el Parque de la Memoria" loading="lazy">
+                    <h3>Parque de la Memoria</h3>
+                </a>
+            </article>
+            <article class="card">
+                <a href="#modal-p-memoria-3" data-search-item>
+                    <img src="https://lh3.googleusercontent.com/d/1Lh4oxQehFs7gXTcmCw7UdgHf87WJq8er" alt="Vista general del Parque de la Memoria" loading="lazy">
+                    <h3>Parque de la Memoria</h3>
+                </a>
+            </article>
+            <article class="card">
+                <a href="#modal-p-memoria-4" data-search-item>
+                    <img src="https://lh3.googleusercontent.com/d/1zB4hZbFH-in3nkbf8hVXTpmVAGTVAelf" alt="Placa en el Parque de la Memoria" loading="lazy">
+                    <h3>Parque de la Memoria</h3>
+                </a>
+            </article>
+        </div>
+    </section>
+
+    <section id="p-miradores" class="section in-view" aria-labelledby="t-miradores">
+        <h2 id="t-miradores" style="text-align:center;">Plazas con Encanto y Vistas</h2>
+        <p style="text-align:center; max-width:650px; margin:auto; color:var(--c-muted);">
+            Los mejores puntos para obtener fotografías y disfrutar del ambiente histórico y cultural de la ciudad.
+        </p>
+
+        <div class="grid grid-3" style="margin-top:2.5rem;">
+            <article class="card">
+                <a href="#modal-p-santa-ana" data-search-item>
+                    <img src="https://lh3.googleusercontent.com/d/115UmeuBmmBB5VijJs63hj8_t_KrftJ2j" alt="Vista de la Plazoleta de Santa Ana" loading="lazy">
+                    <h3>Plazoleta de Santa Ana</h3>
+                    <p style="color:var(--c-accent-light); font-weight:600;">Cultura y Tradición</p>
+                    <p>Famosa por su iglesia y talleres de artesanos. Un lugar lleno de historia con una vista privilegiada del barrio.</p>
+                </a>
+            </article>
+             <article class="card">
+                <a href="#modal-p-santa-ana-2" data-search-item>
+                    <img src="https://lh3.googleusercontent.com/d/1ylnWXRyDmvh7LY5bc3FzJ1JoO_FSmUwk" alt="Iglesia en la Plazoleta de Santa Ana" loading="lazy">
+                    <h3>Plazoleta de Santa Ana</h3>
+                </a>
+            </article>
+             <article class="card">
+                <a href="#modal-p-santa-ana-3" data-search-item>
+                    <img src="https://lh3.googleusercontent.com/d/14bfxub6ZQEmv9FplHLc_V-qsAvq-H50Q" alt="Detalle de la Plazoleta de Santa Ana" loading="lazy">
+                    <h3>Plazoleta de Santa Ana</h3>
+                </a>
+            </article>
+             <article class="card">
+                <a href="#modal-p-santa-ana-4" data-search-item>
+                    <img src="https://lh3.googleusercontent.com/d/1N0igoHmoCMdxsqmV3kqsl6RPZ8rDi2id" alt="Artesanías en Santa Ana" loading="lazy">
+                    <h3>Plazoleta de Santa Ana</h3>
+                </a>
+            </article>
+             <article class="card">
+                <a href="#modal-p-santa-ana-5" data-search-item>
+                    <img src="https://lh3.googleusercontent.com/d/1Je9P5KQy3WWTRLpVLynahWEsTAYfT6rg" alt="Calle tradicional de Santa Ana" loading="lazy">
+                    <h3>Plazoleta de Santa Ana</h3>
+                </a>
+            </article>
+             <article class="card">
+                <a href="#modal-p-santa-ana-6" data-search-item>
+                    <img src="https://lh3.googleusercontent.com/d/1cwmdKrF-FEkD2ELQcAQ1y53rxFool9bV" alt="Balcones en Santa Ana" loading="lazy">
+                    <h3>Plazoleta de Santa Ana</h3>
+                </a>
+            </article>
+             <article class="card">
+                <a href="#modal-p-santa-ana-7" data-search-item>
+                    <img src="https://lh3.googleusercontent.com/d/1OQhNVkt7-vCPr2EtxMoHNl7z36P53SCi" alt="Campanario de la iglesia de Santa Ana" loading="lazy">
+                    <h3>Plazoleta de Santa Ana</h3>
+                </a>
+            </article>
+             <article class="card">
+                <a href="#modal-p-santa-ana-8" data-search-item>
+                    <img src="https://lh3.googleusercontent.com/d/1wVhw3Mr4wvxjsNIwXT5r025OT9tR6itX" alt="Vista panorámica desde Santa Ana" loading="lazy">
+                    <h3>Plazoleta de Santa Ana</h3>
+                </a>
+            </article>
+             <article class="card">
+                <a href="#modal-p-santa-ana-9" data-search-item>
+                    <img src="https://lh3.googleusercontent.com/d/1ctXZjBYwohLmoMgm_BiCDpVSGvqwDtoJ" alt="Muro de piedra en Santa Ana" loading="lazy">
+                    <h3>Plazoleta de Santa Ana</h3>
+                </a>
+            </article>
+
+            <article class="card">
+                <a href="#modal-p-santa-teresa" data-search-item>
+                    <img src="https://lh3.googleusercontent.com/d/1dd6TEdmjGd0ZO2kXKilllVgl_uvoSSj5" alt="Vista de la Plazoleta Santa Teresa" loading="lazy">
+                    <h3>Plazoleta Santa Teresa</h3>
+                    <p style="color:var(--c-accent-light); font-weight:600;">Rincón Colonial</p>
+                    <p>Una pequeña y tranquila plaza junto al monasterio. Ideal para una pausa y disfrutar de la arquitectura colonial.</p>
+                </a>
+            </article>
+            <article class="card">
+                <a href="#modal-p-santa-teresa-2" data-search-item>
+                    <img src="https://lh3.googleusercontent.com/d/1iWXaWVVFbNuELzO3EFux5QAf3B_up-Yh" alt="Monasterio junto a la Plazoleta Santa Teresa" loading="lazy">
+                    <h3>Plazoleta Santa Teresa</h3>
+                </a>
+            </article>
+            <article class="card">
+                <a href="#modal-p-santa-teresa-3" data-search-item>
+                    <img src="https://lh3.googleusercontent.com/d/1B7KxvHuj-s2ORdPZXUpQq8o2BNeFkptc" alt="Detalle arquitectónico en Plazoleta Santa Teresa" loading="lazy">
+                    <h3>Plazoleta Santa Teresa</h3>
+                </a>
+            </article>
+            <article class="card">
+                <a href="#modal-p-santa-teresa-4" data-search-item>
+                    <img src="https://lh3.googleusercontent.com/d/1ctqEdOaVc6F0Ujbh5AFURLfXadMziUqP" alt="Banca en la Plazoleta Santa Teresa" loading="lazy">
+                    <h3>Plazoleta Santa Teresa</h3>
+                </a>
+            </article>
+            <article class="card">
+                <a href="#modal-p-santa-teresa-5" data-search-item>
+                    <img src="https://lh3.googleusercontent.com/d/1lpsaNVnKCdkrn0Y3zPX0vn6iEjjyMh__" alt="Vista nocturna de la Plazoleta Santa Teresa" loading="lazy">
+                    <h3>Plazoleta Santa Teresa</h3>
+                </a>
+            </article>
+
+            <article class="card">
+                <a href="#modal-p-sanidad" data-search-item>
+                    <img src="https://lh3.googleusercontent.com/d/1-J9uqn0RzRD5cb-ao6xpNGHVl5RSau5s" alt="Áreas verdes del Parque Sanidad" loading="lazy">
+                    <h3>Parque Sanidad</h3>
+                    <p style="color:var(--c-accent-light); font-weight:600;">Recreación y Deporte</p>
+                    <p>Un parque moderno con instalaciones para el deporte y juegos infantiles. Frecuentado por familias de la zona.</p>
+                </a>
+            </article>
+            <article class="card">
+                <a href="#modal-p-sanidad-2" data-search-item>
+                    <img src="https://lh3.googleusercontent.com/d/1Zf0Y-nnz6mzSTyQ_droIf7X9MnziIf-u" alt="Juegos infantiles en el Parque Sanidad" loading="lazy">
+                    <h3>Parque Sanidad</h3>
+                </a>
+            </article>
+            <article class="card">
+                <a href="#modal-p-sanidad-3" data-search-item>
+                    <img src="https://lh3.googleusercontent.com/d/1Alk_gULaSAyBE-4oFDQcViiGU7Zvcu1a" alt="Canchas deportivas en el Parque Sanidad" loading="lazy">
+                    <h3>Parque Sanidad</h3>
+                </a>
+            </article>
+        </div>
+    </section>
+
+    <section id="p-natural" class="section in-view" aria-labelledby="t-natural">
+        <h2 id="t-natural" style="text-align:center;">Naturaleza y Sitios Recreativos Cercanos</h2>
+        <p style="text-align:center; max-width:650px; margin:auto; color:var(--c-muted);">
+            Espacios naturales fuera de la ciudad, ideales para una excursión de un día.
+        </p>
+
+        <div class="grid grid-3" style="margin-top:2.5rem;">
+            <article class="card">
+                <a href="#modal-p-huayllay" data-search-item>
+                    <img src="img/parques/p-huayllay.jpg" alt="Formaciones rocosas en un paisaje andino" loading="lazy">
+                    <h3>Bosque de Piedras</h3>
+                    <p style="color:var(--c-accent-light); font-weight:600;">Ecoruta Huayllay</p>
+                    <p>Una zona de formaciones rocosas únicas en las afueras. Ideal para paseos, fotografía y picnic en un entorno natural.</p>
+                </a>
+            </article>
+
+            <article class="card">
+                <a href="#modal-p-termales" data-search-item>
+                    <img src="img/parques/p-termales.jpg" alt="Piscina de aguas termales en un balneario" loading="lazy">
+                    <h3>Aguas Calientes</h3>
+                    <p style="color:var(--c-accent-light); font-weight:600;">Balneario de Canaán</p>
+                    <p>Aguas termales naturales que ofrecen un descanso relajante. Popular entre los locales por sus propiedades curativas. Requiere transporte.</p>
+                </a>
+            </article>
+
+            <article class="card">
+                <a href="#modal-p-cachi" data-search-item>
+                    <img src="img/parques/p-cachi.jpg" alt="Ribera del Río Cachi con árboles y vegetación" loading="lazy">
+                    <h3>Río Cachi</h3>
+                    <p style="color:var(--c-accent-light); font-weight:600;">Zona de Paseo</p>
+                    <p>La ribera del río Cachi, un área verde perfecta para caminatas o ciclismo. Un escape rápido del ruido de la ciudad.</p>
+                </a>
+            </article>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <small>© 2025 — COAR Ayacucho 5° D</small>
+            <a href="https://instagram.com/" target="_blank" class="footer-social" aria-label="Instagram">
+                <i class="fa-brands fa-instagram" aria-hidden="true"></i><span class="sr-only">Instagram</span>
+            </a>
+        </div>
+    </footer>
+
+    <div id="modal-p-mariscal" class="modal" aria-hidden="true">
+        <div class="modal-card">
+            <a class="close" href="#" aria-label="Cerrar modal">×</a>
+            <div class="modal-img-wrapper">
+                <img src="https://lh3.googleusercontent.com/d/1mMic_-0X4VZUKrAynOfQGaVZMfe1U_Kb" alt="Parque Mariscal Cáceres">
+            </div>
+            <p class="modal-caption">**Parque Mariscal Cáceres** — Abierto todo el día. Ideal para deportes y paseos.</p>
+        </div>
+    </div>
+    <div id="modal-p-plaza" class="modal" aria-hidden="true">
+        <div class="modal-card">
+            <a class="close" href="#" aria-label="Cerrar modal">×</a>
+            <div class="modal-img-wrapper">
+                <img src="https://lh3.googleusercontent.com/d/1hbMNYC213hoUadSZT0zY1vR9FY5STf9J" alt="Plaza Mayor de Huamanga">
+            </div>
+            <p class="modal-caption">**Plaza Mayor** — El punto más importante para eventos y celebraciones.</p>
+        </div>
+    </div>
+    <div id="modal-p-memoria" class="modal" aria-hidden="true">
+        <div class="modal-card">
+            <a class="close" href="#" aria-label="Cerrar modal">×</a>
+            <div class="modal-img-wrapper">
+                <img src="https://lh3.googleusercontent.com/d/1D097RtZPUaQxNvS4cCbW9L9EL4aNHKSv" alt="Parque de la Memoria">
+            </div>
+            <p class="modal-caption">**Parque de la Memoria** — Un espacio para el recuerdo y la paz. Abierto al público.</p>
+        </div>
+    </div>
+    <div id="modal-p-santa-ana" class="modal" aria-hidden="true">
+        <div class="modal-card">
+            <a class="close" href="#" aria-label="Cerrar modal">×</a>
+            <div class="modal-img-wrapper">
+                <img src="https://lh3.googleusercontent.com/d/115UmeuBmmBB5VijJs63hj8_t_KrftJ2j" alt="Plazoleta de Santa Ana">
+            </div>
+            <p class="modal-caption">**Plazoleta de Santa Ana** — Famosa por sus talleres de retablos y artesanías.</p>
+        </div>
+    </div>
+    <div id="modal-p-santa-teresa" class="modal" aria-hidden="true">
+        <div class="modal-card">
+            <a class="close" href="#" aria-label="Cerrar modal">×</a>
+            <div class="modal-img-wrapper">
+                <img src="https://lh3.googleusercontent.com/d/1dd6TEdmjGd0ZO2kXKilllVgl_uvoSSj5" alt="Plazoleta Santa Teresa">
+            </div>
+            <p class="modal-caption">**Plazoleta Santa Teresa** — Un lugar perfecto para disfrutar de la calma y la arquitectura.</p>
+        </div>
+    </div>
+    <div id="modal-p-sanidad" class="modal" aria-hidden="true">
+        <div class="modal-card">
+            <a class="close" href="#" aria-label="Cerrar modal">×</a>
+            <div class="modal-img-wrapper">
+                <img src="https://lh3.googleusercontent.com/d/1-J9uqn0RzRD5cb-ao6xpNGHVl5RSau5s" alt="Parque Sanidad">
+            </div>
+            <p class="modal-caption">**Parque Sanidad** — Cuenta con canchas deportivas y áreas de juego.</p>
+        </div>
+    </div>
+
+    <div id="modal-p-mariscal-2" class="modal" aria-hidden="true"><div class="modal-card"><a class="close" href="#" aria-label="Cerrar modal">×</a><div class="modal-img-wrapper"><img src="https://lh3.googleusercontent.com/d/1caJ8lUEE0l7HiToTU4QAJi-5owV267U0" alt="Otra vista del Parque Mariscal Cáceres"></div><p class="modal-caption">**Parque Mariscal Cáceres** — Abierto todo el día. Ideal para deportes y paseos.</p></div></div>
+    <div id="modal-p-mariscal-3" class="modal" aria-hidden="true"><div class="modal-card"><a class="close" href="#" aria-label="Cerrar modal">×</a><div class="modal-img-wrapper"><img src="https://lh3.googleusercontent.com/d/1VI5HUBVsQ7wmowjiDZZdfAzo6SWEvKzz" alt="Áreas verdes del Parque Mariscal Cáceres"></div><p class="modal-caption">**Parque Mariscal Cáceres** — Abierto todo el día. Ideal para deportes y paseos.</p></div></div>
+    <div id="modal-p-plaza-2" class="modal" aria-hidden="true"><div class="modal-card"><a class="close" href="#" aria-label="Cerrar modal">×</a><div class="modal-img-wrapper"><img src="https://lh3.googleusercontent.com/d/1JtsV_2T5Yc2I-uwbFJ1Zkzl7Kf3fh45-" alt="Arcos de la Plaza Mayor de Huamanga"></div><p class="modal-caption">**Plaza Mayor** — El punto más importante para eventos y celebraciones.</p></div></div>
+    <div id="modal-p-memoria-2" class="modal" aria-hidden="true"><div class="modal-card"><a class="close" href="#" aria-label="Cerrar modal">×</a><div class="modal-img-wrapper"><img src="https://lh3.googleusercontent.com/d/1OCL4nabT3r3-kghfrt7kY1BCSlhpLCTr" alt="Detalle del monumento en el Parque de la Memoria"></div><p class="modal-caption">**Parque de la Memoria** — Un espacio para el recuerdo y la paz. Abierto al público.</p></div></div>
+    <div id="modal-p-memoria-3" class="modal" aria-hidden="true"><div class="modal-card"><a class="close" href="#" aria-label="Cerrar modal">×</a><div class="modal-img-wrapper"><img src="https://lh3.googleusercontent.com/d/1Lh4oxQehFs7gXTcmCw7UdgHf87WJq8er" alt="Vista general del Parque de la Memoria"></div><p class="modal-caption">**Parque de la Memoria** — Un espacio para el recuerdo y la paz. Abierto al público.</p></div></div>
+    <div id="modal-p-memoria-4" class="modal" aria-hidden="true"><div class="modal-card"><a class="close" href="#" aria-label="Cerrar modal">×</a><div class="modal-img-wrapper"><img src="https://lh3.googleusercontent.com/d/1zB4hZbFH-in3nkbf8hVXTpmVAGTVAelf" alt="Placa en el Parque de la Memoria"></div><p class="modal-caption">**Parque de la Memoria** — Un espacio para el recuerdo y la paz. Abierto al público.</p></div></div>
+    <div id="modal-p-santa-ana-2" class="modal" aria-hidden="true"><div class="modal-card"><a class="close" href="#" aria-label="Cerrar modal">×</a><div class="modal-img-wrapper"><img src="https://lh3.googleusercontent.com/d/1ylnWXRyDmvh7LY5bc3FzJ1JoO_FSmUwk" alt="Iglesia en la Plazoleta de Santa Ana"></div><p class="modal-caption">**Plazoleta de Santa Ana** — Famosa por sus talleres de retablos y artesanías.</p></div></div>
+    <div id="modal-p-santa-ana-3" class="modal" aria-hidden="true"><div class="modal-card"><a class="close" href="#" aria-label="Cerrar modal">×</a><div class="modal-img-wrapper"><img src="https://lh3.googleusercontent.com/d/14bfxub6ZQEmv9FplHLc_V-qsAvq-H50Q" alt="Detalle de la Plazoleta de Santa Ana"></div><p class="modal-caption">**Plazoleta de Santa Ana** — Famosa por sus talleres de retablos y artesanías.</p></div></div>
+    <div id="modal-p-santa-ana-4" class="modal" aria-hidden="true"><div class="modal-card"><a class="close" href="#" aria-label="Cerrar modal">×</a><div class="modal-img-wrapper"><img src="https://lh3.googleusercontent.com/d/1N0igoHmoCMdxsqmV3kqsl6RPZ8rDi2id" alt="Artesanías en Santa Ana"></div><p class="modal-caption">**Plazoleta de Santa Ana** — Famosa por sus talleres de retablos y artesanías.</p></div></div>
+    <div id="modal-p-santa-ana-5" class="modal" aria-hidden="true"><div class="modal-card"><a class="close" href="#" aria-label="Cerrar modal">×</a><div class="modal-img-wrapper"><img src="https://lh3.googleusercontent.com/d/1Je9P5KQy3WWTRLpVLynahWEsTAYfT6rg" alt="Calle tradicional de Santa Ana"></div><p class="modal-caption">**Plazoleta de Santa Ana** — Famosa por sus talleres de retablos y artesanías.</p></div></div>
+    <div id="modal-p-santa-ana-6" class="modal" aria-hidden="true"><div class="modal-card"><a class="close" href="#" aria-label="Cerrar modal">×</a><div class="modal-img-wrapper"><img src="https://lh3.googleusercontent.com/d/1cwmdKrF-FEkD2ELQcAQ1y53rxFool9bV" alt="Balcones en Santa Ana"></div><p class="modal-caption">**Plazoleta de Santa Ana** — Famosa por sus talleres de retablos y artesanías.</p></div></div>
+    <div id="modal-p-santa-ana-7" class="modal" aria-hidden="true"><div class="modal-card"><a class="close" href="#" aria-label="Cerrar modal">×</a><div class="modal-img-wrapper"><img src="https://lh3.googleusercontent.com/d/1OQhNVkt7-vCPr2EtxMoHNl7z36P53SCi" alt="Campanario de la iglesia de Santa Ana"></div><p class="modal-caption">**Plazoleta de Santa Ana** — Famosa por sus talleres de retablos y artesanías.</p></div></div>
+    <div id="modal-p-santa-ana-8" class="modal" aria-hidden="true"><div class="modal-card"><a class="close" href="#" aria-label="Cerrar modal">×</a><div class="modal-img-wrapper"><img src="https://lh3.googleusercontent.com/d/1wVhw3Mr4wvxjsNIwXT5r025OT9tR6itX" alt="Vista panorámica desde Santa Ana"></div><p class="modal-caption">**Plazoleta de Santa Ana** — Famosa por sus talleres de retablos y artesanías.</p></div></div>
+    <div id="modal-p-santa-ana-9" class="modal" aria-hidden="true"><div class="modal-card"><a class="close" href="#" aria-label="Cerrar modal">×</a><div class="modal-img-wrapper"><img src="https://lh3.googleusercontent.com/d/1ctXZjBYwohLmoMgm_BiCDpVSGvqwDtoJ" alt="Muro de piedra en Santa Ana"></div><p class="modal-caption">**Plazoleta de Santa Ana** — Famosa por sus talleres de retablos y artesanías.</p></div></div>
+    <div id="modal-p-santa-teresa-2" class="modal" aria-hidden="true"><div class="modal-card"><a class="close" href="#" aria-label="Cerrar modal">×</a><div class="modal-img-wrapper"><img src="https://lh3.googleusercontent.com/d/1iWXaWVVFbNuELzO3EFux5QAf3B_up-Yh" alt="Monasterio junto a la Plazoleta Santa Teresa"></div><p class="modal-caption">**Plazoleta Santa Teresa** — Un lugar perfecto para disfrutar de la calma y la arquitectura.</p></div></div>
+    <div id="modal-p-santa-teresa-3" class="modal" aria-hidden="true"><div class="modal-card"><a class="close" href="#" aria-label="Cerrar modal">×</a><div class="modal-img-wrapper"><img src="https://lh3.googleusercontent.com/d/1B7KxvHuj-s2ORdPZXUpQq8o2BNeFkptc" alt="Detalle arquitectónico en Plazoleta Santa Teresa"></div><p class="modal-caption">**Plazoleta Santa Teresa** — Un lugar perfecto para disfrutar de la calma y la arquitectura.</p></div></div>
+    <div id="modal-p-santa-teresa-4" class="modal" aria-hidden="true"><div class="modal-card"><a class="close" href="#" aria-label="Cerrar modal">×</a><div class="modal-img-wrapper"><img src="https://lh3.googleusercontent.com/d/1ctqEdOaVc6F0Ujbh5AFURLfXadMziUqP" alt="Banca en la Plazoleta Santa Teresa"></div><p class="modal-caption">**Plazoleta Santa Teresa** — Un lugar perfecto para disfrutar de la calma y la arquitectura.</p></div></div>
+    <div id="modal-p-santa-teresa-5" class="modal" aria-hidden="true"><div class="modal-card"><a class="close" href="#" aria-label="Cerrar modal">×</a><div class="modal-img-wrapper"><img src="https://lh3.googleusercontent.com/d/1lpsaNVnKCdkrn0Y3zPX0vn6iEjjyMh__" alt="Vista nocturna de la Plazoleta Santa Teresa"></div><p class="modal-caption">**Plazoleta Santa Teresa** — Un lugar perfecto para disfrutar de la calma y la arquitectura.</p></div></div>
+    <div id="modal-p-sanidad-2" class="modal" aria-hidden="true"><div class="modal-card"><a class="close" href="#" aria-label="Cerrar modal">×</a><div class="modal-img-wrapper"><img src="https://lh3.googleusercontent.com/d/1Zf0Y-nnz6mzSTyQ_droIf7X9MnziIf-u" alt="Juegos infantiles en el Parque Sanidad"></div><p class="modal-caption">**Parque Sanidad** — Cuenta con canchas deportivas y áreas de juego.</p></div></div>
+    <div id="modal-p-sanidad-3" class="modal" aria-hidden="true"><div class="modal-card"><a class="close" href="#" aria-label="Cerrar modal">×</a><div class="modal-img-wrapper"><img src="https://lh3.googleusercontent.com/d/1Alk_gULaSAyBE-4oFDQcViiGU7Zvcu1a" alt="Canchas deportivas en el Parque Sanidad"></div><p class="modal-caption">**Parque Sanidad** — Cuenta con canchas deportivas y áreas de juego.</p></div></div>
+    
+    <div id="modal-p-huayllay" class="modal" aria-hidden="true">
+        <div class="modal-card">
+            <a class="close" href="#" aria-label="Cerrar modal">×</a>
+            <div class="modal-img-wrapper">
+                <img src="img/parques/p-huayllay.jpg" alt="Bosque de Piedras de Huayllay">
+            </div>
+            <p class="modal-caption">**Bosque de Piedras** — Se recomienda ir con guía o transporte privado. A 1 hora de la ciudad.</p>
+        </div>
+    </div>
+    <div id="modal-p-termales" class="modal" aria-hidden="true">
+        <div class="modal-card">
+            <a class="close" href="#" aria-label="Cerrar modal">×</a>
+            <div class="modal-img-wrapper">
+                <img src="img/parques/p-termales.jpg" alt="Balneario de Aguas Calientes">
+            </div>
+            <p class="modal-caption">**Aguas Calientes** — Horario de 8:00 AM a 5:00 PM. Preguntar por las propiedades minerales.</p>
+        </div>
+    </div>
+    <div id="modal-p-cachi" class="modal" aria-hidden="true">
+        <div class="modal-card">
+            <a class="close" href="#" aria-label="Cerrar modal">×</a>
+            <div class="modal-img-wrapper">
+                <img src="img/parques/p-cachi.jpg" alt="Río Cachi y sus riberas">
+            </div>
+            <p class="modal-caption">**Río Cachi** — Zona tranquila para escapar del bullicio. El mejor acceso es por la vía a Carmen Alto.</p>
+        </div>
+    </div>
+
+    <script>
+        // Aparición suave por sección
+        (function(){
+            if (!('IntersectionObserver' in window)) return;
+            const io = new IntersectionObserver(entries => {
+                entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in-view'); });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('section').forEach(sec => io.observe(sec));
+        })();
+
+        // Modales auto a partir de anchors con img — FIX DE SCROLL AL CERRAR
+        (function setupModals(){
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                if (anchor.closest('nav') || anchor.classList.contains('btn') || anchor.classList.contains('close')) return;
+                
+                const id = anchor.getAttribute('href').slice(1);
+                const img = anchor.querySelector('img');
+                if (!id || !img) return;
+
+                // Crear modal si no existiera
+                if (!document.getElementById(id)) {
+                    const modal = document.createElement('div');
+                    modal.id = id;
+                    modal.className = 'modal';
+                    modal.innerHTML = `
+                        <div class="modal-card">
+                            <a class="close" href="#" aria-label="Cerrar modal">×</a>
+                            <div class="modal-img-wrapper"><img src="${img.src}" alt="${img.alt}"></div>
+                            <p class="modal-caption">${img.alt}</p>
+                        </div>`;
+                    document.body.appendChild(modal);
+                }
+            });
+
+            function clearHashNoScroll(){
+                if (!location.hash) return;
+                // FIX: Usamos replaceState para reemplazar el estado sin scroll
+                history.replaceState(null, '', window.location.pathname + window.location.search);
+                const activeModal = document.querySelector('.modal:target');
+                if (activeModal) {
+                    activeModal.style.display = 'none';
+                    activeModal.style.opacity = '0';
+                    activeModal.style.pointerEvents = 'none';
+                }
+            }
+
+            document.addEventListener('click', e => {
+                const target = e.target;
+                if (target.classList && target.classList.contains('modal')) {
+                    e.preventDefault();
+                    clearHashNoScroll();
+                }
+                const closeBtn = target.closest('.modal .close');
+                if (closeBtn) {
+                    e.preventDefault();
+                    clearHashNoScroll();
+                }
+            });
+
+            window.addEventListener('keydown', e => {
+                if (e.key === 'Escape' && location.hash) {
+                    e.preventDefault();
+                    clearHashNoScroll();
+                }
+            });
+            
+            if(window.location.hash && window.location.hash.startsWith('#modal-')) {
+                 clearHashNoScroll();
+            }
+        })();
+    </script>
+   <div class="floating-search">
+    <button class="fs-toggle" title="Buscar contenidos (/)">🔎</button>
+    <div class="fs-panel" role="dialog" aria-label="Buscador de contenidos">
+        <div class="fs-row">
+            <input class="fs-input" type="search" placeholder="Buscar: 'Ingeniería', 'UNAH', 'Privada'…" />
+            <div class="fs-actions">
+                <button class="fs-btn fs-clear" title="Limpiar">Limpiar</button>
+                <button class="fs-btn fs-close" title="Cerrar">Cerrar</button>
+            </div>
+        </div>
+        <div class="fs-meta">
+            <span class="fs-count">0 resultados</span>
+            <span>Atajos: <kbd>/</kbd> abrir • <kbd>Enter</kbd> abrir 1.º</span>
+        </div>
+    </div>
+</div>
+<script>
+    (function makeFloatingSearch(){
+        // Esta función espera que el HTML del buscador esté presente en el body
+        const wrap = document.querySelector('.floating-search');
+        if (!wrap) return; // Detiene el script si no encuentra el HTML
+
+        const panel   = wrap.querySelector('.fs-panel');
+        const input   = wrap.querySelector('.fs-input');
+        const btnClear= wrap.querySelector('.fs-clear');
+        const btnClose= wrap.querySelector('.fs-close');
+        const lbCount = wrap.querySelector('.fs-count');
+        const toggle  = wrap.querySelector('.fs-toggle');
+        
+        // Recolección de items a buscar: busca todos los enlaces con 'data-search-item'
+        const items = Array.from(document.querySelectorAll('a[data-search-item]')).map(a => {
+            const img = a.querySelector('img');
+            // Concatena todo el texto relevante para crear el "pajar" de búsqueda (haystack)
+            const text = [
+                img?.alt || '',
+                a.querySelector('h3')?.textContent || '',
+                a.querySelector('p')?.textContent || '',
+                (img?.src?.split('/').pop() || '')
+            ].join(' ');
+            return { el: a, img, haystack: text.toLowerCase() };
+        });
+
+        function openPanel(){ panel.classList.add('open'); setTimeout(()=> input.focus(), 0); }
+        function closePanel(){ panel.classList.remove('open'); }
+        function setCount(n){ lbCount.textContent = n === 1 ? '1 resultado' : `${n} resultados`; }
+        function clearHighlights(){ items.forEach(c => c.el.classList.remove('match-outline')); }
+        
+        function filter(q){
+            const term = q.trim().toLowerCase();
+            clearHighlights();
+            if (!term){
+                items.forEach(c => c.el.classList.remove('hidden'));
+                setCount(items.length);
+                return [];
+            }
+            const matches = [];
+            items.forEach(c => {
+                const ok = c.haystack.includes(term);
+                c.el.classList.toggle('hidden', !ok); // Oculta o muestra el elemento
+                if (ok){ matches.push(c); c.el.classList.add('match-outline'); } // Si coincide, lo resalta
+            });
+            setCount(matches.length);
+            // Si hay match, hace scroll al primer resultado
+            if (matches[0]) matches[0].el.scrollIntoView({ behavior:'smooth', block:'center' });
+            return matches;
+        }
+
+        // Eventos de interacción:
+        toggle.addEventListener('click', () => panel.classList.contains('open') ? closePanel() : openPanel());
+        btnClose.addEventListener('click', closePanel);
+        btnClear.addEventListener('click', () => { input.value=''; filter(''); input.focus(); });
+        
+        // Atajos de teclado: / para abrir, Enter para ir al primer resultado
+        window.addEventListener('keydown', e => {
+            const activeIsInput = ['INPUT','TEXTAREA'].includes(document.activeElement.tagName) || document.activeElement.isContentEditable;
+            if (e.key === '/' && !activeIsInput){ e.preventDefault(); openPanel(); }
+            if (e.key === 'Enter' && panel.classList.contains('open')){
+                const matches = filter(input.value);
+                if (matches[0]) matches[0].el.click();
+            }
+        });
+        
+        // Retraso en la búsqueda (debounce) para no sobrecargar al escribir
+        let t; 
+        input.addEventListener('input', () => {
+            clearTimeout(t); t = setTimeout(()=> filter(input.value), 110);
+        });
+        
+        // Inicializa el contador
+        setCount(items.length);
+    })();
+</script> 
+</body>
+</html>
